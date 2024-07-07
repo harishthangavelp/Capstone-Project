@@ -1,7 +1,11 @@
 import React from 'react'
 import './Service.css'
 
-function Service() {
+import servimg1 from '../images/luxurious_life-1.jpg';
+import servimg2 from '../images/luxurious_life-1.jpg';
+import servimg3 from '../images/luxurious_life-1.jpg';
+
+function Service(props) {
   return (
    <div className='bg'>
 
@@ -18,15 +22,15 @@ function Service() {
    <div id="carouselExampleSlidesOnly" className="carousel slide care" data-bs-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">
-    <img src="../src/images/luxurious_life-1.jpg" className='cure rounded' alt="..."/>
+    <img src={servimg1} className='cure rounded' alt="..."/>
     <h3 className='h1t bg-success'>Luxurious House</h3>
     </div>
     <div className="carousel-item">
-      <img src="../src/images/luxurious_life-2.jpeg" className='cure rounded' alt="..."/>
+      <img src={servimg2} className='cure rounded' alt="..."/>
       <h3 className='h1t bg-success'>Luxurious Cars</h3>
     </div>
     <div className="carousel-item">
-      <img src="../src/images/luxurious_life-3.jpg" className='cure rounded' alt="..."/>
+      <img src={servimg3} className='cure rounded' alt="..."/>
       <h3 className='h1t bg-success'>Luxurious Jewels</h3>
     </div>
   </div>

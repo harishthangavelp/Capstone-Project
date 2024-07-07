@@ -6,10 +6,12 @@ import "@fontsource/poppins/400-italic.css";
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
 
-import finalimg1 from '../src/images/luxurious_life-1.jpg';
-import finalaudio1 from '../src/mini-images/havel.mp3';
-// import img2 from '../src/images/luxurious_life-2.jpeg';
-// import img3 from '../src/images/luxurious_life-3.jpg';
+import finalimg1 from '../images/luxurious_life-1.jpg';
+import finalimg2 from '../images/luxurious_life-2.jpeg';
+import finalimg3 from '../images/luxurious_life-3.jpg';
+import notify from '../images/not.jpg'
+import finalaudio1 from '../mini-images/havel.mp3';
+
 
 function Home(props) {
   function display(){
@@ -19,7 +21,7 @@ function Home(props) {
   return (
     <div className='bghome'>
 
-<audio src={finalaudio} autoplay="autoplay" loop="loop"></audio>
+<audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio>
 
     <div class="centPad">
     <div class="topnav1">
@@ -42,7 +44,7 @@ function Home(props) {
           </div>
        
     
-          <img src="./src/images/not.jpg" className='pophome-img' width={'20px'} height={'25px'} />
+          <img src={notify} className='pophome-img' width={'20px'} height={'25px'} />
     
           <p class="modal-title fs-5" className='hpop-txt' id="exampleModalLabel">Show notifications </p>
      
@@ -74,7 +76,7 @@ function Home(props) {
     </div>
     
     <div class="homecard">
-    <img src="../src/images/luxurious_life-2.jpeg" style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
+    <img src={finalimg2} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
     <div class="card-content">
     <p>Own luxurious cars available with brand new models</p>
     <i><q class="desc">Driving a luxury car that is the pinnacle of a successful lifestyle," "living the good life in my luxury car</q></i>
@@ -87,7 +89,7 @@ function Home(props) {
     </div>
     
     <div class="homecard">
-    <img src="../src/images/luxurious_life-3.jpg" style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
+    <img src={finalimg3} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
     <div class="card-content">
     <p>Own fashionable jewels with latest brand new collections</p>
     <i><q class="desc">Don’t find you need to wear jewelry for others but for your own pleasure. It feels wonderful</q></i>

@@ -1,5 +1,6 @@
 import React from 'react'
 import '../components/Register.css'
+import regimgbg from '../images/autumn.jpg';
 
 function Register() {
   function discos(){
@@ -7,7 +8,7 @@ function Register() {
     }
   return (
     <>
-    <div className='bgreg'></div>
+    <div className='bgreg' src={regimgbg}></div>
     
   <form action="" className='formreg'>
   <h1>Register</h1>

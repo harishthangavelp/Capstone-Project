@@ -1,13 +1,14 @@
 import React from 'react'
 import '../components/Login.css'
+import logimgbg from '../images/autumn.jpg';
 
-function Login() {
+function Login(props) {
   function disco(){
     alert("Welcome to haVel.com"); 
     }
   return (
     <>
-    <div className='bglog'></div>
+    <div className='bglog' src={logimgbg}></div>
     
   <form action="" className='formlog'>
   <h1>Login</h1>

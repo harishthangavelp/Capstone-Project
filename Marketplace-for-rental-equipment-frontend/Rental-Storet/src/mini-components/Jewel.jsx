@@ -1,17 +1,25 @@
 import React from 'react'
 import '../mini-components/Jewel.css'
 
+import jewelsbgimg from '../mini-images/jew-5.jpg'
+import jewelimgs1 from '../mini-images/jew-1.jpg'
+import jewelimgs2 from '../mini-images/jew-2.png'
+import jewelimgs3 from '../mini-images/jew-3.jpg'
+import jewelimgs4 from '../mini-images/jew-4.jpg'
+import jewelimgs5 from '../mini-images/jew-7.jpg'
+import jewelmusic from '../mini-images/jewel.mp3'
+
 function Jewel() {
   return (
-    <div className='jewelbg'>
+    <div className='jewelbg' src={jewelsbgimg}>
     
-    <audio src="./src/mini-images/jewel.mp3" autoplay="autoplay" loop="loop"></audio>
+    <audio src={jewelmusic} autoplay="autoplay" loop="loop"></audio>
 
-    <img src="./src/mini-images/jew-1.jpg" className='jewel-1' width={'450px'} height={'450px'}/>
-    <img src="./src/mini-images/jew-2.png" className='jewel-2' width={'450px'} height={'450px'}/>
-    <img src="./src/mini-images/jew-3.jpg" className='jewel-3' width={'450px'} height={'450px'}/>
-    <img src="./src/mini-images/jew-4.jpg" className='jewel-4' width={'450px'} height={'450px'}/>
-    <img src="./src/mini-images/jew-7.jpg" className='jewel-5' width={'450px'} height={'450px'}/>
+    <img src={jewelimgs1} className='jewel-1' width={'450px'} height={'450px'}/>
+    <img src={jewelimgs2} className='jewel-2' width={'450px'} height={'450px'}/>
+    <img src={jewelimgs3} className='jewel-3' width={'450px'} height={'450px'}/>
+    <img src={jewelimgs4} className='jewel-4' width={'450px'} height={'450px'}/>
+    <img src={jewelimgs5} className='jewel-5' width={'450px'} height={'450px'}/>
 
 
 <div className='goldimg-1'>

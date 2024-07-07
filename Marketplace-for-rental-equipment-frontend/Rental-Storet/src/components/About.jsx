@@ -6,8 +6,13 @@ import "@fontsource/poppins/400-italic.css";
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
 
+import finalabimg1 from '../images/luxurious_life-1.jpg';
+import finalabimg2 from '../images/luxurious_life-2.jpeg';
+import finalabimg3 from '../images/luxurious_life-3.jpg';
+import notifyab from '../images/not.jpg'
+import finalabaudio1 from '../mini-images/havel.mp3';
 
-function About() {
+function About(props) {
   function display(){
   alert("Welcome to haVel.com"); 
   }
@@ -15,7 +20,7 @@ function About() {
   return (
     <div className='bgabout'>
 
-<audio src="./src/mini-images/havel.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src={finalabaudio1} autoplay="autoplay" loop="loop"></audio>
 
 <div class="centPad">
 <div class="topnav1">
@@ -39,7 +44,7 @@ function About() {
       </div>
    
 
-      <img src="./src/images/not.jpg" className='pop-img' width={'20px'} height={'25px'} />
+      <img src={notifyab} className='pop-img' width={'20px'} height={'25px'} />
 
       <p class="modal-title fs-5" className='pop-txt' id="exampleModalLabel">Show notifications </p>
  
@@ -60,7 +65,7 @@ function About() {
 
 <div class="card-container">
 <div class="aboutcard">
-<img src="../src/images/luxurious_life-1.jpg" style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
+<img src={finalabimg1} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
 <div class="card-content">
 <p>Own rental houses based on your comfortability</p>
 <i><q class="desc">True luxury is being able to own your time – to be able to take a walk, sit on your porch, read the paper, not take the call, not be compelled by obligation</q></i>
@@ -73,7 +78,7 @@ function About() {
 </div>
 
 <div class="aboutcard">
-<img src="../src/images/luxurious_life-2.jpeg" style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
+<img src={finalabimg2} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
 <div class="card-content">
 <p>Own luxurious cars available with brand new models</p>
 <i><q class="desc">Driving a luxury car that is the pinnacle of a successful lifestyle," "living the good life in my luxury car</q></i>
@@ -86,7 +91,7 @@ function About() {
 </div>
 
 <div class="aboutcard">
-<img src="../src/images/luxurious_life-3.jpg" style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
+<img src={finalabimg3} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
 <div class="card-content">
 <p>Own fashionable jewels with latest brand new collections</p>
 <i><q class="desc">Don’t find you need to wear jewelry for others but for your own pleasure. It feels wonderful</q></i>

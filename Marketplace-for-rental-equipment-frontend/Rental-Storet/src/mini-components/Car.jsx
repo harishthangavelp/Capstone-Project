@@ -1,11 +1,19 @@
 import React from 'react'
 import '../mini-components/Car.css'
 
+import carimgshow1 from '../mini-images/hyundai-creta-removebg-preview.png';
+import carimgshow2 from '../mini-images/honda-city-removebg-preview.png';
+import carimgshow3 from '../mini-images/landrover-defender-removebg-preview.png';
+import carimgshow4 from '../mini-images/bmw.png';
+import carimgshow5 from '../mini-images/rollsroyce-removebg-preview.png';
+import carbgnd from '../mini-images/carbg.png';
+import carmusic from '../mini-images/chasing_cars.mp3';
+
 function Car() {
   return (
-<div className='carbg'>  
+<div className='carbg' src={carbgnd}>  
 
-<audio src="./src/mini-images/chasing_cars.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src={carmusic} autoplay="autoplay" loop="loop"></audio>
 
 <div className='car-1'>
 <form action="" className='form1'>
@@ -22,7 +30,7 @@ Manual & Automatic</p>
 </div>
 
 <div className='imgs-1'>
- <img src="./src/mini-images/hyundai-creta-removebg-preview.png"  alt="" />   
+ <img src={carimgshow1}  alt="" />   
  </div>
  
 
@@ -41,7 +49,7 @@ Manual & Automatic</p>
 </div>
 
 <div className='imgs-2'>
- <img src="./src/mini-images/honda-city-removebg-preview.png" alt="" />   
+ <img src={carimgshow2} alt="" />   
  </div>
 
 
@@ -62,7 +70,7 @@ Manual & Automatic</p>
 </div>
 
 <div className='imgs-3'>
- <img src="./src/mini-images/landrover-defender-removebg-preview.png" alt="" />   
+ <img src={carimgshow3} alt="" />   
  </div>
 
 
@@ -83,7 +91,7 @@ Manual & Automatic</p>
 </div>
 
 <div className='imgs-4'>
- <img src="./src/mini-images/bmw.png" alt="" />   
+ <img src={carimgshow4} alt="" />   
  </div>
 
 
@@ -104,7 +112,7 @@ Manual & Automatic</p>
 </div>
 
 <div className='imgs-5'>
- <img src="./src/mini-images/rollsroyce-removebg-preview.png" alt="" />   
+ <img src={carimgshow5} alt="" />   
  </div>
 
 
