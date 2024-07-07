@@ -6,11 +6,12 @@ import "@fontsource/poppins/400-italic.css";
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
 
-// import img1 from '../src/images/luxurious_life-1.jpg';
+import finalimg1 from '../src/images/luxurious_life-1.jpg';
+import finalaudio1 from '../src/mini-images/havel.mp3';
 // import img2 from '../src/images/luxurious_life-2.jpeg';
 // import img3 from '../src/images/luxurious_life-3.jpg';
 
-function Home() {
+function Home(props) {
   function display(){
     alert("Welcome to haVel.com"); 
     }
@@ -18,7 +19,7 @@ function Home() {
   return (
     <div className='bghome'>
 
-<audio src="./src/mini-images/havel.mp3" autoplay="autoplay" loop="loop"></audio>
+<audio src={finalaudio} autoplay="autoplay" loop="loop"></audio>
 
     <div class="centPad">
     <div class="topnav1">
@@ -60,7 +61,7 @@ function Home() {
     
     <div class="card-container">
     <div class="homecard">
-    <img src="../src/images/luxurious_life-1.jpg" style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
+    <img src={finalimg1} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
     <div class="card-content">
     <p>Own rental houses based on your comfortability</p>
     <i><q class="desc">True luxury is being able to own your time – to be able to take a walk, sit on your porch, read the paper, not take the call, not be compelled by obligation</q></i>
