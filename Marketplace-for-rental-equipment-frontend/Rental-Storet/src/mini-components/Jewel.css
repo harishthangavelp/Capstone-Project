@@ -1,0 +1,244 @@
+.jewelbg{
+    background-image: url('../mini-images/jew-5.jpg');
+    background-size: contain;
+    height: 180em;
+}
+
+.jewel-1{
+    position: absolute;
+    margin: 7.5em 8em;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease-in-out;
+}
+.jewel-1:hover{
+    transform: translateX(-30px);
+}
+.jewel-2{
+    position: absolute;
+    margin: 42.5em 8em;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease-in-out;
+}
+.jewel-2:hover{
+    transform: translateX(-30px);
+}
+.jewel-3{
+    position: absolute;
+    margin: 77.5em 8em;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease-in-out;
+}
+.jewel-3:hover{
+    transform: translateX(-30px);
+}
+.jewel-4{
+    position: absolute;
+    margin: 112.5em 8em;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease-in-out;
+}
+.jewel-4:hover{
+    transform: translateX(-30px);
+}
+.jewel-5{
+    position: absolute;
+    margin: 147.5em 8em;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease-in-out;
+}
+.jewel-5:hover{
+    transform: translateX(-30px);
+}
+
+.goldimg-1{
+   position: absolute;
+    margin: 10em 58em;
+    font-family:cursive;
+    text-align: center;
+    color:gold;
+    width: 25em;
+    font-size: 10px;
+    font-weight: bold;
+    height: 52em;
+    border-radius: 20px; 
+    border: 3px solid gold; 
+    background-color:  rgb(0,0,0,0.5);
+    animation: moves 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+  .goldimg-2{
+    position: absolute;
+     margin: 65.5em 58em;
+     font-family:cursive;
+     text-align: center;
+     color:gold;
+     width: 25em;
+     font-size: 10px;
+     font-weight: bold;
+     height: 52em;
+     border-radius: 20px; 
+     border: 3px solid gold; 
+     background-color:  rgb(0,0,0,0.5);
+     animation: moves 5s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+ }
+
+ .goldimg-3{
+    position: absolute;
+     margin: 121em 58em;
+     font-family:cursive;
+     text-align: center;
+     color:gold;
+     width: 25em;
+     font-size: 10px;
+     font-weight: bold;
+     height: 52em;
+     border-radius: 20px; 
+     border: 3px solid gold; 
+     background-color:  rgb(0,0,0,0.5);
+     animation: moves 5s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+ }
+
+ .goldimg-4{
+    position: absolute;
+     margin: 176.5em 58em;
+     font-family:cursive;
+     text-align: center;
+     color:gold;
+     width: 25em;
+     font-size: 10px;
+     font-weight: bold;
+     height: 52em;
+     border-radius: 20px; 
+     border: 3px solid gold; 
+     background-color:  rgb(0,0,0,0.5);
+     animation: moves 5s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+ }
+
+ .goldimg-5{
+    position: absolute;
+     margin: 232em 58em;
+     font-family:cursive;
+     text-align: center;
+     color:gold;
+     width: 25em;
+     font-size: 10px;
+     font-weight: bold;
+     height: 52em;
+     border-radius: 20px; 
+     border: 3px solid gold; 
+     background-color:  rgb(0,0,0,0.5);
+     animation: moves 5s;
+     animation-iteration-count: infinite;
+     animation-direction: alternate;
+ }
+
+ @keyframes moves {
+    0%   {left: 0px; top: 0px;}
+    25%  {left: 200px; right: 0px;}
+    50%  {left: 200px; right: 200px;}
+    75%  {left: 0px; right: 200px;}
+    100% {left: 0px; right: 0px;}
+  }
+
+  .jewon-1{
+    position: absolute;
+    margin: 15.6em 6em;
+    color:gold;
+    background-color:  rgb(0,0,0,0.5);
+    padding: 5px;
+    width: 10em;
+    border: 3px solid gold;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 2em;
+    transition: transform 0.5s;
+}
+.jewon-1:hover{
+    background-color:  rgb(0,0,0);
+}
+
+.jewon-2{
+    position: absolute;
+    margin: 33.1em 6em;
+    color:gold;
+    background-color:  rgb(0,0,0,0.5);
+    padding: 5px;
+    width: 10em;
+    border: 3px solid gold;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 2em;
+    transition: transform 0.5s;
+}
+.jewon-2:hover{
+    background-color:  rgb(0,0,0);
+}
+
+.jewon-3{
+    position: absolute;
+    margin: 50.6em 6em;
+    color:gold;
+    background-color:  rgb(0,0,0,0.5);
+    padding: 5px;
+    width: 10em;
+    border: 3px solid gold;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 2em;
+    transition: transform 0.5s;
+}
+.jewon-3:hover{
+    background-color:  rgb(0,0,0);
+}
+
+.jewon-4{
+    position: absolute;
+    margin: 68.1em 6em;
+    color:gold;
+    background-color:  rgb(0,0,0,0.5);
+    padding: 5px;
+    width: 10em;
+    border: 3px solid gold;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 2em;
+    transition: transform 0.5s;
+}
+.jewon-4:hover{
+    background-color:  rgb(0,0,0);
+}
+
+.jewon-5{
+    position: absolute;
+    margin: 85.6em 6em;
+    color:gold;
+    background-color:  rgb(0,0,0,0.5);
+    padding: 5px;
+    width: 10em;
+    border: 3px solid gold;
+    font-family: monospace;
+    font-weight: bold;
+    border-radius: 20px;
+    font-size: 2em;
+    transition: transform 0.5s;
+}
+.jewon-5:hover{
+    background-color:  rgb(0,0,0);
+}

@@ -1,49 +1,51 @@
 import React from 'react'
-// import 'bootstrap/dist/css/bootstrap.css';
-import './Design.css'
+// import "@fontsource/poppins"; // Defaults to weight 400
+// import "@fontsource/poppins/400.css"; // Specify weight
+// import "@fontsource/poppins/400-italic.css"; 
+
+import{
+  BrowserRouter as Router,Routes,Route,
+  Link,
+  BrowserRouter
+  } from 'react-router-dom'
+  import Navigation from './Navigation'
+  import Home from '../src/components/Home'
+  import About from '../src/components/About'
+  import Service from './components/Service'
+  import Contact from './components/Contact'
+  import Login from './components/Login'
+  import Register from './components/Register'
+  import House from './mini-components/House'
+  import Car from './mini-components/Car'
+  import Jewel from './mini-components/Jewel'
+  
+  import 'bootstrap/dist/css/bootstrap.css';
 
 function Design() {
   return (
     <>
-<p className="center-heading">
-Welcome to haVel.com
-</p>
 
-<div className="center-para">
-<i><q>A place to make your life comfortable</q></i>
-</div>
 
-<div class="card-container">
-<div class="card">
-<img src="../src/images/luxurious_life-1.jpg" width="384px" height="240px" alt="" />
-<div class="card-content">
-<p>Own rental houses based on your comfortability</p>
-<div class="center-button">
-<a href="" class="card-button">View</a>
-</div>
-</div>
-</div>
+<Router>
+        
+         <Navigation/>
+         
+         <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
+          <Route path="/service" element={<Service/>}></Route>
+          <Route path="/contact" element={<Contact/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/register" element={<Register/>}></Route>
+          <Route path="/housedetails" element={<House/>}></Route>
+          <Route path="/cardetails" element={<Car/>}></Route>
+          <Route path="/jeweldetails" element={<Jewel/>}></Route>
+         </Routes>
+         
+       
+    </Router>
 
-<div class="card">
-<img src="../src/images/luxurious_life-2.jpeg" width="384px" height="240px" alt="" />
-<div class="card-content">
-<i><q>A place to make your life comfortable</q></i>
-<div class="center-button">
-<a href="" class="card-button">View</a>
-</div>
-</div>
-</div>
 
-<div class="card">
-<img src="../src/images/luxurious_life-3.jpg" width="384px" height="240px" alt="" />
-<div class="card-content">
-<i><q>A place to make your life comfortable</q></i>
-<div class="center-button">
-<a href="" class="card-button">View</a>
-</div>
-</div>
-</div>
-    </div>
     </>
   )
 }

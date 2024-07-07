@@ -1,0 +1,205 @@
+.housebg{
+    background-image: url('../mini-images/cloud.gif');
+    background-size: contain;
+    height: 128em;
+}
+
+.hmg-1{
+    margin: 4em 4em;
+    position:absolute;
+    border-radius: 100px;
+    border: 5px solid skyblue;
+    transition: transform 0.5s ease;
+}
+.hmg-1:hover{
+    transform: translateY(-30px);
+}
+.cardhouse1{
+    position:absolute;
+    zoom: 90%;
+    top: 2em;
+    background-color: rgba(173, 216, 230, 0.5);
+    left: 62em;
+    border-radius: 50px;
+    border: 5px solid skyblue;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse1:hover{
+    transform: translateX(-30px);
+}
+.buths1{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 19em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-2{
+    margin: 28.6em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid skyblue;
+    transition: transform 0.5s ease;
+}
+.hmg-2:hover{
+    transform: translateY(-30px);
+}
+.cardhouse2{
+    position:absolute;
+    zoom: 90%;
+    top: 30em;
+    background-color: rgba(173, 216, 230, 0.5);
+    left: 62em;
+    border-radius: 50px;
+    border: 5px solid skyblue;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse2:hover{
+    transform: translateX(-30px);
+}
+.buths2{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 38.8em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-3{
+    margin: 53.2em 4em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid skyblue;
+    transition: transform 0.5s ease;
+}
+.hmg-3:hover{
+    transform: translateY(-30px);
+}
+.cardhouse3{
+    position:absolute;
+    zoom: 90%;
+    top: 58em;
+    background-color: rgba(173, 216, 230, 0.5);
+    left: 62em;
+    border-radius: 50px;
+    border: 5px solid skyblue;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse3:hover{
+    transform: translateX(-30px);
+}
+.buths3{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 58.6em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-4{
+    margin: 77.8em 4em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid skyblue;
+    transition: transform 0.5s ease;
+}
+.hmg-4:hover{
+    transform: translateY(-30px);
+}
+.cardhouse4{
+    position:absolute;
+    zoom: 90%;
+    top: 86em;
+    background-color: rgba(173, 216, 230, 0.5);
+    left: 62em;
+    border-radius: 50px;
+    border: 5px solid skyblue;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse4:hover{
+    transform: translateX(-30px);
+}
+.buths4{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 78.4em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-5{
+    margin: 102.4em 4em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid skyblue;
+    transition: transform 0.5s ease;
+}
+.hmg-5:hover{
+    transform: translateY(-30px);
+}
+.cardhouse5{
+    position:absolute;
+    zoom: 90%;
+    top: 114em;
+    background-color: rgba(173, 216, 230, 0.5);
+    left: 62em;
+    border-radius: 50px;
+    border: 5px solid skyblue;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse5:hover{
+    transform: translateX(-30px);
+}
+.buths5{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 98.2em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+    
+    
+    
+
+    
+    
