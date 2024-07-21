@@ -20,6 +20,7 @@ import{
   import Jewel from './mini-components/Jewel'
   
   import 'bootstrap/dist/css/bootstrap.css';
+  import 'bootstrap/dist/js/bootstrap.min.js';
 
 function Design() {
   return (
