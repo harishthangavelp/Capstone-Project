@@ -4,6 +4,32 @@
     height: 128em;
 }
 
+.templatehouse{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    top: 1em;
+}
+.tumtum1{
+background-color: rgba(173, 216, 230, 0.5);
+border: 2px solid skyblue;
+border-radius: 1px;
+color: dodgerblue;
+font-weight: bold;
+}
+.temhouse{
+background-color: rgba(173, 216, 230, 0.5);
+border: 2px solid skyblue;
+border-radius: 1px;
+color: dodgerblue;
+font-weight: bold;
+position: absolute;
+top: 0em;
+left: 32em;
+font-weight: bold;
+}
+
 .hmg-1{
     margin: 4em 4em;
     position:absolute;

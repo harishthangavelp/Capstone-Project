@@ -15,6 +15,12 @@ function Jewel() {
     
     <audio src={jewelmusic} autoplay="autoplay" loop="loop"></audio>
 
+
+    <div className='templatejewel'>
+	<label className='temjewel'>Search</label>
+	<input id='searchInput' className='tumtum3' type="text"  />
+</div>
+
     <img src={jewelimgs1} className='jewel-1' width={'450px'} height={'450px'}/>
     <img src={jewelimgs2} className='jewel-2' width={'450px'} height={'450px'}/>
     <img src={jewelimgs3} className='jewel-3' width={'450px'} height={'450px'}/>

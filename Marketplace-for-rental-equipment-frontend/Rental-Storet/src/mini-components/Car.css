@@ -1,9 +1,34 @@
 .carbg{
     background-image: url('../mini-images/carbg.png');
     background-size: contain;
-    height: 130em;
+    height: 132em;
 }
 
+.templateContainer{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    top: 1em;
+}
+.tumtum2{
+background-color: palevioletred;
+border: 2px solid crimson;
+border-radius: 1px;
+color: crimson;
+font-weight: bold;
+}
+.temp{
+background-color: palevioletred;
+border: 2px solid crimson;
+border-radius: 1px;
+color: crimson;
+font-weight: bold;
+position: absolute;
+top: 0em;
+left: 32em;
+font-weight: bold;
+}
 
 
     .form1{

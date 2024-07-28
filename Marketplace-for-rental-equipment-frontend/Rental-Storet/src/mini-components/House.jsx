@@ -29,6 +29,11 @@ function House() {
 
 <audio src={skymusic} autoplay="autoplay" loop="loop"></audio>
 
+<div className='templatehouse'>
+	<label className='temhouse'>Search</label>
+	<input id='searchInput' className='tumtum1' type="text"  />
+</div>
+
 <div className='cardhouse1'>
     <h3>Bedroom: </h3><p>4</p>
     <h3>Tenant: </h3><p>Family</p>

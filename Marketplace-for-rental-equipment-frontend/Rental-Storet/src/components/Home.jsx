@@ -17,6 +17,7 @@ function Home(props) {
   function display(){
     alert("Welcome to haVel.com"); 
     }
+
   
   return (
     <div className='bghome'>
@@ -56,11 +57,21 @@ function Home(props) {
       </div>
     </div>
     
-    
+
+
+    <div className='dispNeed'>
+<img src={notify} className='dispdisp' style={{mixBlendMode:'multiply'}} width={'20px'} height={'20px'} />
+<p className='dispNeedTxt'>Get notified</p>
+</div>
+
+
+
+
     <button className='hometoptop'><h3 class="homelogove" data-bs-toggle="modal" data-bs-target="#exampleModal">haVel.com</h3></button>
     </div>
     
-    
+   
+
     <div class="card-container">
     <div class="homecard">
     <img src={finalimg1} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
@@ -122,12 +133,18 @@ function Home(props) {
     <div class="footer-last">
     <p>Copyright © 2024 haVel.com. All Rights Reserved</p>
     </div>
-    
-    {/* <div>
-    <button className='top'><h3 class="logo-move">Copyright © 2024 haVel.com. All Rights Reserved</h3></button>
-    </div> */}
-    
+
+
+
+    <div className='dispNeed'>
+<img src={notify} className='dispdisp' style={{mixBlendMode:'multiply'}} width={'20px'} height={'20px'} />
+<p className='dispNeedTxt'>Get notified</p>
+</div>
+
+
+
         </div>
+        
   )
 }
 

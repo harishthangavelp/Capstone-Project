@@ -4,6 +4,33 @@
     height: 180em;
 }
 
+
+.templatejewel{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    top: 1em;
+}
+.tumtum3{
+background-color: rgba(0,0,0, 0.5);
+border: 2px solid gold;
+border-radius: 1px;
+color: gold;
+font-weight: bold;
+}
+.temjewel{
+background-color: rgba(0,0,0, 0.5);
+border: 2px solid gold;
+border-radius: 1px;
+color: gold;
+font-weight: bold;
+position: absolute;
+top: 0em;
+left: 32em;
+font-weight: bold;
+}
+
 .jewel-1{
     position: absolute;
     margin: 7.5em 8em;
