@@ -18,7 +18,6 @@ function Car() {
   const initPayment = (data) => {
 		const options = {
 			key: "rzp_test_5mjZFfAYX2kumz",
-
 			handler: async (response) => {
 				try {
 					const verifyUrl = "http://localhost:8080/api/payment/verify";

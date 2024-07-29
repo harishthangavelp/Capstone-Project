@@ -4,7 +4,7 @@ import dotenv from "dotenv"
 
 const app = express();
 dotenv.config();
-
+app.use(express.json());
 const PORT = process.env.PORT || 7000;
 const MONGOURL = process.env.MONGO_URL;
 
@@ -29,17 +29,17 @@ app.get("/getUsers", async (req, res) => {
     res.json(userData);
 });
 
-// app.post("/post", async (req, res) => {
-//     console.log("Inside Post Function");
+app.post("/post", async (req, res) => {
+    console.log(req.body);
 
-//     const data = new UserModel({
-//         name: req.body.name,
-//         age: req.body.age
-//     });
+    const data = new UserModel({
+        name: req.body.name,
+        age: req.body.age
+    });
 
-//     const val = await data.save();
-//     res.json(val);
-// });
+    const val = await data.save();
+    res.json(val);
+});
 
 
 
