@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useState } from "react";
 import './Home.css'
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css";  
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
+
+import getDay from "date-fns/getDay";
+import parse from "date-fns/parse";
+import startOfWeek from "date-fns/startOfWeek";
+import { Calendar, dateFnsLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { compareAsc, format } from "date-fns";
+import {enUS, de} from 'date-fns/locale';
 
 import finalimg1 from '../images/luxurious_life-1.jpg';
 import finalimg2 from '../images/luxurious_life-2.jpeg';
@@ -13,7 +23,72 @@ import notify from '../images/not.jpg'
 import finalaudio1 from '../mini-images/havel.mp3';
 
 
+
+const locales = {
+  'en-US': enUS,
+  'de': de,
+};
+const localizer = dateFnsLocalizer({
+  format,
+  parse,
+  startOfWeek,
+  getDay,
+  locales,
+});
+
+const events = [
+  {
+      title: "Big Meeting",
+      allDay: true,
+      start: new Date(2021, 6, 0),
+      end: new Date(2021, 6, 0),
+  },
+  {
+      title: "Vacation",
+      start: new Date(2021, 6, 7),
+      end: new Date(2021, 6, 10),
+  },
+  {
+      title: "Conference",
+      start: new Date(2021, 6, 20),
+      end: new Date(2021, 6, 23),
+  },
+];
+
+
+
+
 function Home(props) {
+
+  const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
+  const [allEvents, setAllEvents] = useState(events);
+
+  function handleAddEvent() {
+        
+    for (let i=0; i<allEvents.length; i++){
+
+        const d1 = new Date (allEvents[i].start);
+        const d2 = new Date(newEvent.start);
+        const d3 = new Date(allEvents[i].end);
+        const d4 = new Date(newEvent.end);
+
+         if (
+          ( (d1  <= d2) && (d2 <= d3) ) || ( (d1  <= d4) &&
+            (d4 <= d3) )
+          )
+        {   
+            alert("CLASH"); 
+            break;
+         }
+
+    }
+    
+    
+    setAllEvents([...allEvents, newEvent]);
+}
+
+
+
   function display(){
     alert("Welcome to haVel.com"); 
     }
@@ -23,6 +98,7 @@ function Home(props) {
     <div className='bghome'>
 
 <audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio>
+
 
     <div class="centPad">
     <div class="topnav1">
@@ -141,6 +217,16 @@ function Home(props) {
 <p className='dispNeedTxt'>Get notified</p>
 </div>
 
+
+            <div>
+                <input type="text" placeholder="Add Title" className="calendarTitle" style={{ width: "20%", marginRight: "10px" }} value={newEvent.title} onChange={(e) => setNewEvent({ ...newEvent, title: e.target.value })} />
+                <DatePicker placeholderText="Start Date" className="calendarStart" style={{ marginRight: "10px" }} selected={newEvent.start} onChange={(start) => setNewEvent({ ...newEvent, start })} />
+                <DatePicker placeholderText="End Date" className="calendarEnd" selected={newEvent.end} onChange={(end) => setNewEvent({ ...newEvent, end })} />
+                <button stlye={{ marginTop: "10px" }}  className="calendarButton" onClick={handleAddEvent}>
+                    Add Event
+                </button>
+            </div>
+            <Calendar localizer={localizer} className="calendarMain" events={allEvents} startAccessor="start" endAccessor="end" style={{ height: 500, margin: "20px" }} />
 
 
         </div>
