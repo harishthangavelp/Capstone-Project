@@ -8,10 +8,17 @@ app.use(cors());
 require('./Server-Connection/connection')
 const Logers = require('./Models/Loger')
 
-app.post('/getValue',async(req,res)=>{
+app.post('/',async(req,res)=>{
    let loger = new Logers(req.body);
    let result = await loger.save();
    res.send(result);
 })
+
+const userModel = mongoose.model('loger',logerSchema)
+
+app.get('/getValue'),async(req,res)=>{
+   const userData = await userModel.find();
+   res.json(userData);
+}
 
 app.listen(8000);
