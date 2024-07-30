@@ -8,7 +8,7 @@ app.use(cors());
 require('./Server-Connection/connection')
 const Logers = require('./Models/Loger')
 
-app.post('/',async(req,res)=>{
+app.post('/getValue',async(req,res)=>{
    let loger = new Logers(req.body);
    let result = await loger.save();
    res.send(result);
