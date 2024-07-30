@@ -14,15 +14,8 @@ app.post('/',async(req,res)=>{
    res.send(result);
 })
 
-// app.get('/test', (req, res) => {
-//    let getResult = await loger.find()
-//    return res.send(getResult)
-//  })
-
- app.get('/getValue'),async(req,res)=>{
-   let loger = new Logers(req.body);
-   const userData = await loger.find();
-   return res.send(userData)
-}
+app.get('/', (req, res) => {
+  return res.send('Successfully Completed')
+})
 
 app.listen(8000);
