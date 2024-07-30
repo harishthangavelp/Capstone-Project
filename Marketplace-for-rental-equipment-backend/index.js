@@ -14,8 +14,14 @@ app.post('/',async(req,res)=>{
    res.send(result);
 })
 
-app.get('/test', (req, res) => {
-   return res.send(result)
- })
+// app.get('/test', (req, res) => {
+//    let getResult = await loger.find()
+//    return res.send(getResult)
+//  })
+
+ app.get('/getValue'),async(req,res)=>{
+   const userData = await loger.find();
+   return res.send(userData)
+}
 
 app.listen(8000);
