@@ -15,7 +15,7 @@ app.post('/',async(req,res)=>{
 })
 
 app.get('/test', (req, res) => {
-   return res.send('Hi Render')
+   return res.send(result)
  })
 
 app.listen(8000);
