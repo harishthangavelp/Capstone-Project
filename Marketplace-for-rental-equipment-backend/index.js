@@ -20,6 +20,7 @@ app.post('/',async(req,res)=>{
 //  })
 
  app.get('/getValue'),async(req,res)=>{
+   let loger = new Logers(req.body);
    const userData = await loger.find();
    return res.send(userData)
 }
