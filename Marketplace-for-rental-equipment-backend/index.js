@@ -14,11 +14,8 @@ app.post('/',async(req,res)=>{
    res.send(result);
 })
 
-const userModel = mongoose.model('loger',logerSchema)
-
-app.get('/getValue'),async(req,res)=>{
-   const userData = await userModel.find();
-   res.json(userData);
-}
+app.get('/test', (req, res) => {
+   return res.send('Hi Render')
+ })
 
 app.listen(8000);
