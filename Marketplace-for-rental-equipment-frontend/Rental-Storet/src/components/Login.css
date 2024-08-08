@@ -16,7 +16,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 25px;
 }
-.formlog h1{
+.formheading{
     color: chartreuse;
     font-size: 2rem;
     font-family: 'Courier New', Courier, monospace;
@@ -39,7 +39,7 @@ font-size: 1rem;
 }
 .submog{
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 1.5em;
     width: 50%;
     background-color: rgba(255, 69, 0, 0.7);
     color:lavenderblush;
@@ -90,3 +90,38 @@ font-size: 1rem;
     color: black;
     background-color:lightcyan;
     }
+    .lsttxt{
+        font-size: 20px;
+        color:chartreuse;
+        margin-top: 1.5em;
+        background-color: black;
+        font-weight: bold;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    .lstreg{
+        position: relative;
+        top: -1em;
+    }
+    .submeg{
+        padding: 10px;
+        width: 50%;
+        position: relative;
+        top: -1em;
+        background-color: rgba(255, 69, 0, 0.7);
+        color:lavenderblush;
+        font-family: monospace;
+        border: none;
+        font-weight: bold;
+        border-radius: 20px;
+        font-size: 1rem;
+    }
+    .submeg:hover{
+        background-color: orangered;
+        transition: 0.7s;
+    }
+    .topbutlogs{
+        color:lavenderblush;
+        font-family: monospace;
+        text-decoration: none;
+    }
+   

@@ -1,30 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import '../components/Login.css'
 import logimgbg from '../images/autumn.jpg';
 import Register from './Register';
+import Navigation from '../Navigation';
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 function Login(props) {
 
-// const history = useNavigate();
-  const [username,setUsername]=useState('');
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
 
 
-  const collectData = async (e)=> {
-    e.preventDefault();
-    let result = await fetch('http://localhost:8000/',{
-      method: 'post',
-      body: JSON.stringify({email,password}),
-      headers:{
-        'Content-Type': 'application/json'
-      },
-    });
-    result = await result.json;
-    localStorage.setItem("loger",JSON.stringify(result));
+  const handleLogin = (e) => {
+    e.preventDefault()
+    axios.post('http://localhost:8080/login',{email,password})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
   }
 
-
+  
   function disco(){
     alert("Welcome to haVel.com"); 
     }
@@ -33,11 +28,13 @@ function Login(props) {
     <>
     <div className='bglog' src={logimgbg}></div>
     
-  <form onSubmit={collectData} className='formlog'>
-  <h1>Login</h1>
-  <input type="email" value={email}  onChange={(e)=> setEmail(e.target.value)} className='boxlog' id='email' name='email' placeholder='Enter Username' />
-  <input type="password" value={password}  onChange={(e)=> setPassword(e.target.value)} className='boxlog' placeholder='Enter Password' />
+  <form  className='formlog' onSubmit={handleLogin}>
+  <h1 className='formheading'>Login</h1>
+  <input type="email" value={email} required  className='boxlog' id='email' onChange={(e)=> setEmail(e.target.value)} name='email' placeholder='Enter Username' />
+  <input type="password" value={password} required className='boxlog' onChange={(e)=> setPassword(e.target.value)} placeholder='Enter Password' />
   <button type='submit' className='submog' data-bs-toggle="modal" data-bs-target="#exampleModal" value='Login'>Login</button>
+  <h1 className='lsttxt'>If new user, Kindly register below</h1>
+  <button type='submit' className='submeg'><Link to = "/register" className='topbutlogs'> Register</Link></button>
 </form>
 
 

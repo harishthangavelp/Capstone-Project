@@ -97,12 +97,12 @@ function Home(props) {
   return (
     <div className='bghome'>
 
-<audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio>
+{/* <audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio> */}
 
 
     <div class="centPad">
     <div class="topnav1">
-      <button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button>
+      {/* <button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button> */}
       <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/contact" className='topbut'>Contact</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/service" className='topbut'>Service</Link></button>
