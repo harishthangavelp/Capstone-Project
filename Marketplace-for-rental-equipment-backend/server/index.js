@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect('mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/user')
+mongoose.connect("mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/user");
 
 app.post('/login',(req,res) => {
     const {email,password} = req.body;
@@ -37,7 +37,7 @@ userModel.create(req.body)
 
 
 
-app.listen(8080,() => {
+app.listen(3001,() => {
     console.log('server in live')
 })
 
