@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import '../components/Login.css'
 import logimgbg from '../images/autumn.jpg';
 import Register from './Register';
@@ -14,7 +14,7 @@ function Login(props) {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:8080/login',{email,password})
+    axios.post('http://localhost:3001/login',{email,password})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }

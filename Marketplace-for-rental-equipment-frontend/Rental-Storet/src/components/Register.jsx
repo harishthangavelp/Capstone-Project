@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import '../components/Register.css'
 import regimgbg from '../images/autumn.jpg';
 import axios from 'axios';
@@ -12,7 +12,7 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:8080/register',{email,password,cpassword})
+    axios.post('http://localhost:3001/register',{email,password,cpassword})
     
     .then(result => console.log(result))
     .catch(err => console.log(err))
