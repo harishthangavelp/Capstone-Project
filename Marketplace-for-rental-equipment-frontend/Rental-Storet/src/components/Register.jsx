@@ -12,7 +12,7 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3001/register',{email,password,cpassword})
+    axios.post('https://capstone-project-16.onrender.com',{email,password,cpassword})
     
     .then(result => console.log(result))
     .catch(err => console.log(err))
