@@ -2,8 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 const userModel = require('../server/models/user')
+const dotenv = require('dotenv')
 
 const app = express()
+dotenv.config();
 app.use(express.json())
 app.use(cors())
 
@@ -35,7 +37,10 @@ userModel.create(req.body)
 .catch(err => res.json(err))
 })
 
-
+app.get("/gotcha",async (req,res) =>{
+    const gotData = await userModel.findOne();
+    res.json(gotData);
+})
 
 app.listen(3001,() => {
     console.log('server in live')
