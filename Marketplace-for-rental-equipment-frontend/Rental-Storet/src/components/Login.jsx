@@ -12,7 +12,7 @@ function Login(props) {
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
 
-//https://capstone-project-16.onrender.com
+
 
   const handleLogin = (e) => {
     e.preventDefault()

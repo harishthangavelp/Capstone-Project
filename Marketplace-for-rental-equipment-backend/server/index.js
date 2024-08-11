@@ -32,16 +32,16 @@ app.post('/login',(req,res) => {
 })
 
 
-app.post('/register', (req,res) => {
+app.post('/register',(req,res) => {
 userModel.create(req.body)
 .then(users => req.json(users))
 .catch(err => res.json(err))
 })
 
-app.get("https://capstone-project-17.onrender.com/register",async(req,res) =>{
-    const userData = await userModel.findOne();
+app.get("/getUsers", async (req, res) => {
+    const userData = await userModel.findone();
     res.json(userData);
-})
+});
 
 // app.get("/gotcha",async (req,res) =>{
 //     const gotData = await userModel.findOne();
