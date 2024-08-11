@@ -16,7 +16,7 @@ function Login(props) {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post('https://capstone-project-16.onrender.com/register',{email,password})
+    axios.post('https://capstone-project-17.onrender.com/register',{email,password})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }

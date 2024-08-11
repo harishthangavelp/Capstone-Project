@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import '../components/Register.css'
 import regimgbg from '../images/autumn.jpg';
+import Home from './Home';
+import Navigation from '../Navigation';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -12,7 +15,7 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault()
-    axios.post('https://capstone-project-16.onrender.com',{email,password,cpassword})
+    axios.post('https://capstone-project-17.onrender.com/register',{email,password,cpassword})
     
     .then(result => console.log(result))
     .catch(err => console.log(err))
@@ -36,6 +39,8 @@ function Register() {
   <input type="password" value={cpassword}  onChange={(e)=> setCpassword(e.target.value)} className='boxreg' placeholder='Confirm Password' />
   <button type='submit' className='submeg' data-bs-toggle="modal" data-bs-target="#exampleModal" value='Register'>Register</button>
 </form>
+
+<button type="button" class="homenav"><Link to = "/" className='homedesign'>Back to Home Page</Link></button>
 
 <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
