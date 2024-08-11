@@ -20,6 +20,7 @@ import finalimg1 from '../images/luxurious_life-1.jpg';
 import finalimg2 from '../images/luxurious_life-2.jpeg';
 import finalimg3 from '../images/luxurious_life-3.jpg';
 import notify from '../images/not.jpg'
+import userProf from '../images/user.webp'
 import finalaudio1 from '../mini-images/havel.mp3';
 
 
@@ -97,7 +98,11 @@ function Home(props) {
   return (
     <div className='bghome'>
 
-{/* <audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio> */}
+<audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio>
+
+
+
+
 
 
     <div class="centPad">
@@ -110,7 +115,8 @@ function Home(props) {
       <button type="button" class="flex-box btn btn-dark" ><Link to = "/" className='topbut'>Home</Link></button>
     </div>
     
-    
+    <img src={userProf} className='usprof' width={'45px'} height={'45px'} />
+    <div className="hide"></div>
     
     <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog"  >

@@ -37,10 +37,10 @@ userModel.create(req.body)
 .catch(err => res.json(err))
 })
 
-app.get("/gotcha",async (req,res) =>{
-    const gotData = await userModel.findOne();
-    res.json(gotData);
-})
+// app.get("/gotcha",async (req,res) =>{
+//     const gotData = await userModel.findOne();
+//     res.json(gotData);
+// })
 
 app.listen(3001,() => {
     console.log('server in live')
