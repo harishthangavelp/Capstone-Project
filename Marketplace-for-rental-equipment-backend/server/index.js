@@ -9,6 +9,7 @@ dotenv.config();
 app.use(express.json())
 app.use(cors())
 
+
 mongoose.connect("mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/user");
 
 app.post('/login',(req,res) => {
@@ -35,6 +36,11 @@ app.post('/register', (req,res) => {
 userModel.create(req.body)
 .then(users => req.json(users))
 .catch(err => res.json(err))
+})
+
+app.get("https://capstone-project-17.onrender.com/register",async(req,res) =>{
+    const userData = await userModel.findOne();
+    res.json(userData);
 })
 
 // app.get("/gotcha",async (req,res) =>{
