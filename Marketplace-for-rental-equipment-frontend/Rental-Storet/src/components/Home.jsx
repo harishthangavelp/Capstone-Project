@@ -5,6 +5,8 @@ import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css";  
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
+import { Fragment,PureComponent } from "react";
+import { NavLink } from "react-router-dom";
 
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
@@ -108,14 +110,17 @@ function Home(props) {
     <div class="centPad">
     <div class="topnav1">
       {/* <button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button> */}
-      <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button>
+      {/* <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button> */}
       <button type="button" class="flex-box btn btn-dark"><Link to = "/contact" className='topbut'>Contact</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/service" className='topbut'>Service</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/about" className='topbut'>About</Link></button>
       <button type="button" class="flex-box btn btn-dark" ><Link to = "/" className='topbut'>Home</Link></button>
     </div>
     
-    <img src={userProf} className='usprof' width={'45px'} height={'45px'} />
+    <div>
+    <NavLink to = "/login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
+    </div>
+
     <div className="hide"></div>
     
     <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
