@@ -39,7 +39,7 @@ userModel.create(req.body)
 })
 
 app.get("/getUsers", async (req, res) => {
-    const userData = await userModel.findOne();
+    const userData = await userModel.create();
     res.json(userData);
 });
 
