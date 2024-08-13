@@ -38,15 +38,10 @@ userModel.create(req.body)
 .catch(err => res.json(err))
 })
 
-app.get("/getUsers", async (req, res) => {
-    const userData = await userModel.create(req.body);
-    res.json(userData);
-});
-
-// app.get("/gotcha",async (req,res) =>{
-//     const gotData = await userModel.findOne();
-//     res.json(gotData);
-// })
+fetch('https://capstone-project-17.onrender.com/getUsers')
+  .then(response => response.json())
+  .then(getUsers => console.log(getUsers))
+  .catch(error => console.error(error));
 
 app.listen(3001,() => {
     console.log('server in live')
