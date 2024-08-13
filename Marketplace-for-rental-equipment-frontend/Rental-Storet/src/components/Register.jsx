@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../components/Register.css'
 import regimgbg from '../images/autumn.jpg';
-import Home from './Home';
+import Login from './Login';
 import Navigation from '../Navigation';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -40,7 +40,7 @@ function Register() {
   <button type='submit' className='submeg' data-bs-toggle="modal" data-bs-target="#exampleModal" value='Register'>Register</button>
 </form>
 
-<button type="button" class="homenav"><Link to = "/" className='homedesign'>Back to Home Page</Link></button>
+<button type="button" class="homenav"><Link to = "/login" className='homedesign'>Back to Login Page</Link></button>
 
 <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" >
