@@ -11,18 +11,12 @@ function Contact() {
 	const [phone,setPhone]=useState('');
 	const [text,setText]=useState('');
   
-	const collectData = async (e)=> {
-	  e.preventDefault();
-	  let result = await fetch('http://localhost:8000/',{
-		method: 'post',
-		body: JSON.stringify({email	,fname,lname,phone,text}),
-		headers:{
-		  'Content-Type': 'application/json'
-		},
-	  });
-	  result = await result.json;
-	  localStorage.setItem("loger",JSON.stringify(result));
-	}
+	const collectData = (e) => {
+		e.preventDefault()
+		axios.post('https://capstone-project-17.onrender.com/contact',{email,password})
+		.then(result => console.log(result))
+		.catch(err => console.log(err))
+	  }
   
 
   return (
