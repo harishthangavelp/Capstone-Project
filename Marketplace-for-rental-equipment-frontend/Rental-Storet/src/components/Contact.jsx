@@ -13,7 +13,7 @@ function Contact() {
   
 	const collectData = (e) => {
 		e.preventDefault()
-		axios.post('https://capstone-project-17.onrender.com/contact',{email,password})
+		axios.post('https://capstone-project-17.onrender.com/contact',{email,fname,lname,phone,text})
 		.then(result => console.log(result))
 		.catch(err => console.log(err))
 	  }
