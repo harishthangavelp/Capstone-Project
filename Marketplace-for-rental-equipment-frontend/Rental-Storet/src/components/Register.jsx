@@ -5,16 +5,20 @@ import Login from './Login';
 import Navigation from '../Navigation';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import bcrypt from 'bcryptjs'
 
 function Register() {
 
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
   const [cpassword,setCpassword]=useState('')
+  const [hashpass1,setHashpass1]=useState('');
+  const [hashpass2,setHashpass2]=useState('');
 
   const handleRegister = (e) => {
     e.preventDefault()
+    const hashpass1 = bcrypt.hashSync(password, 10)
+    const hashpass2 = bcrypt.hashSync(cpassword, 10)
     axios.post('https://capstone-project-17.onrender.com/register',{email,password,cpassword})
     
     .then(result => console.log(result))
@@ -35,8 +39,8 @@ function Register() {
   <form onSubmit={handleRegister} className='formreg'>
   <h1>Register</h1>
   <input type="email" value={email}  onChange={(e)=> setEmail(e.target.value)} className='boxreg' id='email' name='email' placeholder='Enter Username' />
-  <input type="password" value={password}  onChange={(e)=> setPassword(e.target.value)} className='boxreg' placeholder='Enter Password' />
-  <input type="password" value={cpassword}  onChange={(e)=> setCpassword(e.target.value)} className='boxreg' placeholder='Confirm Password' />
+  <input type="password" value={hashpass1}  onChange={(e)=> setHashpass1(e.target.value)} className='boxreg' placeholder='Enter Password' />
+  <input type="password" value={hashpass2}  onChange={(e)=> setHashpass2(e.target.value)} className='boxreg' placeholder='Confirm Password' />
   <button type='submit' className='submeg' data-bs-toggle="modal" data-bs-target="#exampleModal" value='Register'>Register</button>
 </form>
 
