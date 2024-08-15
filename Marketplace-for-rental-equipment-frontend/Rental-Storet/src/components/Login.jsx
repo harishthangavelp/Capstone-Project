@@ -6,6 +6,7 @@ import Navigation from '../Navigation';
 import Home from './Home';
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import bcrypt from 'bcryptjs'
 
 function Login(props) {
 
@@ -16,7 +17,8 @@ function Login(props) {
 
   const handleLogin = (e) => {
     e.preventDefault()
-    axios.post('https://capstone-project-17.onrender.com/login',{email,password})
+    const hashPass = bcrypt.hashSync(password, 10)
+    axios.post('https://capstone-project-17.onrender.com/login',{email,hashPass})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
