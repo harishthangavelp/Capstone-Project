@@ -19,7 +19,7 @@ function Register() {
     e.preventDefault()
     const hashpass1 = bcrypt.hashSync(password, 10)
     const hashpass2 = bcrypt.hashSync(cpassword, 10)
-    axios.post('https://capstone-project-17.onrender.com/register',{email,password,cpassword})
+    axios.post('https://capstone-project-17.onrender.com/register',{email,hashpass1,hashpass2})
     
     .then(result => console.log(result))
     .catch(err => console.log(err))
