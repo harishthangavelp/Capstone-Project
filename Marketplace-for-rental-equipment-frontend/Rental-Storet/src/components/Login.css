@@ -125,3 +125,10 @@ font-size: 1rem;
         text-decoration: none;
     }
    
+
+    #entry{
+        position: absolute;
+        margin: -25em 40em;
+        white-space: nowrap;
+        color: white;
+    }

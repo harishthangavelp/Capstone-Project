@@ -367,3 +367,10 @@ border-radius: 20px;
 text-decoration: none;
 color: black;
 }
+
+#entry{
+    position: absolute;
+    margin: -25em 40em;
+    white-space: nowrap;
+    color: white;
+}

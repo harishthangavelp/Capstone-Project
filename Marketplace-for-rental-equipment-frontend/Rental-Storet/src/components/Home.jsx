@@ -117,6 +117,8 @@ function Home(props) {
       <button type="button" class="flex-box btn btn-dark" ><Link to = "/" className='topbut'>Home</Link></button>
     </div>
     
+    <p id='entry'></p>
+
     <div>
     <NavLink to = "/login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
     </div>

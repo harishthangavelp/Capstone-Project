@@ -13,12 +13,15 @@ function Login(props) {
   const [email,setEmail]=useState('');
   const [password,setPassword]=useState('');
   const [hashpass,setHashpass]=useState('');
-
+ 
+  const click = () => {
+   document.getElementById('entry').innerHTML = "Hi " + email;
+  }
 
   const handleLogin = (e) => {
     e.preventDefault()
     const hashpass = bcrypt.hashSync(password, 10)
-    axios.post('https://capstone-project-17.onrender.com/login',{email,hashpass})
+    axios.post('http://localhost:3001/register',{email,hashpass})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
@@ -36,13 +39,14 @@ function Login(props) {
   <h1 className='formheading'>Login</h1>
   <input type="email" value={email}  className='boxlog' id='email' onChange={(e)=> setEmail(e.target.value)} name='email' placeholder='Enter Username' />
   <input type="password" value={hashpass} className='boxlog' onChange={(e)=> setHashpass(e.target.value)} placeholder='Enter Password' />
-  <button type='submit' className='submog' data-bs-toggle="modal" data-bs-target="#exampleModal" value='Login'>Login</button>
+  <button type='submit' onClick={click} className='submog' data-bs-toggle="modal" data-bs-target="#exampleModal" value='Login'>Login</button>
   <h1 className='lsttxt'>If new user, Kindly register below</h1>
   <button type='submit' className='submeg'><Link to = "/register" className='topbutlogs'>Register</Link></button>
 </form>
 
+<p id='entry'></p>
 
-<button type="button" class="homenav"><Link to = "/" className='homedesign'>Back to Home Page</Link></button>
+<button type="button" class="homenav"><Link to = "/"  className='homedesign'>Back to Home Page</Link></button>
 
 
 <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
