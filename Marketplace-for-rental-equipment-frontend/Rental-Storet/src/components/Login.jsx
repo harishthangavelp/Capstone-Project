@@ -21,7 +21,7 @@ function Login(props) {
   const handleLogin = (e) => {
     e.preventDefault()
     const hashpass = bcrypt.hashSync(password, 10)
-    axios.post('http://localhost:3001/register',{email,hashpass})
+    axios.post('https://capstone-project-17.onrender.com/register',{email,hashpass})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }

@@ -65,6 +65,7 @@ function Home(props) {
 
   const [newEvent, setNewEvent] = useState({ title: "", start: "", end: "" });
   const [allEvents, setAllEvents] = useState(events);
+  
 
   function handleAddEvent() {
         

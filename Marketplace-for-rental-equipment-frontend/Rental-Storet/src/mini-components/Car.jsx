@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from "axios";
-import { useState } from "react";
+import axios from 'axios';
+import { useState } from 'react';
 import '../mini-components/Car.css'
 
 import carimgshow1 from '../mini-images/hyundai-creta-removebg-preview.png';
@@ -13,38 +13,54 @@ import carmusic from '../mini-images/chasing_cars.mp3';
 
 function Car() {
 
-	const [searchTerm, setSearchTerm] = useState("");
+	const [house, setHouse] = useState({
+        id:"1",
+        bedroom:"4",
+        tenant:"family",
+        parking:"bike/car",
+        type:"independent house",
+        amount: 2000,
+        });
 
-  const initPayment = (data) => {
-		const options = {
-			key: "rzp_test_5mjZFfAYX2kumz",
-			handler: async (response) => {
-				try {
-					const verifyUrl = "http://localhost:8080/api/payment/verify";
-					const { data } = await axios.post(verifyUrl, response);
-					console.log(data);
-				} catch (error) {
-					console.log(error);
-				}
-			},
-			theme: {
-				color: "#3399cc",
-			},
-		};
-		const rzp1 = new window.Razorpay(options);
-		rzp1.open();
-	};
+        const initPayment = (data) => {
+            const options = {
+                key: "rzp_test_5mjZFfAYX2kumz",
+                     id: house.id,
+                     bedroom: house.bedroom,
+                     tenant: house.tenant,
+                     parking: house.parking,
+                     type: house.type,
+                     amount: house.amount,
+                handler: async (response) => {
+                    try {
+                        const verifyUrl = "http://localhost:8080/api/payment/verify";
+                        const { data } = await axios.post(verifyUrl, response);
+                        console.log(data);
+                    } catch (error) {
+                        console.log(error);
+                    }
+                },
+                theme: {
+                    color: "#3399cc",
+                },
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.open();
+        };
+    
+        const handlePayment = async () => {
+            try {
+                const orderUrl = "http://localhost:8080/api/payment/orders";
+                const { data } = await axios.post(orderUrl, { amount: house.amount });
+                console.log(data);
+                initPayment(data.data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
-	const handlePayment = async () => {
-		try {
-			const orderUrl = "http://localhost:8080/api/payment/orders";
-			const { data } = await axios.post(orderUrl, { });
-			console.log(data);
-			initPayment(data.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
+
+
 
   return (
 <div className='carbg' src={carbgnd}>  
@@ -68,7 +84,7 @@ Manual & Automatic</p>
 <h3>Seating Capacity: </h3><p>
 5 Seater</p>
 <h3>Price: </h3><p>Rs. 11.00 Lakh</p>
-<button type='button' className='submit bts11' onClick={handlePayment} data-bs-toggle="modal" data-bs-target="#exampleModal" value='Login'>Buy</button>
+<button type='button' className='submit bts11' onClick={handlePayment} >Buy</button>
 </form>
 </div>
 
@@ -87,7 +103,7 @@ Manual & Automatic</p>
 <h3>Seating Capacity: </h3><p>
 5 Seater</p>
 <h3>Price: </h3><p>Rs. 11.82 - 16.35 Lakh</p>
-<button type='button' className='submit bts22'  >Buy</button>
+<button type='button' className='submit bts22' onClick={handlePayment} >Buy</button>
 </form>
 </div>
 

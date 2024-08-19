@@ -5,12 +5,16 @@ import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css"; 
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
+import { Fragment,PureComponent } from "react";
+import { NavLink } from "react-router-dom";
 
 import finalabimg1 from '../images/luxurious_life-1.jpg';
 import finalabimg2 from '../images/luxurious_life-2.jpeg';
 import finalabimg3 from '../images/luxurious_life-3.jpg';
 import notifyab from '../images/not.jpg'
 import finalabaudio1 from '../mini-images/havel.mp3';
+import userProf from '../images/user.webp'
+
 
 function About(props) {
   function display(){
@@ -24,15 +28,19 @@ function About(props) {
 
 <div class="centPad">
 <div class="topnav1">
-<button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button>
-      <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button>
+{/* <button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button>
+      <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button> */}
       <button type="button" class="flex-box btn btn-dark"><Link to = "/contact" className='topbut'>Contact</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/service" className='topbut'>Service</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/about" className='topbut'>About</Link></button>
       <button type="button" class="flex-box btn btn-dark" ><Link to = "/" className='topbut'>Home</Link></button>
 </div>
 
+<p id='entry'></p>
 
+<div>
+<NavLink to = "/login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
+</div>
 
 
 <div class="modal fade"  id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

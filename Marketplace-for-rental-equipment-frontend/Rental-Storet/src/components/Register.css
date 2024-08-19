@@ -90,3 +90,20 @@ font-size: 1rem;
     color: black;
     background-color:lightcyan;
     }
+    .tip1{
+        position: absolute;
+        margin: -3.5em 24.5em;
+        color: gold;
+        font-size: 20px;
+        background-color: black;
+        font-weight: bold;
+    }
+    .tip2{
+        position: absolute;
+        margin: -5em 35.5em;
+        color: gold;
+        font-size: 15px;
+        white-space: nowrap;
+        background-color: black;
+        font-weight: bold;
+    }

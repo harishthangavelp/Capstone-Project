@@ -128,7 +128,9 @@ font-size: 1rem;
 
     #entry{
         position: absolute;
-        margin: -25em 40em;
+        margin: -25em 37.15em;
         white-space: nowrap;
-        color: white;
+        color: black;
+        font-weight: bold;
+        background-color: white;
     }
