@@ -18,6 +18,7 @@ import{
   import House from './mini-components/House'
   import Car from './mini-components/Car'
   import Jewel from './mini-components/Jewel'
+  import BookingForm from './components/BookingForm'
   
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
@@ -41,6 +42,7 @@ function Design() {
           <Route path="/housedetails" element={<House/>}></Route>
           <Route path="/cardetails" element={<Car/>}></Route>
           <Route path="/jeweldetails" element={<Jewel/>}></Route>
+          <Route path="/bookingdetails" element={<BookingForm/>}></Route>
          </Routes>
          
        

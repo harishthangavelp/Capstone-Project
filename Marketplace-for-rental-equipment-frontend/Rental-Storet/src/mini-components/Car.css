@@ -4,31 +4,8 @@
     height: 132em;
 }
 
-.templateContainer{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    margin: 0 auto;
-    top: 1em;
-}
-.tumtum2{
-background-color: palevioletred;
-border: 2px solid crimson;
-border-radius: 1px;
-color: crimson;
-font-weight: bold;
-}
-.temp{
-background-color: palevioletred;
-border: 2px solid crimson;
-border-radius: 1px;
-color: crimson;
-font-weight: bold;
-position: absolute;
-top: 0em;
-left: 32em;
-font-weight: bold;
-}
+
+
 
 
     .form1{
@@ -169,22 +146,45 @@ font-weight: bold;
     transform: translateY(-30px);
 } 
 .bts11{
-    margin: -0em -2em ;
+position: absolute;
+width: 200px;
+top: 25em;
+left: 20em;
 }
 .bts22{
-    margin: -0em -2em;
+    position: absolute;
+    width: 200px;
+    top: 50em;
+    left: 20em;
 }
 .bts33{
-    margin: -0em -2em;
+    position: absolute;
+    width: 200px;
+    top: 75em;
+    left: 20em;
 }
 .bts44{
-    margin: -0em -2em;
+    position: absolute;
+    width: 200px;
+    top: 100em;
+    left: 20em;
 }
 .bts55{
-    margin: -0em -2em;
+    position: absolute;
+    width: 200px;
+    top: 125em;
+    left: 20em;
 }
     
-    
+.carnobg{
+    text-decoration: none;
+    color: black;
+    font-family: monospace;
+}
+
+.bookDate{
+    background-color: crimson;
+}
     
 
     

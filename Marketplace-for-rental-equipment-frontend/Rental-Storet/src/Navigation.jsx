@@ -14,6 +14,7 @@ function Navigation() {
         <Link to = "/housedetails"></Link>
         <Link to = "/cardetails"></Link>
         <Link to = "/jeweldetails"></Link>
+        <Link to = "/bookingdetails"></Link>
     </nav>
     </>
   )

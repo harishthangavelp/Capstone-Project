@@ -79,7 +79,7 @@ function House() {
  <img className='hmg-5' src={hsimg5} width={'600px'} height={'300px'} alt="" />   
  <button className='buths5' onClick={handlePayment}>Buy</button>
 
-<audio src={skymusic} autoplay="autoplay" loop="loop"></audio>
+{/* <audio src={skymusic} autoplay="autoplay" loop="loop"></audio> */}
 
 <div className='templatehouse'>
 	<label className='temhouse'>Search</label>
