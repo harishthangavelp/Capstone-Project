@@ -10,7 +10,14 @@ const userSchema = new mongoose.Schema({
     fname:String,
     lname:String,
     phone:Number,
-    text:String
+    text:String,
+    nameform:String,
+    nameph:Number,
+    namemail:String,
+    fradform:String,
+    toadform:String,
+    timeform:String,
+    dmyform:String
 })
 
 

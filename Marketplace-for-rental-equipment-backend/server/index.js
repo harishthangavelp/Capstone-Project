@@ -30,10 +30,17 @@ userModel.create(req.body)
 .catch(err => res.json(err))
 })
 
+app.post('/booking',(req,res) => {
+    userModel.create(req.body)
+    .then(users => req.json(users))
+    .catch(err => res.json(err))
+    })
+
 app.get("/getUsers", async (req, res) => {
     const userData = await userModel.find();
     res.json(userData);
 });
+
 
 
 app.listen(3001,() => {
