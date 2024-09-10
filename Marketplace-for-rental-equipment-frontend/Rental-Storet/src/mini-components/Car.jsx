@@ -100,7 +100,7 @@ function Car() {
 
         const initPayment = (data) => {
             const options = {
-                key: "rzp_test_5mjZFfAYX2kumz",
+                key: "rzp_test_ZxGQM7v4bgryb4",
                      id: house.id,
                      bedroom: house.bedroom,
                      tenant: house.tenant,
