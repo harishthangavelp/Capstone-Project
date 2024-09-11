@@ -1,0 +1,137 @@
+.bfbg{
+    background-image: url('../mini-images/carbg.png');
+    background-size: contain;
+    height: 47.5em;
+}
+
+.formTitle{
+position: relative;
+color: pink;
+background-color: rgba(244, 5, 168, 0.5);
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: bold;
+text-align: center;
+top: 1em;
+display: flex;
+flex-direction: column;
+height: 520px;
+width: 400px;
+border: 2px solid pink;
+align-items: center;
+margin: auto;
+border-radius: 25px;
+}
+
+.sucmsg{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    font-size: 50px;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -28em 35em;
+}
+.nameTitle{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -26em 35em;
+}
+.nameTitle::placeholder{
+    text-align: center;
+}
+.phTitle{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -24em 35em;
+}
+.phTitle::placeholder{
+    text-align: center;
+}
+.mailTitle{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -22em 35em;
+}
+.mailTitle::placeholder{
+    text-align: center;
+}
+.fromTitle{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -19.5em 31em;
+}
+.fromTitle::placeholder{
+    text-align: center;
+}
+.toTitle{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -13em 31em;
+}
+.toTitle::placeholder{
+    text-align: center;
+}
+.jourTime{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -6em 35em;
+}
+.jourTime::placeholder{
+    text-align: center;
+}
+.jourDmy{
+    background-color: deeppink;
+    position: absolute;
+    color:white;
+    text-align: center;
+    font-family:cursive;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    margin: -4em 35em;
+}
+.jourDmy::placeholder{
+    text-align: center;
+}
+.bookDone{
+    background-color: deeppink;
+    position: absolute;
+    color: pink;
+    font-family:sans-serif;
+    font-weight: bold;
+    border: 3px solid lightpink;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: -1.1em 39.8em;
+}
