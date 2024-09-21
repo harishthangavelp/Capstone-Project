@@ -186,6 +186,23 @@ left: 20em;
     background-color: crimson;
 }
     
-
+.bookbackhp{
+    position: absolute;
+    margin: 1em 70em;
+    white-space: nowrap;
+    font-family:sans-serif;
+    font-weight: bold;
+    border: none;
+}
+.bookbacksubhp{
+    text-decoration: none;
+    background-color: rgba(244, 5, 168, 0.5);
+    position: absolute;
+    color: pink;
+    font-size: 1.2em;
+    border: 3px solid lightpink;
+    border-radius: 50px;
+    padding: 5px 15px;
+}
     
     

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import '../mini-components/Car.css'
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
-import BookingForm from '../components/BookingForm';
+// import BookingForm1 from '../car-payments/BookingForm1';
 
 import getDay from "date-fns/getDay";
 import parse from "date-fns/parse";
@@ -98,43 +98,6 @@ function Car() {
         amount: 2000,
         });
 
-        const initPayment = (data) => {
-            const options = {
-                key: "rzp_test_ZxGQM7v4bgryb4",
-                     id: house.id,
-                     bedroom: house.bedroom,
-                     tenant: house.tenant,
-                     parking: house.parking,
-                     type: house.type,
-                     amount: house.amount,
-                handler: async (response) => {
-                    try {
-                        const verifyUrl = "http://localhost:8080/api/payment/verify";
-                        const { data } = await axios.post(verifyUrl, response);
-                        console.log(data);
-                    } catch (error) {
-                        console.log(error);
-                    }
-                },
-                theme: {
-                    color: "#3399cc",
-                },
-            };
-            const rzp1 = new window.Razorpay(options);
-            rzp1.open();
-        };
-    
-        const handlePayment = async () => {
-            try {
-                const orderUrl = "http://localhost:8080/api/payment/orders";
-                const { data } = await axios.post(orderUrl, { amount: house.amount });
-                console.log(data);
-                initPayment(data.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
 
 
 
@@ -155,7 +118,7 @@ function Car() {
 Manual & Automatic</p>
 <h3>Seating Capacity: </h3><p>
 5 Seater</p>
-<h3>Rent: </h3><p>$35.73/day</p>
+<h3>Rent: </h3><p>$35.74/day</p>
 </form>
 </div>
 
@@ -245,12 +208,13 @@ Manual & Automatic</p>
  <img src={carimgshow5} alt="" />   
  </div>
 
- <button type='submit' className='submit bts11'><Link to = "/bookingdetails" className='carnobg'>Book</Link></button>
- <button type='submit' className='submit bts22'><Link to = "/bookingdetails" className='carnobg'>Book</Link></button>
- <button type='submit' className='submit bts33'><Link to = "/bookingdetails" className='carnobg'>Book</Link></button>
- <button type='submit' className='submit bts44'><Link to = "/bookingdetails" className='carnobg'>Book</Link></button>
- <button type='submit' className='submit bts55'><Link to = "/bookingdetails" className='carnobg'>Book</Link></button>
+ <button type='submit' className='submit bts11'><Link to = "/bookingdetails1" className='carnobg'>Book</Link></button>
+ <button type='submit' className='submit bts22'><Link to = "/bookingdetails2" className='carnobg'>Book</Link></button>
+ <button type='submit' className='submit bts33'><Link to = "/bookingdetails3" className='carnobg'>Book</Link></button>
+ <button type='submit' className='submit bts44'><Link to = "/bookingdetails4" className='carnobg'>Book</Link></button>
+ <button type='submit' className='submit bts55'><Link to = "/bookingdetails5" className='carnobg'>Book</Link></button>
 
+ <button type="button" className='bookbackhp'><Link to = "/" className='bookbacksubhp' >Back to Home Page</Link></button>
 
 </div>
   )

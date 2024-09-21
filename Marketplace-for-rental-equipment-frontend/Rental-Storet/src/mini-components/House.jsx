@@ -2,7 +2,10 @@ import React from 'react'
 import '../mini-components/House.css'
 import hsgif from '../mini-images/cloud.gif'
 import axios from 'axios';
+import Navigation from '../Navigation';
+import {Link} from 'react-router-dom'
 import { useState } from 'react';
+import '../mini-components/House.css'
 
 import hsimg1 from '../mini-images/lh-1.jpg';
 import hsimg2 from '../mini-images/lh-2.jpg';
@@ -14,52 +17,6 @@ import skymusic from '../mini-images/sky.mp3';
 
 function House() {
 
-    const [house, setHouse] = useState({
-        id:"1",
-        bedroom:"4",
-        tenant:"family",
-        parking:"bike/car",
-        type:"independent house",
-        amount: 2000,
-        });
-
-        const initPayment = (data) => {
-            const options = {
-                key: "rzp_test_5mjZFfAYX2kumz",
-                     id: house.id,
-                     bedroom: house.bedroom,
-                     tenant: house.tenant,
-                     parking: house.parking,
-                     type: house.type,
-                     amount: house.amount,
-                handler: async (response) => {
-                    try {
-                        const verifyUrl = "http://localhost:8080/api/payment/verify";
-                        const { data } = await axios.post(verifyUrl, response);
-                        console.log(data);
-                    } catch (error) {
-                        console.log(error);
-                    }
-                },
-                theme: {
-                    color: "#3399cc",
-                },
-            };
-            const rzp1 = new window.Razorpay(options);
-            rzp1.open();
-        };
-    
-        const handlePayment = async () => {
-            try {
-                const orderUrl = "http://localhost:8080/api/payment/orders";
-                const { data } = await axios.post(orderUrl, { amount: house.amount });
-                console.log(data);
-                initPayment(data.data);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-
 
 
   return (
@@ -67,24 +24,29 @@ function House() {
 
 <embed name="sky-music" src="./src/mini-images/sky.mp3" loop="false" hidden="true" autostart="true"></embed>
 
+  <option value="vol" className='houseadd1'>Plot No.1,Saanthi Street,Lake side road,Chennai</option>
+  <option value="vol" className='houseadd2'>Plot No.2,Vairasamy Street,Ushman Road,Chennai</option>
+  <option value="vol" className='houseadd3'>Plot No.3,Mansi Street,Long Road,Kovai</option>
+  <option value="vol" className='houseadd4'>Plot No.4,Ashok Street,Tollgate Road,Madurai</option>
+  <option value="vol" className='houseadd5'>Plot No.5,Havel Street,Coolis Road,Tenkasi</option>
+
+
 
  <img className='hmg-1' src={hsimg1} width={'600px'} height={'300px'} alt="" />   
-<button className='buths1' onClick={handlePayment}>Buy</button>
  <img className='hmg-2' src={hsimg2} width={'600px'} height={'300px'} alt="" />   
- <button className='buths2' onClick={handlePayment}>Buy</button>
  <img className='hmg-3' src={hsimg3} width={'600px'} height={'300px'} alt="" />   
- <button className='buths3' onClick={handlePayment}>Buy</button>
  <img className='hmg-4' src={hsimg4} width={'600px'} height={'300px'} alt="" />   
- <button className='buths4' onClick={handlePayment}>Buy</button>
  <img className='hmg-5' src={hsimg5} width={'600px'} height={'300px'} alt="" />   
- <button className='buths5' onClick={handlePayment}>Buy</button>
+
+
+ <button type='submit' className='buths1'><Link to = "/bookingdetails6" className='buthadd'>Book</Link></button>
+ <button type='submit' className='buths1'><Link to = "/bookingdetails7" className='buthadd1'>Book</Link></button>
+ <button type='submit' className='buths1'><Link to = "/bookingdetails8" className='buthadd2'>Book</Link></button>
+ <button type='submit' className='buths1'><Link to = "/bookingdetails9" className='buthadd3'>Book</Link></button>
+ <button type='submit' className='buths1'><Link to = "/bookingdetails10" className='buthadd4'>Book</Link></button>
 
 {/* <audio src={skymusic} autoplay="autoplay" loop="loop"></audio> */}
 
-<div className='templatehouse'>
-	<label className='temhouse'>Search</label>
-	<input id='searchInput' className='tumtum1' type="text"  />
-</div>
 
 <div className='cardhouse1'>
     <h3>Bedroom: </h3><p>4</p>
@@ -126,9 +88,7 @@ function House() {
     <h3>Advance/Monthly: </h3><p>₹40000/₹15000</p>
 </div>
 
-
-
-
+<button type="button" className='rentbackhp'><Link to = "/" className='rentbacksubhp' >Back to Home Page</Link></button>
 
 </div>
   )

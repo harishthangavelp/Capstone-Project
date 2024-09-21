@@ -18,7 +18,18 @@ import{
   import House from './mini-components/House'
   import Car from './mini-components/Car'
   import Jewel from './mini-components/Jewel'
-  import BookingForm from './components/BookingForm'
+
+  import BookingForm1 from './car-payments/BookingForm1'
+  import BookingForm2 from './car-payments/BookingForm2'
+  import BookingForm3 from './car-payments/BookingForm3'
+  import BookingForm4 from './car-payments/BookingForm4'
+  import BookingForm5 from './car-payments/BookingForm5'
+  
+  import Rentform1 from './house-payments/Rentform1'
+  import Rentform2 from './house-payments/Rentform2'
+  import Rentform3 from './house-payments/Rentform3'
+  import Rentform4 from './house-payments/Rentform4'
+  import Rentform5 from './house-payments/Rentform5'
   
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
@@ -42,7 +53,19 @@ function Design() {
           <Route path="/housedetails" element={<House/>}></Route>
           <Route path="/cardetails" element={<Car/>}></Route>
           <Route path="/jeweldetails" element={<Jewel/>}></Route>
-          <Route path="/bookingdetails" element={<BookingForm/>}></Route>
+
+          <Route path="/bookingdetails1" element={<BookingForm1/>}></Route>
+          <Route path="/bookingdetails2" element={<BookingForm2/>}></Route>
+          <Route path="/bookingdetails3" element={<BookingForm3/>}></Route>
+          <Route path="/bookingdetails4" element={<BookingForm4/>}></Route>
+          <Route path="/bookingdetails5" element={<BookingForm5/>}></Route>
+
+          <Route path="/bookingdetails6" element={<Rentform1/>}></Route>
+          <Route path="/bookingdetails7" element={<Rentform2/>}></Route>
+          <Route path="/bookingdetails8" element={<Rentform3/>}></Route>
+          <Route path="/bookingdetails9" element={<Rentform4/>}></Route>
+          <Route path="/bookingdetails10" element={<Rentform5/>}></Route>
+
          </Routes>
          
        

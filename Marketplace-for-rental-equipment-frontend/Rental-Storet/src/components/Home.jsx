@@ -193,7 +193,7 @@ function Home(props) {
     <img src={finalimg3} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
     <div class="card-content">
     <p>Own fashionable jewels with latest brand new collections</p>
-    <i><q class="desc">Don’t find you need to wear jewelry for others but for your own pleasure. It feels wonderful</q></i>
+    <i><q class="desc">Don’t find you need to wear jewellery for others but for your own pleasure. It feels wonderful</q></i>
     <br /><br /><br />
     <div class="center-button">
     <a href="" class="card-button"><Link to = "/jeweldetails" className='topbut'>Click to view</Link></a>
