@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
-import "../src/App.css";
+import "./App.css";
 
 function App() {
 	const [book, setBook] = useState({
 		name: "The Fault In Our Stars",
 		author: "John Green",
 		img: "https://images-na.ssl-images-amazon.com/images/I/817tHNcyAgL.jpg",
-		price: 500,
+		price: 250,
 	});
 
 	const initPayment = (data) => {
