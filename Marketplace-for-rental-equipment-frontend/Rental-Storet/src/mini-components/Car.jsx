@@ -22,7 +22,7 @@ import carimgshow3 from '../mini-images/landrover-defender-removebg-preview.png'
 import carimgshow4 from '../mini-images/bmw.png';
 import carimgshow5 from '../mini-images/rollsroyce-removebg-preview.png';
 import carbgnd from '../mini-images/carbg.png';
-import carmusic from '../mini-images/chasing_cars.mp3';
+import carmusic from '../mini-images/carsnew.mp3';
 
 
 const locales = {
@@ -105,7 +105,7 @@ function Car() {
 <div className='carbg' src={carbgnd}>  
 
 
-{/* <audio src={carmusic} autoplay="autoplay" loop="loop"></audio> */}
+<audio src={carmusic} autoplay="autoplay" loop="loop"></audio>
 
 
 

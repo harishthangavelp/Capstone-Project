@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom'
 import jewelsbgimg from '../mini-images/jew-5.jpg'
 import jewelimgs1 from '../mini-images/jew-1.jpg'
 import jewelimgs2 from '../mini-images/jew-2.png'
-import jewelimgs3 from '../mini-images/jew-3.jpg'
+import jewelimgs3 from '../mini-images/jew.jpg'
 import jewelimgs4 from '../mini-images/jew-4.jpg'
 import jewelimgs5 from '../mini-images/jew-7.jpg'
 import jewelmusic from '../mini-images/jewel.mp3'
@@ -23,7 +23,7 @@ function Jewel() {
   return (
     <div className='jewelbg' src={jewelsbgimg}>
     
-    {/* <audio src={jewelmusic} autoplay="autoplay" loop="loop"></audio> */}
+    <audio src={jewelmusic} autoplay="autoplay" loop="loop"></audio>
 
 
 
@@ -74,11 +74,11 @@ function Jewel() {
 <h1>Price </h1><p>₹34,673</p>
 </div>
 
-<button type='submit' className='jewon-1'><Link to = "/bookingdetails6" className='jewonsub1'>Book</Link></button>
-<button type='submit' className='jewon-2'><Link to = "/bookingdetails6" className='jewonsub2'>Book</Link></button>
-<button type='submit' className='jewon-3'><Link to = "/bookingdetails6" className='jewonsub3'>Book</Link></button>
-<button type='submit' className='jewon-4'><Link to = "/bookingdetails6" className='jewonsub4'>Book</Link></button>
-<button type='submit' className='jewon-5'><Link to = "/bookingdetails6" className='jewonsub5'>Book</Link></button>
+<button type='submit' className='jewon-1'><Link to = "/bookingdetails11" className='jewonsub1'>Book</Link></button>
+<button type='submit' className='jewon-2'><Link to = "/bookingdetails12" className='jewonsub2'>Book</Link></button>
+<button type='submit' className='jewon-3'><Link to = "/bookingdetails13" className='jewonsub3'>Book</Link></button>
+<button type='submit' className='jewon-4'><Link to = "/bookingdetails14" className='jewonsub4'>Book</Link></button>
+<button type='submit' className='jewon-5'><Link to = "/bookingdetails15" className='jewonsub5'>Book</Link></button>
 
 <button type="button" className='jewelhp'><Link to = "/" className='jewelsubhp' >Back to Home Page</Link></button>
 

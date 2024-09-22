@@ -45,7 +45,7 @@ function House() {
  <button type='submit' className='buths1'><Link to = "/bookingdetails9" className='buthadd3'>Book</Link></button>
  <button type='submit' className='buths1'><Link to = "/bookingdetails10" className='buthadd4'>Book</Link></button>
 
-{/* <audio src={skymusic} autoplay="autoplay" loop="loop"></audio> */}
+<audio src={skymusic} autoplay="autoplay" loop="loop"></audio>
 
 
 <div className='cardhouse1'>
