@@ -30,6 +30,12 @@ import{
   import Rentform3 from './house-payments/Rentform3'
   import Rentform4 from './house-payments/Rentform4'
   import Rentform5 from './house-payments/Rentform5'
+
+  import JewelForm1 from './jewel-payments/JewelForm1'
+  import JewelForm2 from './jewel-payments/JewelForm2'
+  import JewelForm3 from './jewel-payments/JewelForm3'
+  import JewelForm4 from './jewel-payments/JewelForm4'
+  import JewelForm5 from './jewel-payments/JewelForm5'
   
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
@@ -65,6 +71,14 @@ function Design() {
           <Route path="/bookingdetails8" element={<Rentform3/>}></Route>
           <Route path="/bookingdetails9" element={<Rentform4/>}></Route>
           <Route path="/bookingdetails10" element={<Rentform5/>}></Route>
+
+          <Route path="/bookingdetails11" element={<JewelForm1/>}></Route>
+          <Route path="/bookingdetails12" element={<JewelForm2/>}></Route>
+          <Route path="/bookingdetails13" element={<JewelForm3/>}></Route>
+          <Route path="/bookingdetails14" element={<JewelForm4/>}></Route>
+          <Route path="/bookingdetails15" element={<JewelForm5/>}></Route>
+
+
 
          </Routes>
          

@@ -27,6 +27,12 @@ function Navigation() {
         <Link to = "/bookingdetails9"></Link>
         <Link to = "/bookingdetails10"></Link>
 
+        <Link to = "/bookingdetails11"></Link>
+        <Link to = "/bookingdetails12"></Link>
+        <Link to = "/bookingdetails13"></Link>
+        <Link to = "/bookingdetails14"></Link>
+        <Link to = "/bookingdetails15"></Link>
+
 
     </nav>
     </>

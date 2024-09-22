@@ -101,7 +101,7 @@ function Home(props) {
   return (
     <div className='bghome'>
 
-{/* <audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio> */}
+<audio src={finalaudio1} autoplay="autoplay" loop="loop"></audio>
 
 
 

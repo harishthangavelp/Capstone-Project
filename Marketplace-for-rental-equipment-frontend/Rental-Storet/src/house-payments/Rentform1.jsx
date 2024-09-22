@@ -6,6 +6,7 @@ import Navigation from '../Navigation';
 import { Link } from 'react-router-dom';
 
 import hsrentimg1 from '../mini-images/lh-1.jpg';
+import skymusicform from '../mini-images/skynew.mp3';
 
 function Rentform1() {
 
@@ -89,6 +90,8 @@ function Rentform1() {
 </form>
 <br />
 <p className='midr'>Note: Submit the details and do the payment</p>
+
+<audio src={skymusicform} autoplay="autoplay" loop="loop"></audio>
 
 <button type="button" className='rentback'><Link to = "/housedetails" className='rentbacksub' >Back</Link></button>
 

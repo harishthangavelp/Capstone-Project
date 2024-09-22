@@ -4,6 +4,7 @@ import formbg from '../mini-images/carbg.png';
 import '../car-payments/BookingForm.css'
 import Navigation from '../Navigation';
 import { Link } from 'react-router-dom';
+import carmusicform from '../mini-images/chasing_cars.mp3';
 
 
 function BookingForm4() {
@@ -89,6 +90,8 @@ function BookingForm4() {
 </form>
 <br />
 <p className='mid'>Note: Submit the details and do the payment</p>
+
+<audio src={carmusicform} autoplay="autoplay" loop="loop"></audio>
 
 <button type="button" className='bookback'><Link to = "/cardetails" className='bookbacksub' >Back</Link></button>
 
