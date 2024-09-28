@@ -100,7 +100,7 @@ function Home(props) {
     <p className="hometitle">Department Stores</p>
     <img src={finalimg3} style={{objectFit:'cover',width:'100%'}} width="384px" height="240px" alt="" />
     <br /><br />
-    <p ><Link to = "/malls-supermarkets" className='hb3'>Click to view</Link></p>
+    <p ><Link to = "/department-stores" className='hb3'>Click to view</Link></p>
     </div>
 
     </div>

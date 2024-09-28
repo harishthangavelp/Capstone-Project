@@ -16,6 +16,7 @@ import{
   import Register from './components/Register'
   import MSC from './mini-components/MSC'
   import WHR from './mini-components/WHR'
+  import BDS from './mini-components/BDS'
 
   import Rentform1 from './msc-payments/Rentform1'
   import Rentform2 from './msc-payments/Rentform2'
@@ -29,7 +30,12 @@ import{
   import Rentform9 from './whr-payments/Rentform9'
   import Rentform10 from './whr-payments/Rentform10'
 
-  
+  import Rentform11 from './bds-payments/Rentform11'
+  import Rentform12 from './bds-payments/Rentform12'
+  import Rentform13 from './bds-payments/Rentform13'
+  import Rentform14 from './bds-payments/Rentform14'
+  import Rentform15 from './bds-payments/Rentform15'
+
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
 
@@ -50,7 +56,7 @@ function Design() {
           <Route path="/register" element={<Register/>}></Route>
           <Route path="/malls-supermarkets" element={<MSC/>}></Route>
           <Route path="/warehouse-retailers" element={<WHR/>}></Route>
-
+          <Route path="/department-stores" element={<BDS/>}></Route>
 
           <Route path="/bookingdetails1" element={<Rentform1/>}></Route>
           <Route path="/bookingdetails2" element={<Rentform2/>}></Route>
@@ -63,6 +69,12 @@ function Design() {
           <Route path="/bookingdetails8" element={<Rentform8/>}></Route>
           <Route path="/bookingdetails9" element={<Rentform9/>}></Route>
           <Route path="/bookingdetails10" element={<Rentform10/>}></Route>
+
+          <Route path="/bookingdetails11" element={<Rentform11/>}></Route>
+          <Route path="/bookingdetails12" element={<Rentform12/>}></Route>
+          <Route path="/bookingdetails13" element={<Rentform13/>}></Route>
+          <Route path="/bookingdetails14" element={<Rentform14/>}></Route>
+          <Route path="/bookingdetails15" element={<Rentform15/>}></Route>
 
 
 
