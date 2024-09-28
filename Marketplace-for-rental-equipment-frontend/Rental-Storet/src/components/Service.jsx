@@ -1,9 +1,11 @@
 import React from 'react'
 import './Service.css'
+import {Link} from 'react-router-dom'
+import Navigation from '../Navigation';
 
-import servimg1 from '../images/luxurious_life-1.jpg';
-import servimg2 from '../images/luxurious_life-2.jpeg';
-import servimg3 from '../images/luxurious_life-3.jpg';
+import servimg1 from '../new-images/msc1.jpg';
+import servimg2 from '../new-images/bds1.jpg';
+import servimg3 from '../new-images/whb5.jpg';
 
 function Service(props) {
   return (
@@ -25,15 +27,15 @@ function Service(props) {
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
       <img src={servimg1} className='cure' alt="..."/>
-      <h3 className='h1t bg-success'>Luxurious House</h3>
+      <h3 className='h1t bg-success'>Malls and Shopping Centres</h3>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
       <img src={servimg2} className='cure' alt="..."/>
-      <h3 className='h1t bg-success'>Luxurious Cars</h3>
+      <h3 className='h2t bg-success'>Department Stores</h3>
     </div>
     <div class="carousel-item">
       <img src={servimg3} className='cure' alt="..."/>
-      <h3 className='h1t bg-success'>Luxurious Jewels</h3>
+      <h3 className='h3t bg-success'>Warehouse Retailers</h3>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -46,7 +48,7 @@ function Service(props) {
   </button>
 </div>
 
-
+<button type="button" className="bbb btn btn-dark"><Link to="/" className='servbbb'>Back to Home Page</Link></button>
 
    
    </div>

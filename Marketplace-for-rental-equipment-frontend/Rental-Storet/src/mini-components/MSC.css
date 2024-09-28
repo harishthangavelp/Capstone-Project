@@ -1,0 +1,400 @@
+.housebg{
+    background-color: maroon;
+    background-size: contain;
+    height: 135em;
+}
+.msmhead{
+    color: black;
+    text-align: center;
+    font-family: cursive;
+    border: 2px solid black;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+
+.templatehouse{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    top: 1em;
+}
+.tumtum1{
+background-color: rgba(173, 216, 230, 0.5);
+border: 2px solid skyblue;
+border-radius: 1px;
+color: dodgerblue;
+font-weight: bold;
+}
+.temhouse{
+background-color: rgba(173, 216, 230, 0.5);
+border: 2px solid skyblue;
+border-radius: 1px;
+color: dodgerblue;
+font-weight: bold;
+position: absolute;
+top: 0em;
+left: 32em;
+font-weight: bold;
+}
+
+.hmg-1{
+    margin: 5em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 5px solid gold;
+    transition: transform 0.5s ease;
+}
+.hmg-1:hover{
+    transform: translateY(-30px);
+}
+.cardhouse1{
+    position:absolute;
+    zoom: 90%;
+    top: 7em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse1 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.cardhouse1 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.cardhouse1:hover{
+    transform: translateX(-30px);
+}
+.buths1{
+    border: none;
+}
+
+
+.hmg-2{
+    margin: 30em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.hmg-2:hover{
+    transform: translateY(-30px);
+}
+.cardhouse2{
+    position:absolute;
+    zoom: 90%;
+    top: 35em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse2:hover{
+    transform: translateX(-30px);
+}
+.cardhouse2 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.cardhouse2 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.buths2{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 38.8em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-3{
+    margin: 55em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.hmg-3:hover{
+    transform: translateY(-30px);
+}
+.cardhouse3{
+    position:absolute;
+    zoom: 90%;
+    top: 63em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse3:hover{
+    transform: translateX(-30px);
+}
+.cardhouse3 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.cardhouse3 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.buths3{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 58.6em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-4{
+    margin: 80em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.hmg-4:hover{
+    transform: translateY(-30px);
+}
+.cardhouse4{
+    position:absolute;
+    zoom: 90%;
+    top: 91em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse4:hover{
+    transform: translateX(-30px);
+}
+.cardhouse4 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.cardhouse4 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.buths4{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 78.4em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.hmg-5{
+    margin: 105em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.hmg-5:hover{
+    transform: translateY(-30px);
+}
+.cardhouse5{
+    position:absolute;
+    zoom: 90%;
+    top: 119em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.cardhouse5:hover{
+    transform: translateX(-30px);
+}
+.cardhouse5 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.cardhouse5 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.buths5{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 98.2em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+    
+.buthadd{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 20.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.buthadd1{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 40.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.buthadd2{
+    /* background-color: rgba(173, 216, 230, 0.5); */
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 60.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.buthadd3{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 80.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.buthadd4{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 100.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.houseadd1{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 4.1em 13em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.houseadd2{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 29.1em 12.5em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.houseadd3{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 54.1em 15.5em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.houseadd4{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 79.1em 14em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.houseadd5{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 104.1em 14.5em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.rentbackhp{
+    position: absolute;
+    margin: -3.45em 72em;
+    white-space: nowrap;
+    font-family:sans-serif;
+    font-weight: bold;
+    border: none;
+}
+.rentbacksubhp{
+    text-decoration: none;
+    background-image: linear-gradient(180deg, yellow, orange);
+    position: absolute;
+    color: black;
+    font-size: 1em;
+    border: 3px solid gold;
+    border-radius: 50px;
+    padding: 5px 15px;
+}
+
+    
+    

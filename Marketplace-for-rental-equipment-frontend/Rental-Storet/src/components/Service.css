@@ -33,11 +33,31 @@ height: 38em;
     margin-top: 0em;
 }
 .h1t{
+    margin-left: 18.5em;
+    margin-top: 0.3em; 
+    color: black;
+}
+.h2t{
     margin-left: 21em;
+    margin-top: 0.3em; 
+    color: black;
+}
+.h3t{
+    margin-left: 20em;
     margin-top: 0.3em; 
     color: black;
 }
 .bg-success{
     display: inline-block;
     border: 2px solid black;
+}
+
+.bbb{
+    position: absolute;
+    margin: -35em 72em;
+    white-space: nowrap;
+}
+.servbbb{
+    text-decoration: none;
+    color: white;
 }

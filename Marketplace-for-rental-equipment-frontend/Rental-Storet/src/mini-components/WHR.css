@@ -1,0 +1,400 @@
+.whbg{
+    background-color: maroon;
+    background-size: contain;
+    height: 135em;
+}
+.whrhead{
+    color: black;
+    text-align: center;
+    font-family: cursive;
+    border: 2px solid black;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+
+.templatehouse{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    margin: 0 auto;
+    top: 1em;
+}
+.tumtum1{
+background-color: rgba(173, 216, 230, 0.5);
+border: 2px solid skyblue;
+border-radius: 1px;
+color: dodgerblue;
+font-weight: bold;
+}
+.temhouse{
+background-color: rgba(173, 216, 230, 0.5);
+border: 2px solid skyblue;
+border-radius: 1px;
+color: dodgerblue;
+font-weight: bold;
+position: absolute;
+top: 0em;
+left: 32em;
+font-weight: bold;
+}
+
+.whrhmg-1{
+    margin: 5em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 5px solid gold;
+    transition: transform 0.5s ease;
+}
+.whrhmg-1:hover{
+    transform: translateY(-30px);
+}
+.whrcardhouse1{
+    position:absolute;
+    zoom: 90%;
+    top: 7em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.whrcardhouse1 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.whrcardhouse1 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.whrcardhouse1:hover{
+    transform: translateX(-30px);
+}
+.whrbuths1{
+    border: none;
+}
+
+
+.whrhmg-2{
+    margin: 30em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.whrhmg-2:hover{
+    transform: translateY(-30px);
+}
+.whrcardhouse2{
+    position:absolute;
+    zoom: 90%;
+    top: 35em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.whrcardhouse2:hover{
+    transform: translateX(-30px);
+}
+.whrcardhouse2 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.whrcardhouse2 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.whrbuths2{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 38.8em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.whrhmg-3{
+    margin: 55em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.whrhmg-3:hover{
+    transform: translateY(-30px);
+}
+.whrcardhouse3{
+    position:absolute;
+    zoom: 90%;
+    top: 63em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.whrcardhouse3:hover{
+    transform: translateX(-30px);
+}
+.whrcardhouse3 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.whrcardhouse3 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.whrbuths3{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 58.6em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.whrhmg-4{
+    margin: 80em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.whrhmg-4:hover{
+    transform: translateY(-30px);
+}
+.whrcardhouse4{
+    position:absolute;
+    zoom: 90%;
+    top: 91em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.whrcardhouse4:hover{
+    transform: translateX(-30px);
+}
+.whrcardhouse4 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.whrcardhouse4 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.whrbuths4{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 78.4em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+
+
+.whrhmg-5{
+    margin: 105em 5em;
+    position:absolute;
+    border-radius: 100px;
+    border: 3px solid gold;
+    transition: transform 0.5s ease;
+}
+.whrhmg-5:hover{
+    transform: translateY(-30px);
+}
+.whrcardhouse5{
+    position:absolute;
+    zoom: 90%;
+    top: 119em;
+    background-image: linear-gradient(180deg, yellow, orange);
+    left: 60em;
+    border-radius: 50px;
+    border: 5px solid black;
+    text-align: center;
+    transition: transform 0.5s ease;
+}
+.whrcardhouse5:hover{
+    transform: translateX(-30px);
+}
+.whrcardhouse5 h3{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.whrcardhouse5 p{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.whrbuths5{
+    background-color: rgba(173, 216, 230, 0.5);
+    border: 2px solid skyblue;
+    border-radius: 10px;
+    color: dodgerblue;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 98.2em;
+    left: 16em;
+    width: 100px;
+    height: 40px;
+}
+    
+.whrbuthadd{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 20.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.whrbuthadd1{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 40.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.whrbuthadd2{
+    /* background-color: rgba(173, 216, 230, 0.5); */
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 60.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.whrbuthadd3{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 80.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.whrbuthadd4{
+    background-color: black;
+    border: 2px solid gold;
+    border-radius: 10px;
+    color: gold;
+    font-weight: bold;
+    font-size: 20px;
+    position:absolute;
+    top: 100.9em;
+    text-decoration: none;
+    left: 17em;
+    width: 100px;
+    height: 40px;
+}
+.whradd1{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 4.1em 13em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.whradd2{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 29.1em 12.5em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.whradd3{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 54.1em 15.5em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.whradd4{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 79.1em 14em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.whradd5{
+    position: absolute;
+    z-index: 10;
+    border-radius: 20px;
+    padding: 5px 5px;
+    margin: 104.1em 14.5em;
+    color: black;
+    font-family:sans-serif;
+    font-weight: bold;
+    background-image: linear-gradient(180deg, yellow, orange);
+}
+.whrbackhp{
+    position: absolute;
+    margin: -3.45em 72em;
+    white-space: nowrap;
+    font-family:sans-serif;
+    font-weight: bold;
+    border: none;
+}
+.whrbacksubhp{
+    text-decoration: none;
+    background-image: linear-gradient(180deg, yellow, orange);
+    position: absolute;
+    color: black;
+    font-size: 1em;
+    border: 3px solid gold;
+    border-radius: 50px;
+    padding: 5px 15px;
+}
+
+    
+    

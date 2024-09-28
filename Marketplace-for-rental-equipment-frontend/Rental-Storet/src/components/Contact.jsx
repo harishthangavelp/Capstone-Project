@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../components/Contact.scss'
 import axios from 'axios'
+import Navigation from '../Navigation'
 import { useNavigate,Link } from 'react-router-dom'
 
 function Contact() {
@@ -128,19 +129,7 @@ function Contact() {
 </div>
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
+<button type="button" className="bbc btn btn-dark"><Link to="/" className='concbbc'>Back to Home Page</Link></button>
 
 
     </div>

@@ -6,14 +6,13 @@ function Navigation() {
     <>
     <nav>
         <Link to = "/" ></Link>
-        <Link to = "/about"></Link>
         <Link to = "/service" ></Link>
         <Link to = "/contact" ></Link>
         <Link to = "/login" ></Link>
         <Link to = "/register"></Link>
-        <Link to = "/housedetails"></Link>
-        <Link to = "/cardetails"></Link>
-        <Link to = "/jeweldetails"></Link>
+        <Link to = "/malls-supermarkets"></Link>
+        <Link to = "/department-stores"></Link>
+        <Link to = "/warehouse-retailers"></Link>
 
         <Link to = "/bookingdetails1"></Link>
         <Link to = "/bookingdetails2"></Link>
