@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const paymentRoutes = require("../server/Routes/payment");
-const accessModel = require("../Models/Access");
+const accessModel = require("../server/Models/Access");
 
 const app = express();
 
