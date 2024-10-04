@@ -28,7 +28,7 @@ function Rentform1() {
 			handler: async (response) => {
 				try {
 					// const verifyUrl = "http://localhost:8080/api/payment/verify";
-					const verifyUrl = "https://capstone-project-22.onrender.com/getpaymentdetails"
+					const verifyUrl = "http://localhost:8080/api/payment/orders"
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -46,7 +46,7 @@ function Rentform1() {
 	const handlePayment = async () => {
 		try {
 			// const orderUrl = "http://localhost:8080/api/payment/orders";
-			const orderUrl = "https://capstone-project-22.onrender.com/getpaymentdetails"		
+			const orderUrl = "http://localhost:8080/api/payment/orders"		
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
@@ -62,13 +62,30 @@ function Rentform1() {
     const [toadform,setToadform]=useState('');
     const [timeform,setTimeform]=useState('');
     const [dmyform,setDmyform]=useState('');
+
+	const [data,setData] = useState('');
+	const [key,setKey] = useState('');
+	const [amount,setAmount] = useState('');
+	const [currency,setCurrency] = useState('');
+	const [name,setName] = useState('');
+	const [description,setDescription] = useState('');
+	const [image,setImage] = useState('');
+	const [order_id,Setorder_id] = useState('');
+	const [orderUrl,OrderUrl] = useState('');
   
     const handleRentForms = (e) => {
       e.preventDefault()
-      axios.post('https://capstone-project-17.onrender.com/register',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
+      axios.post('https://capstone-project-17.onrender.com/register',{data,key,amount,description,currency,name,image,order_id,orderUrl})
       .then(result => console.log(result))
       .catch(err => console.log(err))
     }
+
+	const handlePayForms = (e) => {
+		e.preventDefault()
+		axios.post('https://capstone-project-22.onrender.com/getpaymentdetails',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
+		.then(result => console.log(result))
+		.catch(err => console.log(err))
+	  }
 
   return (
  <div className='rentbgbody'>
