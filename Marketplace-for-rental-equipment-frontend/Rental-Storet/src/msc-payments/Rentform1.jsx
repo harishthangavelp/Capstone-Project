@@ -27,7 +27,8 @@ function Rentform1() {
 			order_id: data.id,
 			handler: async (response) => {
 				try {
-					const verifyUrl = "http://localhost:8080/api/payment/verify";
+					// const verifyUrl = "http://localhost:8080/api/payment/verify";
+					const verifyUrl = "https://capstone-project-22.onrender.com/getpaymentdetails"
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -44,7 +45,8 @@ function Rentform1() {
 
 	const handlePayment = async () => {
 		try {
-			const orderUrl = "http://localhost:8080/api/payment/orders";
+			// const orderUrl = "http://localhost:8080/api/payment/orders";
+			const orderUrl = "https://capstone-project-22.onrender.com/getpaymentdetails"		
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
