@@ -102,6 +102,7 @@ function Home(props) {
     <br /><br />
     <p ><Link to = "/department-stores" className='hb3'>Click to view</Link></p>
     </div>
+    
 
     </div>
     <br /><br /><br />
