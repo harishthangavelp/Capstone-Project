@@ -22,8 +22,6 @@ const accessSchema = new mongoose.Schema({
 });
 
 // Create a Mongoose model
-const accessModel = mongoose.model('Access', accessSchema);
+const accessModel = mongoose.model('accesslist', accessSchema);
 
 module.exports = accessModel;
-
-// module.exports = razorpay.model('access',accessSchema)

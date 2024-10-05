@@ -11,11 +11,11 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/user");
+mongoose.connect("mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/paid-user");
 
 app.post('/pay',(req,res) => {
     accessModel.create(req.body)
-    .then(users => req.json(users))
+    .then(accesslist => req.json(accesslist))
     .catch(err => res.json(err))
     })
 
