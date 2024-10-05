@@ -27,8 +27,8 @@ function Rentform1() {
 			order_id: data.id,
 			handler: async (response) => {
 				try {
-					// const verifyUrl = "http://localhost:8080/api/payment/verify";
-					const verifyUrl = "http://localhost:8080/api/payment/orders"
+				
+					const verifyUrl = "http://localhost:8080/api/payment/verify"
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -72,6 +72,7 @@ function Rentform1() {
 	const [image,setImage] = useState('');
 	const [order_id,Setorder_id] = useState('');
 	const [orderUrl,OrderUrl] = useState('');
+	const [key_id,setKey_id] = useState('');
   
     const handleRentForms = (e) => {
       e.preventDefault()
@@ -82,7 +83,7 @@ function Rentform1() {
 
 	const handlePayForms = (e) => {
 		e.preventDefault()
-		axios.post('https://capstone-project-22.onrender.com/getpaymentdetails',{data,key,amount,description,currency,name,image,order_id,orderUrl})
+		axios.post('https://capstone-project-22.onrender.com/getpaymentdetails',{data,key,amount,description,currency,name,image,order_id,orderUrl,key_id})
 		.then(result => console.log(result))
 		.catch(err => console.log(err))
 	  }
