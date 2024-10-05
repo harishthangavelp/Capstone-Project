@@ -3,6 +3,8 @@ const Razorpay = require("razorpay");
 const crypto = require("crypto");
 const mongoose = require("mongoose");
 
+mongoose.connect("mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/paid-user");
+
 router.post("/orders", async (req, res) => {
 	try {
 		const instance = new Razorpay({
