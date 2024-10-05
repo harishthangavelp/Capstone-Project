@@ -75,14 +75,14 @@ function Rentform1() {
   
     const handleRentForms = (e) => {
       e.preventDefault()
-      axios.post('https://capstone-project-17.onrender.com/register',{data,key,amount,description,currency,name,image,order_id,orderUrl})
+      axios.post('https://capstone-project-17.onrender.com/register',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
       .then(result => console.log(result))
       .catch(err => console.log(err))
     }
 
 	const handlePayForms = (e) => {
 		e.preventDefault()
-		axios.post('https://capstone-project-22.onrender.com/getpaymentdetails',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
+		axios.post('https://capstone-project-22.onrender.com/getpaymentdetails',{data,key,amount,description,currency,name,image,order_id,orderUrl})
 		.then(result => console.log(result))
 		.catch(err => console.log(err))
 	  }
