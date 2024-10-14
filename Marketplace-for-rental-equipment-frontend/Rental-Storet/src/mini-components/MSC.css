@@ -51,8 +51,10 @@ font-weight: bold;
 }
 .cardhouse1{
     position:absolute;
+    display: flex;
     zoom: 90%;
     top: 7em;
+    width: 15em;
     background-image: linear-gradient(180deg, yellow, orange);
     left: 60em;
     border-radius: 50px;
@@ -62,9 +64,13 @@ font-weight: bold;
 }
 .cardhouse1 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .cardhouse1 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .cardhouse1:hover{
     transform: translateX(-30px);
@@ -86,6 +92,8 @@ font-weight: bold;
 }
 .cardhouse2{
     position:absolute;
+    display: flex;
+    width: 15em;
     zoom: 90%;
     top: 35em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -100,9 +108,13 @@ font-weight: bold;
 }
 .cardhouse2 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .cardhouse2 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .buths2{
     background-color: rgba(173, 216, 230, 0.5);
@@ -131,6 +143,8 @@ font-weight: bold;
 }
 .cardhouse3{
     position:absolute;
+    width: 15em;
+    display: flex;
     zoom: 90%;
     top: 63em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -145,9 +159,13 @@ font-weight: bold;
 }
 .cardhouse3 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .cardhouse3 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .buths3{
     background-color: rgba(173, 216, 230, 0.5);
@@ -176,6 +194,8 @@ font-weight: bold;
 }
 .cardhouse4{
     position:absolute;
+    width: 15em;
+    display: flex;
     zoom: 90%;
     top: 91em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -190,9 +210,13 @@ font-weight: bold;
 }
 .cardhouse4 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .cardhouse4 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .buths4{
     background-color: rgba(173, 216, 230, 0.5);
@@ -221,6 +245,8 @@ font-weight: bold;
 }
 .cardhouse5{
     position:absolute;
+    width: 15em;
+    display: flex;
     zoom: 90%;
     top: 119em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -235,9 +261,13 @@ font-weight: bold;
 }
 .cardhouse5 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .cardhouse5 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .buths5{
     background-color: rgba(173, 216, 230, 0.5);

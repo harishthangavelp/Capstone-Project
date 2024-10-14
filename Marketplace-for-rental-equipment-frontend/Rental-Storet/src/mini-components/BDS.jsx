@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios';
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../mini-components/BDS.css'
 
 import hsimg111 from '../new-images/bds1.jpg';
@@ -15,7 +15,34 @@ import hsimg555 from '../new-images/bds5.jpg';
 
 function BDS() {
 
+  const [data, setData] = useState([]); // State for storing data
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State for handling errors
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true); // Start loading
+      try {
+        const response = await axios.get('https://mocki.io/v1/c26404b2-63de-4e42-b698-3da8466e926f');
+        
+        // Filter duplicates by unique 'id' property
+        const uniqueData = response.data.filter((item, index, self) =>
+          index === self.findIndex((t) => t.id < 2 === item.id < 5)
+        );
+        
+        setData(uniqueData); // Set the data state with unique entries
+      } catch (err) {
+        setError(err.message); // Capture error message
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    };
+
+    fetchData();
+  }, []); // Runs once on mount
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
 <div className='bdsg'>  
@@ -47,43 +74,93 @@ function BDS() {
 
 
 <div className='bdscardhouse1'>
-    <h3>Description: </h3><p>Saimon Stores</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>2000</p>
-    <h3>Advance/Monthly: </h3><p>₹40000/₹15000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Saimon Stores"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='bdscardhouse2'>
-<h3>Description: </h3><p>Murugan Stores</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>5000</p>
-    <h3>Advance/Monthly: </h3><p>₹500000/₹50000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Murugan Stores"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='bdscardhouse3'>
-<h3>Description: </h3><p>Dubai Stores</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>1000</p>
-    <h3>Advance/Monthly: </h3><p>₹350000/₹10000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Dubai Stores"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='bdscardhouse4'>
-<h3>Description: </h3><p>Havelis Stores</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>1550</p>
-    <h3>Advance/Monthly: </h3><p>₹150000/₹60000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Havelis Stores"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='bdscardhouse5'>
-<h3>Description: </h3><p>Bogan Stores</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>3500</p>
-    <h3>Advance/Monthly: </h3><p>₹400000/₹40000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Bogan Stores"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <button type="button" className='bdsbackhp'><Link to = "/" className='bdsbacksubhp' >Back to Home Page</Link></button>
