@@ -9,6 +9,12 @@ import hsrentimg3 from '../new-images/msc3.jpg';
 function Rentform3() {
 
 
+
+
+
+
+
+
   const [book, setBook] = useState({
 		name: "1500 sqft SKS Shopping Centre",
 		author: "John Green",
@@ -44,7 +50,7 @@ function Rentform3() {
 
 	const handlePayment = async () => {
 		try {
-			const orderUrl = "http://localhost:8080/api/payment/orders";
+			const orderUrl = "https://capstone-project-25.onrender.com/api/payment/orders";
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
@@ -52,6 +58,16 @@ function Rentform3() {
 			console.log(error);
 		}
 	};
+
+	const createOrder = () => {
+		axios
+		  .post('https://capstone-project-25.onrender.com/api/payment/orders', {
+			amount: 2500,
+			currency: 'USD',
+		  })
+		  .then((response) => console.log(response.data))
+		  .catch((error) => console.error('Error:', error));
+	  };
 
     const [nameform,setNameform]=useState('');
     const [nameph,setNameph]=useState('');
@@ -82,7 +98,7 @@ function Rentform3() {
 <img className="rentimg1" src={hsrentimg3}  alt="" /> <br />  
 <input type="text" value={timeform} className='jourrTime' placeholder="Months to Stay" name="Months to Stay" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button type="submit" onClick={handlePayment} className='bookDoner1'>Pay</button>
+<button type="submit" onClick={(handlePayment)} onClickCapture={createOrder} className='bookDoner1'>Pay</button>
 <button type="submit" className='bookDoner2'>Submit</button>
 
 </form>
@@ -95,6 +111,9 @@ function Rentform3() {
 
  </div>
  
+
+
+
  </div>
   )
 }

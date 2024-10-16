@@ -28,7 +28,7 @@ function Rentform1() {
 			handler: async (response) => {
 				try {
 				
-					const verifyUrl = "http://localhost:8080/api/payment/verify"
+					const verifyUrl = "https://capstone-project-24.onrender.com/api/payment/verify"
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -46,7 +46,7 @@ function Rentform1() {
 	const handlePayment = async () => {
 		try {
 			// const orderUrl = "http://localhost:8080/api/payment/orders";
-			const orderUrl = "http://localhost:8080/api/payment/orders"		
+			const orderUrl = "https://capstone-project-25.onrender.com/api/payment/orders"		
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
@@ -63,17 +63,20 @@ function Rentform1() {
     const [timeform,setTimeform]=useState('');
     const [dmyform,setDmyform]=useState('');
 
-	const [data,setData] = useState('');
-	const [key,setKey] = useState('');
 	const [amount,setAmount] = useState('');
+	const [amount_due,setAmount_due] = useState('');
+	const [amount_paid,setAmount_paid] = useState('');
+	const [attempts,setAttempts] = useState('');
+	const [created_at,setCreated_at] = useState('');
 	const [currency,setCurrency] = useState('');
-	const [name,setName] = useState('');
-	const [description,setDescription] = useState('');
-	const [image,setImage] = useState('');
-	const [order_id,Setorder_id] = useState('');
-	const [orderUrl,OrderUrl] = useState('');
-	const [key_id,setKey_id] = useState('');
+	const [entity,setEntity] = useState('');
+	const [id,setId] = useState('');
+	const [notes,setNotes] = useState('');
+	const [offer_id,setOffer_id] = useState('');
+	const [receipt,setReceipt] = useState('');
+	const [status,setStatus] = useState('');
   
+	
     const handleRentForms = (e) => {
       e.preventDefault()
       axios.post('https://capstone-project-17.onrender.com/register',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
@@ -81,9 +84,10 @@ function Rentform1() {
       .catch(err => console.log(err))
     }
 
-	const handlePayForms = (e) => {
+    const handlePayForms = (e) => {
 		e.preventDefault()
-		axios.post('https://capstone-project-22.onrender.com/getpaymentdetails',{data,key,amount,description,currency,name,image,order_id,orderUrl,key_id})
+		axios.get('https://capstone-project-25.onrender.com/api/payment/orders',{amount,amount_due,amount_paid,attempts,created_at,
+			currency,entity,id,notes,offer_id,receipt,status})
 		.then(result => console.log(result))
 		.catch(err => console.log(err))
 	  }
@@ -92,7 +96,7 @@ function Rentform1() {
  <div className='rentbgbody'>
  <div className='rentbg' >
 
- <form className='rentForm' action="https://formspree.io/f/mgvwqrae" method="POST" >
+ <form className='rentForm' onSubmit={handlePayForms} action="https://formspree.io/f/mgvwqrae" method="POST" >
 
 <h1 className='rentTitle'>Booking Details</h1>
 
@@ -102,7 +106,14 @@ function Rentform1() {
 <img className="rentimg1" src={hsrentimg1}  alt="" /> <br />  
 <input type="text" value={timeform} className='jourrTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button type="submit" onClick={handlePayment} className='bookDoner1'>Pay</button>
+<button type="submit" value={(amount,amount_due,amount_paid,attempts,created_at,
+			currency,entity,id,notes,offer_id,receipt,status)} onClick={handlePayment} 
+			onChange={((e)=> setAmount(e.target.value),(e)=> setAmount_due(e.target.value),(e)=> setAmount_paid(e.target.value),
+				(e)=> setAttempts(e.target.value),(e)=> setCreated_at(e.target.value),(e)=> setCurrency(e.target.value),
+				(e)=> setEntity(e.target.value),(e)=> setId(e.target.value),(e)=> setNotes(e.target.value),
+				(e)=> setOffer_id(e.target.value),(e)=> setReceipt(e.target.value),(e)=> setStatus(e.target.value))}
+			className='bookDoner1'>Pay</button>
+			
 <button type="submit" className='bookDoner2'>Submit</button>
 
 </form>

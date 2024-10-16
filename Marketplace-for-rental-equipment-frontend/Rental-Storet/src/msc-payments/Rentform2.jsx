@@ -44,7 +44,7 @@ function Rentform2() {
 
 	const handlePayment = async () => {
 		try {
-			const orderUrl = "http://localhost:8080/api/payment/orders";
+			const orderUrl = "https://capstone-project-25.onrender.com/api/payment/orders";
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
@@ -67,6 +67,14 @@ function Rentform2() {
       .then(result => console.log(result))
       .catch(err => console.log(err))
     }
+
+	const handlePayForms = (e) => {
+		e.preventDefault()
+		axios.get('https://capstone-project-25.onrender.com/api/payment/orders',{amount,amount_due,amount_paid,attempts,created_at,
+			currency,entity,id,notes,offer_id,receipt,status})
+		.then(result => console.log(result))
+		.catch(err => console.log(err))
+	  }
 
   return (
  <div className='rentbgbody'>
@@ -91,7 +99,12 @@ function Rentform2() {
 
 {/* <audio src={skymusicform} autoplay="autoplay" loop="loop"></audio> */}
 
-<button type="button" className='rentback'><Link to = "/malls-supermarkets" className='rentbacksub' >Back</Link></button>
+<button type="button" value={(amount,amount_due,amount_paid,attempts,created_at,
+			currency,entity,id,notes,offer_id,receipt,status)} onClick={handlePayment} 
+			onChange={((e)=> setAmount(e.target.value),(e)=> setAmount_due(e.target.value),(e)=> setAmount_paid(e.target.value),
+				(e)=> setAttempts(e.target.value),(e)=> setCreated_at(e.target.value),(e)=> setCurrency(e.target.value),
+				(e)=> setEntity(e.target.value),(e)=> setId(e.target.value),(e)=> setNotes(e.target.value),
+				(e)=> setOffer_id(e.target.value),(e)=> setReceipt(e.target.value),(e)=> setStatus(e.target.value))} className='rentback'><Link to = "/malls-supermarkets" className='rentbacksub' >Back</Link></button>
 
  </div>
  

@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios';
 import Navigation from '../Navigation';
 import {Link} from 'react-router-dom'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../mini-components/WHR.css'
 
 import hsimg11 from '../new-images/whb1.jpg';
@@ -14,7 +14,34 @@ import hsimg55 from '../new-images/whb5.jpg';
 
 function WHR() {
 
+  const [data, setData] = useState([]); // State for storing data
+  const [loading, setLoading] = useState(true); // State for loading status
+  const [error, setError] = useState(null); // State for handling errors
 
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true); // Start loading
+      try {
+        const response = await axios.get('https://mocki.io/v1/b6e77c2b-0108-477b-95a5-7ef4ed5ae452');
+        
+        // Filter duplicates by unique 'id' property
+        const uniqueData = response.data.filter((item, index, self) =>
+          index === self.findIndex((t) => t.id < 2 === item.id < 5)
+        );
+        
+        setData(uniqueData); // Set the data state with unique entries
+      } catch (err) {
+        setError(err.message); // Capture error message
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    };
+
+    fetchData();
+  }, []); // Runs once on mount
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
 <div className='whbg'>  
@@ -46,43 +73,93 @@ function WHR() {
 
 
 <div className='whrcardhouse1'>
-    <h3>Description: </h3><p>Youvariz Warehouse</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>1000</p>
-    <h3>Advance/Monthly: </h3><p>₹50000/₹20000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Youvariz Warehouse"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='whrcardhouse2'>
-<h3>Description: </h3><p>Storingly Warehouse</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>800</p>
-    <h3>Advance/Monthly: </h3><p>₹55000/₹25000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Storingly Warehouse"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='whrcardhouse3'>
-<h3>Description: </h3><p>Rolex Warehouse</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>1500</p>
-    <h3>Advance/Monthly: </h3><p>₹300000/₹10000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Rolex Warehouse"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='whrcardhouse4'>
-<h3>Description: </h3><p>Cargofy Warehouse</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>1550</p>
-    <h3>Advance/Monthly: </h3><p>₹105000/₹55000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Cargofy Warehouse"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <div className='whrcardhouse5'>
-<h3>Description: </h3><p>Chipkot Warehouse</p>
-    <h3>Furnishing: </h3><p>Furnished</p>
-    <h3>Parking: </h3><p>Bike/Car</p>
-    <h3>Sqft: </h3><p>25000</p>
-    <h3>Advance/Monthly: </h3><p>₹500000/₹50000</p>
+{data.length > 0 ? (
+          data.map((item) => (
+            <div key={item.id}>
+              <h3>Description</h3>
+              <p>{item.Description = "Chipkot Warehouse"}</p>
+              <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
+              <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
+              <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              
+            </div>
+          ))
+        ) : (
+          <p>No data available.</p>
+        )}
 </div>
 
 <button type="button" className='whrbackhp'><Link to = "/" className='whrbacksubhp' >Back to Home Page</Link></button>

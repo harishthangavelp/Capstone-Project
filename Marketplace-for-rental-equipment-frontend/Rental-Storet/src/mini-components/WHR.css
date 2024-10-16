@@ -49,6 +49,8 @@ font-weight: bold;
 }
 .whrcardhouse1{
     position:absolute;
+    display: flex;
+    width: 15em;
     zoom: 90%;
     top: 7em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -60,9 +62,13 @@ font-weight: bold;
 }
 .whrcardhouse1 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .whrcardhouse1 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .whrcardhouse1:hover{
     transform: translateX(-30px);
@@ -84,6 +90,8 @@ font-weight: bold;
 }
 .whrcardhouse2{
     position:absolute;
+    display: flex;
+    width: 15em;
     zoom: 90%;
     top: 35em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -98,9 +106,13 @@ font-weight: bold;
 }
 .whrcardhouse2 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .whrcardhouse2 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .whrbuths2{
     background-color: rgba(173, 216, 230, 0.5);
@@ -129,6 +141,8 @@ font-weight: bold;
 }
 .whrcardhouse3{
     position:absolute;
+    display: flex;
+    width: 15em;
     zoom: 90%;
     top: 63em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -143,9 +157,13 @@ font-weight: bold;
 }
 .whrcardhouse3 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .whrcardhouse3 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .whrbuths3{
     background-color: rgba(173, 216, 230, 0.5);
@@ -174,6 +192,8 @@ font-weight: bold;
 }
 .whrcardhouse4{
     position:absolute;
+    display: flex;
+    width: 15em;
     zoom: 90%;
     top: 91em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -188,9 +208,13 @@ font-weight: bold;
 }
 .whrcardhouse4 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .whrcardhouse4 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .whrbuths4{
     background-color: rgba(173, 216, 230, 0.5);
@@ -219,6 +243,8 @@ font-weight: bold;
 }
 .whrcardhouse5{
     position:absolute;
+    display: flex;
+    width: 15em;
     zoom: 90%;
     top: 119em;
     background-image: linear-gradient(180deg, yellow, orange);
@@ -233,9 +259,13 @@ font-weight: bold;
 }
 .whrcardhouse5 h3{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: relative;
+    left: 0.4em;
 }
 .whrcardhouse5 p{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    left: 0.7em;
 }
 .whrbuths5{
     background-color: rgba(173, 216, 230, 0.5);
