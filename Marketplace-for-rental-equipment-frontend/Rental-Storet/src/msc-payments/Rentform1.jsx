@@ -28,7 +28,7 @@ function Rentform1() {
 			handler: async (response) => {
 				try {
 				
-					const verifyUrl = "https://capstone-project-27.onrender.com/api/payment/verify"
+					const verifyUrl = "http://localhost:8080/api/payment/verify"
 					const { data } = await axios.post(verifyUrl, response);
 					console.log(data);
 				} catch (error) {
@@ -46,7 +46,7 @@ function Rentform1() {
 	const handlePayment = async () => {
 		try {
 			// const orderUrl = "http://localhost:8080/api/payment/orders";
-			const orderUrl = "https://capstone-project-27.onrender.com/api/payment/orders"		
+			const orderUrl = "http://localhost:8080/api/payment/orders"		
 			const { data } = await axios.post(orderUrl, { amount: book.price });
 			console.log(data);
 			initPayment(data.data);
@@ -86,7 +86,7 @@ function Rentform1() {
 
     const handlePayForms = (e) => {
 		e.preventDefault()
-		axios.get('https://capstone-project-27.onrender.com/api/payment/orders',{amount,amount_due,amount_paid,attempts,created_at,
+		axios.get('https://capstone-project-27.onrender.com/getpaid',{amount,amount_due,amount_paid,attempts,created_at,
 			currency,entity,id,notes,offer_id,receipt,status})
 		.then(result => console.log(result))
 		.catch(err => console.log(err))
@@ -96,7 +96,7 @@ function Rentform1() {
  <div className='rentbgbody'>
  <div className='rentbg' >
 
- <form className='rentForm' onSubmit={handlePayForms} action="https://formspree.io/f/mgvwqrae" method="POST" >
+ <form className='rentForm'  action="https://formspree.io/f/mgvwqrae" method="POST" >
 
 <h1 className='rentTitle'>Booking Details</h1>
 
@@ -107,14 +107,14 @@ function Rentform1() {
 <input type="text" value={timeform} className='jourrTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
 <button type="submit" value={(amount,amount_due,amount_paid,attempts,created_at,
-			currency,entity,id,notes,offer_id,receipt,status)} onClick={(handlePayment)} 
+			currency,entity,id,notes,offer_id,receipt,status)} onClick={(handlePayment)} onSubmit={handlePayForms}
 			onChange={((e)=> setAmount(e.target.value),(e)=> setAmount_due(e.target.value),(e)=> setAmount_paid(e.target.value),
 				(e)=> setAttempts(e.target.value),(e)=> setCreated_at(e.target.value),(e)=> setCurrency(e.target.value),
 				(e)=> setEntity(e.target.value),(e)=> setId(e.target.value),(e)=> setNotes(e.target.value),
 				(e)=> setOffer_id(e.target.value),(e)=> setReceipt(e.target.value),(e)=> setStatus(e.target.value))}
 			className='bookDoner1'>Pay</button>
 			
-<button type="submit" onClick={handlePayForms} className='bookDoner2'>Submit</button>
+<button type="submit"  className='bookDoner2'>Submit</button>
 
 </form>
 <br />
