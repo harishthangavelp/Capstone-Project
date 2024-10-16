@@ -1,88 +1,37 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-const dotenv = require('dotenv')
-const paiduserModel = require('../models/paid-user')
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const dotenv = require('dotenv');
+const paiduserModel = require('../models/paid-user');
 
-const app = express()
+const app = express();
 dotenv.config();
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173" }));
 
+// Connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected'))
+    .catch(err => console.error('MongoDB connection error:', err));
 
-mongoose.connect("mongodb+srv://harishthangavelp:LXxXUkf2D5j68IfH@hamongvel.6riq9qs.mongodb.net/paid-user");
-
-app.post('/api/payment/orders',(req,res) => {
+// Create order
+app.post('/api/payment/orders', (req, res) => {
     paiduserModel.create(req.body)
-    .then(accessdata => req.json(accessdata))
-    .catch(err => res.json(err))
-    })
-
-app.get("/getpaid", async (req, res) => {
-    const paiduserData = await paiduserModel.find();
-    res.json(paiduserData);
+        .then(accessdata => res.json(accessdata))
+        .catch(err => res.status(400).json(err)); // 400 for bad requests
 });
 
+// Get paid users
+app.get("/getpaid", async (req, res) => {
+    try {
+        const paiduserData = await paiduserModel.find();
+        res.json(paiduserData);
+    } catch (err) {
+        res.status(500).json({ error: 'Error retrieving data' });
+    }
+});
 
-
-app.listen(3001,() => {
-    console.log('server in live')
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// app.post('/login',(req,res) => {
-//     const {email,password} = req.body;
-//     userModel.findOne({email: email})
-//     .then(user => {
-//         if(user){
-//             if(user.password === password){
-//                 res.json('Success')
-//             }
-//             else{
-//                 res.json('Invalid Credentials')
-//             }
-//         }
-//             else{
-//                 res.json('No record found')
-//             }
-        
-//     })
-// })
+// Start server
+app.listen(3001, () => {
+    console.log('Server is live on port 3001');
+});
