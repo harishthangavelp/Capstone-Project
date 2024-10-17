@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
-const connectDB = require('../db'); // Make sure this path is correct
+const connectDB = require('../db/db'); // Make sure this path is correct
 const Stripe = require('stripe');
 require('dotenv').config();
 
