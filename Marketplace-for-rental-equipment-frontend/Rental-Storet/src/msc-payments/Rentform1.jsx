@@ -86,7 +86,7 @@ function Rentform1() {
 
     const handlePayForms = (e) => {
 		e.preventDefault()
-		axios.get('https://capstone-project-27.onrender.com/getpaid',{amount,amount_due,amount_paid,attempts,created_at,
+		axios.get('https://capstone-project-27.onrender.com/payment-details/:paymentId',{amount,amount_due,amount_paid,attempts,created_at,
 			currency,entity,id,notes,offer_id,receipt,status})
 		.then(result => console.log(result))
 		.catch(err => console.log(err))
