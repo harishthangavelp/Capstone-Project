@@ -60,12 +60,37 @@ app.post('/create-payment', async (req, res) => {
 });
 
 // Get a payment by ID
+// app.get('/payment/:id', async (req, res) => {
+//     const paymentId = req.params.id; // Get the payment ID from the URL parameters
+
+//     try {
+//         // Find the payment in MongoDB by ID
+//         const payment = await Payment.findById(paymentId);
+        
+//         // Check if the payment exists
+//         if (!payment) {
+//             return res.status(404).json({ error: 'Payment not found' });
+//         }
+
+//         // Return the payment details
+//         res.json({ success: true, payment });
+//     } catch (error) {
+//         console.error('Error fetching payment:', error);
+//         res.status(500).json({ error: error.message }); // Return the error message
+//     }
+// });
+
 app.get('/payment/:id', async (req, res) => {
-    const paymentId = req.params.id; // Get the payment ID from the URL parameters
+    const { amount, currency, source, customerEmail } = req.body; // Get the payment ID from the URL parameters
 
     try {
         // Find the payment in MongoDB by ID
-        const payment = await Payment.findById(paymentId);
+        const payment = await Payment.findById({
+            amount,
+            currency,
+            source, 
+            customerEmail,
+});
         
         // Check if the payment exists
         if (!payment) {

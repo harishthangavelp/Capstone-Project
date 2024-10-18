@@ -10,6 +10,10 @@ const paymentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    source: {
+        type: String,
+        required: true,
+    },
     stripeChargeId: {
         type: String,
         required: true,
