@@ -98,7 +98,7 @@ app.get('/payment/:id', async (req, res) => {
         }
 
         // Return the payment details
-        res.json({ success: true, payment });
+        res.json({ amount, currency, source, customerEmail, success: true, payment });
     } catch (error) {
         console.error('Error fetching payment:', error);
         res.status(500).json({ error: error.message }); // Return the error message
