@@ -1,6 +1,7 @@
 // PaymentForm.js
 import React, { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from 'axios';
 
 const PaymentForm = () => {
   const stripe = useStripe();
@@ -10,6 +11,9 @@ const PaymentForm = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [source,setSource] = useState('');
+  const [customerEmail,setCustomerEmail] = useState('');
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,7 +46,7 @@ const PaymentForm = () => {
           amount,
           currency,
           source: token.id, // Send the token as source
-          customerEmail: 'customer@example.com', // Example email
+          customerEmail, // Example email
         }),
       });
 
@@ -76,7 +80,12 @@ const PaymentForm = () => {
 
 
 
-
+  const paydata = (e) => {
+    e.preventDefault()
+    axios.get('https://capstone-project-26.onrender.com/payment/:id',{amount, currency, source, customerEmail})
+    .then(result => console.log(result))
+    .catch(err => console.log(err))
+  }
 
 
 
@@ -104,11 +113,18 @@ const PaymentForm = () => {
         <option value="usd">USD</option>
         <option value="eur">EUR</option>
       </select>
-      <button type="submit" disabled={!stripe || loading}>
+      <input
+        type="email"
+        value={customerEmail}
+        onChange={(e) => setCustomerEmail(e.target.value)}
+        placeholder="customer mail"
+      />
+      <button type="submit"  disabled={!stripe || loading}>
         {loading ? 'Processing...' : 'Pay'}
       </button>
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
       {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
+      <button onClick={paydata}>Update</button>
     </form>
 </>
 

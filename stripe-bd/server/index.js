@@ -85,7 +85,7 @@ app.get('/payment/:id', async (req, res) => {
 
     try {
         // Find the payment in MongoDB by ID
-        const payment = await Payment.findById({
+        const payment = await Payment.find({
             amount,
             currency,
             source, 
