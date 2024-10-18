@@ -46,9 +46,13 @@ const PaymentForm = () => {
         }),
       });
 
+
+
+
       const data = await response.json();
 
       if (data.success) {
+
         setSuccessMessage('Payment succeeded! Thank you for your purchase.');
       } else {
         setErrorMessage(`Payment failed: ${data.error}`);
@@ -60,9 +64,36 @@ const PaymentForm = () => {
     }
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   return (
+    <>
     <form onSubmit={handleSubmit}>
+    <h1>Payment Information</h1>
       <CardElement />
+      
       <input
         type="number"
         value={amount}
@@ -79,6 +110,24 @@ const PaymentForm = () => {
       {errorMessage && <div style={{ color: 'red' }}>{errorMessage}</div>}
       {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
     </form>
+</>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   );
 };
 
