@@ -1,43 +1,34 @@
 // server.js
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const connectDB = require('../db/db'); // Make sure this path is correct
+const cors = require('cors');
 const Stripe = require('stripe');
-require('dotenv').config();
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware
+app.use(cors());
 app.use(bodyParser.json());
 
 // Initialize Stripe
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Your Stripe secret key
 
 // Connect to MongoDB
-connectDB(); // Call the connectDB function to connect to MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('MongoDB connection error:', err));
 
-// Define a sample schema and model
-const paymentSchema = new mongoose.Schema({
-    amount: {
-        type: Number,
-        required: true,
-    },
-    currency: {
-        type: String,
-        required: true,
-    },
-    stripeChargeId: {
-        type: String,
-        required: true,
-    },
-});
-const Payment = mongoose.model('collect-data', paymentSchema); // Use a clear model name
+// Import Mongoose model
+const Payment = require('../payment/payment');
 
 // Create a payment endpoint
 app.post('/create-payment', async (req, res) => {
-    const { amount, currency, source } = req.body; // Extract source from the request body
+    const { amount, currency, source, customerEmail } = req.body; // Extract fields from the request body
 
     try {
         // Create a charge with Stripe
@@ -45,6 +36,7 @@ app.post('/create-payment', async (req, res) => {
             amount,
             currency,
             source, // This is the token returned by Stripe.js
+            receipt_email: customerEmail, // Optional: send a receipt to the customer
         });
 
         // Save payment to MongoDB
@@ -52,12 +44,14 @@ app.post('/create-payment', async (req, res) => {
             amount: charge.amount,
             currency: charge.currency,
             stripeChargeId: charge.id,
+            customerEmail, // Store customer email for reference
         });
+
         await payment.save();
 
         res.json({ success: true, charge });
     } catch (error) {
-        console.error(error);
+        console.error('Payment error:', error);
         res.status(500).json({ error: 'Payment failed' });
     }
 });
