@@ -14,6 +14,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.use(cors({ origin: "http://localhost:5173" }));
 
 // Initialize Stripe
 const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Your Stripe secret key
