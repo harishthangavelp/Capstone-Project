@@ -64,6 +64,8 @@ app.post('/create-payment', async (req, res) => {
         return res.status(400).json({ error: 'Missing required payment fields' });
     }
 
+    
+
     try {
         // Create a charge with Stripe
         const charge = await stripe.charges.create({
@@ -81,6 +83,8 @@ app.post('/create-payment', async (req, res) => {
             customerEmail,
         });
 
+
+        
         await payment.save();
 
         res.json({ success: true, charge });
@@ -127,7 +131,12 @@ app.get('/payment/:id', async (req, res) => {
 
     try {
         // Find the payment in MongoDB by its ObjectId
-        const payment = await Payment.findById(id);
+        const payment = await stripe.payment.retrieve(paymentId);
+        const isValidId = (id) => id.startsWith('pi_') || id.startsWith('ch_'); // Adjust based on the expected ID format
+    
+        if (!isValidId(paymentId)) {
+            return res.status(400).json({ error: 'Invalid payment ID format' });
+        }
 
         // Check if the payment exists
         if (!payment) {
