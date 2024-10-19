@@ -85,7 +85,7 @@ app.get('/payment/:id', async (req, res) => {
 
     try {
         // Find the payment in MongoDB by ID
-        const payment = await stripe.Payment.find({
+        const payment = await Payment.find({
             amount,
             currency,
             source, 
@@ -98,7 +98,7 @@ app.get('/payment/:id', async (req, res) => {
         }
 
         // Return the payment details
-        res.json({ amount, currency, source, customerEmail, success: true, payment });
+        res.json({ amount: amount, currency, source, customerEmail, success: true, payment });
     } catch (error) {
         console.error('Error fetching payment:', error);
         res.status(500).json({ error: error.message }); // Return the error message
