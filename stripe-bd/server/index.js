@@ -27,16 +27,50 @@ mongoose.connect(process.env.MONGODB_URI)
 const Payment = require('../payment/payment');
 
 // Create a payment endpoint
+// app.post('/create-payment', async (req, res) => {
+//     const { amount, currency, source, customerEmail } = req.body; // Extract fields from the request body
+
+//     try {
+//         // Create a charge with Stripe
+//         const charge = await stripe.charges.create({
+//             amount,
+//             currency,
+//             source, // This is the token returned by Stripe.js
+//             receipt_email: customerEmail, // Optional: send a receipt to the customer
+//         });
+
+//         // Save payment to MongoDB
+//         const payment = new Payment({
+//             amount: charge.amount,
+//             currency: charge.currency,
+//             stripeChargeId: charge.id,
+//             customerEmail, // Store customer email for reference
+//         });
+
+//         await payment.save();
+
+//         res.json({ success: true, charge });
+//     } catch (error) {
+//         console.error('Payment error:', error);
+//         res.status(500).json({ error: 'Payment failed' });
+//     }
+// });
+
 app.post('/create-payment', async (req, res) => {
-    const { amount, currency, source, customerEmail } = req.body; // Extract fields from the request body
+    const { amount, currency, source, customerEmail } = req.body;
+
+    // Input validation
+    if (!amount || !currency || !source || !customerEmail) {
+        return res.status(400).json({ error: 'Missing required payment fields' });
+    }
 
     try {
         // Create a charge with Stripe
         const charge = await stripe.charges.create({
-            amount,
+            amount: amount , // Convert to cents
             currency,
-            source, // This is the token returned by Stripe.js
-            receipt_email: customerEmail, // Optional: send a receipt to the customer
+            source, // Use the source from req.body
+            receipt_email: customerEmail,
         });
 
         // Save payment to MongoDB
@@ -44,7 +78,7 @@ app.post('/create-payment', async (req, res) => {
             amount: charge.amount,
             currency: charge.currency,
             stripeChargeId: charge.id,
-            customerEmail, // Store customer email for reference
+            customerEmail,
         });
 
         await payment.save();
@@ -56,30 +90,53 @@ app.post('/create-payment', async (req, res) => {
     }
 });
 
+
+
+// app.get('/payment/:id', async (req, res) => {
+//     const { amount, currency, source, customerEmail } = req.body; // Get the payment ID from the URL parameters
+
+//     try {
+//         // Find the payment in MongoDB by ID
+//         const payment = await Payment.find({
+//             amount,
+//             currency,
+//             source, 
+//             customerEmail,
+// });
+        
+//         // Check if the payment exists
+//         if (!payment) {
+//             return res.status(404).json({ error: 'Payment not found' });
+//         }
+
+//         // Return the payment details
+//         res.json({ amount: amount, currency, source, customerEmail, success: true, payment });
+//     } catch (error) {
+//         console.error('Error fetching payment:', error);
+//         res.status(500).json({ error: error.message }); // Return the error message
+//     }
+// });
+
 app.get('/payment/:id', async (req, res) => {
-    const { amount, currency, source, customerEmail } = req.body; // Get the payment ID from the URL parameters
+    const { id } = req.params; // Extract payment ID from URL parameters
 
     try {
         // Find the payment in MongoDB by ID
-        const payment = await Payment.find({
-            amount,
-            currency,
-            source, 
-            customerEmail,
-});
-        
+        const payment = await Payment.findById(id);
+
         // Check if the payment exists
         if (!payment) {
             return res.status(404).json({ error: 'Payment not found' });
         }
 
         // Return the payment details
-        res.json({ amount: amount, currency, source, customerEmail, success: true, payment });
+        res.json({ success: true, payment });
     } catch (error) {
         console.error('Error fetching payment:', error);
-        res.status(500).json({ error: error.message }); // Return the error message
+        res.status(500).json({ error: error.message });
     }
 });
+
 
 // Start the server
 app.listen(port, () => {
