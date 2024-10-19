@@ -31,31 +31,28 @@ const Payment = require('../payment/payment'); // Ensure this path is correct
 
 // Create a payment endpoint
 app.post('/create-payment', async (req, res) => {
-    const { amount, currency, source, customerEmail } = req.body; // Extract fields from the request body
+    const { amount, currency, source, customerEmail } = req.body;
+
+    // Check if `source` is provided in the request
+    if (!source) {
+        return res.status(400).json({ error: 'Payment source is required' });
+    }
 
     try {
-        // Create a charge with Stripe
-        const charge = await stripe.charges.create({
+        // Create a new payment document
+        const payment = new Payment({
             amount,
             currency,
-            source, // This is the token returned by Stripe.js
-            receipt_email: customerEmail, // Optional: send a receipt to the customer
+            source,  // Ensure this is passed from the request
+            customerEmail,
         });
 
-        // Save payment to MongoDB
-        const payment = new Payment({
-            amount: charge.amount,
-            currency: charge.currency,
-            stripeChargeId: charge.id,
-            customerEmail, // Store customer email for reference
-        });
-
+        // Save the payment to the database
         await payment.save();
-
-        res.json({ success: true, charge });
+        res.status(201).json({ success: true, payment });
     } catch (error) {
-        console.error('Payment error:', error);
-        res.status(500).json({ error: error.message }); // Return the error message
+        console.error('Error creating payment:', error);
+        res.status(500).json({ error: error.message });
     }
 });
 
