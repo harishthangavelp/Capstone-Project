@@ -31,63 +31,41 @@ const Payment = require('../payment/payment'); // Ensure this path is correct
 
 // Create a payment endpoint
 app.post('/create-payment', async (req, res) => {
-    const { amount, currency, source, customerEmail } = req.body;
-
-    // Check if `source` is provided in the request
-    if (!source) {
-        return res.status(400).json({ error: 'Payment source is required' });
-    }
+    const { amount, currency, source, customerEmail } = req.body; // Extract fields from the request body
 
     try {
-        // Create a new payment document
-        const payment = new Payment({
+        // Create a charge with Stripe
+        const charge = await stripe.charges.create({
             amount,
             currency,
-            source,  // Ensure this is passed from the request
-            customerEmail,
+            source, // This is the token returned by Stripe.js
+            receipt_email: customerEmail, // Optional: send a receipt to the customer
         });
 
-        // Save the payment to the database
+        // Save payment to MongoDB
+        const payment = new Payment({
+            amount: charge.amount,
+            currency: charge.currency,
+            stripeChargeId: charge.id,
+            customerEmail, // Store customer email for reference
+        });
+
         await payment.save();
-        res.status(201).json({ success: true, payment });
+
+        res.json({ success: true, charge });
     } catch (error) {
-        console.error('Error creating payment:', error);
-        res.status(500).json({ error: error.message });
+        console.error('Payment error:', error);
+        res.status(500).json({ error: error.message }); // Return the error message
     }
 });
 
 // Get a payment by ID
-// app.get('/payment/:id', async (req, res) => {
-//     const paymentId = req.params.id; // Get the payment ID from the URL parameters
-
-//     try {
-//         // Find the payment in MongoDB by ID
-//         const payment = await Payment.findById(paymentId);
-        
-//         // Check if the payment exists
-//         if (!payment) {
-//             return res.status(404).json({ error: 'Payment not found' });
-//         }
-
-//         // Return the payment details
-//         res.json({ success: true, payment });
-//     } catch (error) {
-//         console.error('Error fetching payment:', error);
-//         res.status(500).json({ error: error.message }); // Return the error message
-//     }
-// });
-
 app.get('/payment/:id', async (req, res) => {
-    const { amount, currency, source, customerEmail } = req.body; // Get the payment ID from the URL parameters
+    const paymentId = req.params.id; // Get the payment ID from the URL parameters
 
     try {
         // Find the payment in MongoDB by ID
-        const payment = await Payment.find({
-            amount,
-            currency,
-            source, 
-            customerEmail,
-});
+        const payment = await Payment.findById(paymentId);
         
         // Check if the payment exists
         if (!payment) {
@@ -95,12 +73,37 @@ app.get('/payment/:id', async (req, res) => {
         }
 
         // Return the payment details
-        res.json({ amount: amount, currency, source, customerEmail, success: true, payment });
+        res.json({ success: true, payment });
     } catch (error) {
         console.error('Error fetching payment:', error);
         res.status(500).json({ error: error.message }); // Return the error message
     }
 });
+
+// app.get('/payment/:id', async (req, res) => {
+//     const { amount, currency, source, customerEmail } = req.body; // Get the payment ID from the URL parameters
+
+//     try {
+//         // Find the payment in MongoDB by ID
+//         const payment = await Payment.find({
+//             amount,
+//             currency,
+//             source, 
+//             customerEmail,
+// });
+        
+//         // Check if the payment exists
+//         if (!payment) {
+//             return res.status(404).json({ error: 'Payment not found' });
+//         }
+
+//         // Return the payment details
+//         res.json({ amount: amount, currency, source, customerEmail, success: true, payment });
+//     } catch (error) {
+//         console.error('Error fetching payment:', error);
+//         res.status(500).json({ error: error.message }); // Return the error message
+//     }
+// });
 
 // Start the server
 app.listen(port, () => {
