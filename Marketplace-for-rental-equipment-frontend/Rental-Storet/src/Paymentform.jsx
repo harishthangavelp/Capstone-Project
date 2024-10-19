@@ -85,7 +85,9 @@ const PaymentForm = () => {
     axios.get('https://capstone-project-26.onrender.com/payment/:id',{amount, currency, source, customerEmail})
     .then(result => console.log(result))
     .catch(err => console.log(err))
-  }
+    }
+  };
+  
 
 
 
@@ -145,6 +147,6 @@ const PaymentForm = () => {
 
 
   );
-};
+;
 
 export default PaymentForm;
