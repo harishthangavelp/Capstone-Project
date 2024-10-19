@@ -56,7 +56,7 @@ app.post('/create-payment', async (req, res) => {
     }
 });
 
-pp.get('/payment/:id', async (req, res) => {
+app.get('/payment/:id', async (req, res) => {
     const { amount, currency, source, customerEmail } = req.body; // Get the payment ID from the URL parameters
 
     try {
