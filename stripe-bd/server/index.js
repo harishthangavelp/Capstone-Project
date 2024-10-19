@@ -32,9 +32,7 @@ const Payment = require('../payment/payment'); // Ensure this path is correct
 // Create a payment endpoint
 app.post('/create-payment', async (req, res) => {
     const { amount, currency, source, customerEmail } = req.body; // Extract fields from the request body
-    if (!source) {
-        return res.status(400).json({ error: 'Source field is required' });
-    }
+
     try {
         // Create a charge with Stripe
         const charge = await stripe.charges.create({
