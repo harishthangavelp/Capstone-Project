@@ -11,7 +11,7 @@ const PaymentForm = () => {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [source,setSource] = useState('');
+  const [source,setSource] = useState('tok_visa');
   const [customerEmail,setCustomerEmail] = useState('');
   
 
@@ -85,9 +85,7 @@ const PaymentForm = () => {
     axios.get('https://capstone-project-26.onrender.com/payment/:id',{amount, currency, source, customerEmail})
     .then(result => console.log(result))
     .catch(err => console.log(err))
-    }
-  };
-  
+  }
 
 
 
@@ -115,6 +113,7 @@ const PaymentForm = () => {
         <option value="usd">USD</option>
         <option value="eur">EUR</option>
       </select>
+      
       <input
         type="email"
         value={customerEmail}
@@ -147,6 +146,6 @@ const PaymentForm = () => {
 
 
   );
-;
+};
 
 export default PaymentForm;
