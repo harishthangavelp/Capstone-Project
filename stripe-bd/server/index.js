@@ -118,10 +118,15 @@ app.post('/create-payment', async (req, res) => {
 // });
 
 app.get('/payment/:id', async (req, res) => {
-    const { id } = req.params; // Extract payment ID from URL parameters
+    const { id } = req.params; // Extract the id from the URL parameters
+
+    // Check if the id is a valid ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ error: 'Invalid payment ID format' });
+    }
 
     try {
-        // Find the payment in MongoDB by ID
+        // Find the payment in MongoDB by its ObjectId
         const payment = await Payment.findById(id);
 
         // Check if the payment exists
@@ -136,6 +141,27 @@ app.get('/payment/:id', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+
+// app.get('/payment/:id', async (req, res) => {
+//     const { id } = req.params; // Extract payment ID from URL parameters
+
+//     try {
+//         // Find the payment in MongoDB by ID
+//         const payment = await Payment.findById(id);
+
+//         // Check if the payment exists
+//         if (!payment) {
+//             return res.status(404).json({ error: 'Payment not found' });
+//         }
+
+//         // Return the payment details
+//         res.json({ success: true, payment });
+//     } catch (error) {
+//         console.error('Error fetching payment:', error);
+//         res.status(500).json({ error: error.message });
+//     }
+// });
 
 
 // Start the server
