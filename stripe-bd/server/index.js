@@ -56,44 +56,25 @@ const Payment = require('../payment/payment');
 //     }
 // });
 
-app.post('/create-payment', async (req, res) => {
-    const { amount, currency, source, customerEmail } = req.body;
-
-    // Input validation
-    if (!amount || !currency || !source || !customerEmail) {
-        return res.status(400).json({ error: 'Missing required payment fields' });
-    }
-
-    
-
+// Ensure this route exists in your backend (Express)
+app.post('/api/create-payment-intent', async (req, res) => {
     try {
-        // Create a charge with Stripe
-        const charge = await stripe.charges.create({
-            amount: amount , // Convert to cents
-            currency,
-            source, // Use the source from req.body
-            receipt_email: customerEmail,
-        });
-
-        // Save payment to MongoDB
-        const payment = new Payment({
-            amount: charge.amount,
-            currency: charge.currency,
-            stripeChargeId: charge.id,
-            customerEmail,
-        });
-
-
-        
-        await payment.save();
-
-        res.json({ success: true, charge });
+      // PaymentIntent creation logic
+      const { email } = req.body;
+      const paymentIntent = await stripe.paymentIntents.create({
+        amount: 1000, // Example amount in cents ($10)
+        currency: 'usd',
+        receipt_email: email,
+      });
+  
+      // Send the clientSecret to the frontend
+      res.json({ clientSecret: paymentIntent.client_secret });
     } catch (error) {
-        console.error('Payment error:', error);
-        res.status(500).json({ error: 'Payment failed' });
+      console.error('Error creating payment intent:', error);
+      res.status(500).send('Internal Server Error');
     }
-});
-
+  });
+  
 
 
 // app.get('/payment/:id', async (req, res) => {
@@ -121,35 +102,27 @@ app.post('/create-payment', async (req, res) => {
 //     }
 // });
 
-app.get('/payment/:id', async (req, res) => {
-    const { id } = req.params; // Extract the id from the URL parameters
-
-    // Check if the id is a valid ObjectId
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({ error: 'Invalid payment ID format' });
-    }
-
+app.get('/api/payment-intent/:id', async (req, res) => {
+    const { id } = req.params;
+  
     try {
-        // Find the payment in MongoDB by its ObjectId
-        const payment = await stripe.payment.retrieve(paymentId);
-        const isValidId = (id) => id.startsWith('pi_') || id.startsWith('ch_'); // Adjust based on the expected ID format
-    
-        if (!isValidId(paymentId)) {
-            return res.status(400).json({ error: 'Invalid payment ID format' });
-        }
-
-        // Check if the payment exists
-        if (!payment) {
-            return res.status(404).json({ error: 'Payment not found' });
-        }
-
-        // Return the payment details
-        res.json({ success: true, payment });
+      // Retrieve PaymentIntent by its ID
+      const paymentIntent = await stripe.paymentIntents.retrieve(id);
+  
+      // Send the payment intent data to the frontend
+      res.json({ paymentIntent });
     } catch (error) {
-        console.error('Error fetching payment:', error);
-        res.status(500).json({ error: error.message });
+      console.error('Error retrieving payment intent:', error);
+      res.status(500).send('Internal Server Error');
     }
-});
+  });
+  
+  // Start the server
+  app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+  });
+
+
 
 
 // app.get('/payment/:id', async (req, res) => {
@@ -174,9 +147,7 @@ app.get('/payment/:id', async (req, res) => {
 
 
 // Start the server
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
+
 
 
 
