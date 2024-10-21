@@ -11,6 +11,8 @@ const PaymentForm = () => {
   const [successMessage, setSuccessMessage] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
   const [paymentIntentId, setPaymentIntentId] = useState(null); // To store paymentIntentId
+  const [fetchLoading, setFetchLoading] = useState(false); // Loading state for fetching data
+  const [paymentIntentData, setPaymentIntentData] = useState(null); // State to store payment intent details
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -62,12 +64,24 @@ const PaymentForm = () => {
       return;
     }
 
+    setFetchLoading(true); // Set loading state to true
+
     try {
       const response = await fetch(`http://localhost:3000/api/payment-intent/${paymentIntentId}`);
       const data = await response.json();
-      console.log('Payment Intent:', data.paymentIntent);
+
+      // Check if paymentIntent exists in the response
+      if (data.paymentIntent) {
+        setPaymentIntentData(data.paymentIntent); // Save the fetched payment intent data
+        console.log('Payment Intent:', data.paymentIntent);
+      } else {
+        setErrorMessage('No payment intent found');
+      }
     } catch (error) {
       console.error('Error fetching payment intent:', error);
+      setErrorMessage('Failed to fetch payment intent');
+    } finally {
+      setFetchLoading(false); // Reset loading state
     }
   };
 
@@ -100,10 +114,23 @@ const PaymentForm = () => {
         {successMessage && <div style={{ color: 'green' }}>{successMessage}</div>}
       </form>
 
-      {/* The "Update" button will fetch the payment intent details if payment is successful */}
-      <button onClick={paydata} >
-        Fetch Payment Info
+      {/* The "Fetch Payment Info" button */}
+      <button onClick={paydata} disabled={fetchLoading || !paymentIntentId}>
+        {fetchLoading ? 'Fetching...' : 'Fetch Payment Info'}
       </button>
+
+      {/* Display fetched payment intent details if available */}
+      {paymentIntentData && (
+        <div>
+          <h2>Payment Intent Details:</h2>
+          <p>ID: {paymentIntentData.id}</p>
+          <p>Status: {paymentIntentData.status}</p>
+          <p>Amount: {paymentIntentData.amount}</p>
+          <p>Currency: {paymentIntentData.currency}</p>
+          <p>Receipt Email: {paymentIntentData.receipt_email}</p>
+          <p>Created At: {new Date(paymentIntentData.created * 1000).toLocaleString()}</p>
+        </div>
+      )}
     </>
   );
 };

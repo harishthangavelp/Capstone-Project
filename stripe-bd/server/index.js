@@ -66,7 +66,7 @@ app.post('/api/create-payment-intent', async (req, res) => {
         currency: 'usd',
         receipt_email: email,
       });
-  
+ 
       // Send the clientSecret to the frontend
       res.json({ clientSecret: paymentIntent.client_secret });
     } catch (error) {
@@ -74,7 +74,7 @@ app.post('/api/create-payment-intent', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
-  
+ 
 
 
 // app.get('/payment/:id', async (req, res) => {
@@ -85,10 +85,10 @@ app.post('/api/create-payment-intent', async (req, res) => {
 //         const payment = await Payment.find({
 //             amount,
 //             currency,
-//             source, 
+//             source,
 //             customerEmail,
 // });
-        
+       
 //         // Check if the payment exists
 //         if (!payment) {
 //             return res.status(404).json({ error: 'Payment not found' });
@@ -104,11 +104,11 @@ app.post('/api/create-payment-intent', async (req, res) => {
 
 app.get('/api/payment-intent/:id', async (req, res) => {
     const { id } = req.params;
-  
+ 
     try {
       // Retrieve PaymentIntent by its ID
       const paymentIntent = await stripe.paymentIntents.retrieve(id);
-  
+ 
       // Send the payment intent data to the frontend
       res.json({ paymentIntent });
     } catch (error) {
@@ -116,7 +116,7 @@ app.get('/api/payment-intent/:id', async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   });
-  
+ 
   // Start the server
   app.listen(3000, () => {
     console.log('Server is running on port 3000');
@@ -144,12 +144,3 @@ app.get('/api/payment-intent/:id', async (req, res) => {
 //         res.status(500).json({ error: error.message });
 //     }
 // });
-
-
-// Start the server
-
-
-
-
-
-
