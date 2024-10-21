@@ -67,7 +67,7 @@ const PaymentForm = () => {
     setFetchLoading(true); // Set loading state to true
 
     try {
-      const response = await fetch(`http://localhost:3000/api/payment-intent/${paymentIntentId}`);
+      const response = await fetch(`https://capstone-project-26.onrender.com/api/payment-intent/:id/${paymentIntentId}`);
       const data = await response.json();
 
       // Check if paymentIntent exists in the response
@@ -115,7 +115,7 @@ const PaymentForm = () => {
       </form>
 
       {/* The "Fetch Payment Info" button */}
-      <button onClick={paydata} disabled={fetchLoading || !paymentIntentId}>
+      <button onClick={paydata} >
         {fetchLoading ? 'Fetching...' : 'Fetch Payment Info'}
       </button>
 

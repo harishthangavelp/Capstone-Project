@@ -102,20 +102,28 @@ app.post('/api/create-payment-intent', async (req, res) => {
 //     }
 // });
 
-app.get('/api/payment-intent/:id', async (req, res) => {
+app.get('/api/payment-intent/:id/', async (req, res) => {
+  try {
     const { id } = req.params;
- 
-    try {
-      // Retrieve PaymentIntent by its ID
-      const paymentIntent = await stripe.paymentIntents.retrieve(id);
- 
-      // Send the payment intent data to the frontend
-      res.json({ paymentIntent });
-    } catch (error) {
-      console.error('Error retrieving payment intent:', error);
-      res.status(500).send('Internal Server Error');
+    
+    // Check if the ID is valid
+    if (!id) {
+      return res.status(400).json({ error: 'Payment Intent ID is required' });
     }
-  });
+
+    // Retrieve payment intent from Stripe
+    const paymentIntent = await stripe.paymentIntents.retrieve(id);
+
+    // Send the payment intent data back to the client
+    res.json({ paymentIntent });
+  } catch (error) {
+    console.error('Error retrieving payment intent:', error.message);
+
+    // Send a response with the error message
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
  
   // Start the server
   app.listen(3000, () => {
