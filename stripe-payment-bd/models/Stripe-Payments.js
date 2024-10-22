@@ -1,4 +1,4 @@
-// models/Payment.js
+// Stripe-Payments.js
 const mongoose = require('mongoose');
 
 const paymentSchema = new mongoose.Schema({
