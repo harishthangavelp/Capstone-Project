@@ -18,6 +18,8 @@ import{
   import WHR from './mini-components/WHR'
   import BDS from './mini-components/BDS'
 
+  import Paypay from './Paypay'
+
   import Rentform1 from './msc-payments/Rentform1'
   import Rentform2 from './msc-payments/Rentform2'
   import Rentform3 from './msc-payments/Rentform3'
@@ -39,6 +41,7 @@ import{
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
 
+
 function Design() {
   return (
     <>
@@ -57,6 +60,8 @@ function Design() {
           <Route path="/malls-supermarkets" element={<MSC/>}></Route>
           <Route path="/warehouse-retailers" element={<WHR/>}></Route>
           <Route path="/department-stores" element={<BDS/>}></Route>
+
+          <Route path="/sample" element={<Paypay/>}></Route>
 
           <Route path="/bookingdetails1" element={<Rentform1/>}></Route>
           <Route path="/bookingdetails2" element={<Rentform2/>}></Route>

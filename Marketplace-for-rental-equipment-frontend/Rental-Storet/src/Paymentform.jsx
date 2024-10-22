@@ -4,15 +4,15 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 const PaymentForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-  const [amount, setAmount] = useState(1000); // Example amount in cents ($10.00)
-  const [currency, setCurrency] = useState('usd');
+  const [amount, setAmount] = useState(''); // Example amount in cents ($10.00)
+  const [currency, setCurrency] = useState('');
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
   const [customerEmail, setCustomerEmail] = useState('');
-  const [paymentIntentId, setPaymentIntentId] = useState(null); // To store paymentIntentId
+  const [paymentIntentId, setPaymentIntentId] = useState(''); // To store paymentIntentId
   const [fetchLoading, setFetchLoading] = useState(false); // Loading state for fetching data
-  const [paymentIntentData, setPaymentIntentData] = useState(null); // State to store payment intent details
+  const [paymentIntentData, setPaymentIntentData] = useState(''); // State to store payment intent details
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,10 +23,10 @@ const PaymentForm = () => {
     const cardElement = elements.getElement(CardElement);
 
     try {
-      const response = await fetch('http://localhost:3000/api/create-payment-intent', {
+      const response = await fetch('https://capstone-project-26.onrender.com/api/create-payment-intent/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: customerEmail, amount, currency }),
+        body: JSON.stringify({ email: customerEmail, amount, currency: currency }),
       });
 
       if (!response.ok) {
@@ -67,7 +67,7 @@ const PaymentForm = () => {
     setFetchLoading(true); // Set loading state to true
 
     try {
-      const response = await fetch(`https://capstone-project-26.onrender.com/api/payment-intent/:id/${paymentIntentId}`);
+      const response = await fetch(`https://capstone-project-26.onrender.com/api/payment-intent/${paymentIntentId}`);
       const data = await response.json();
 
       // Check if paymentIntent exists in the response
