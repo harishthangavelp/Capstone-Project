@@ -10,7 +10,7 @@
 <body>
     <h1>Stripe Checkout Example</h1>
     <form id="payment-form">
-        <input type="number" id="quantity" placeholder="Quantity" min="1" required>
+        <!-- <input type="number" id="quantity" placeholder="Quantity" min="1" required> -->
         <button type="submit">Pay</button>
     </form>
 
@@ -20,7 +20,7 @@
 
         form.addEventListener('submit', async (event) => {
             event.preventDefault();
-            const quantity = document.getElementById('quantity').value;
+            const quantity = document.getElementById('payment-form').value;
 
             const response = await fetch('/create-checkout-session', {
                 method: 'POST',
