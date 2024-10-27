@@ -25,8 +25,8 @@ router.post('/create-checkout-session', async function(req, res, next) {
         price: 'price_1QEVO5FxddvTxBZJV9BX1A0X', // One-time pricing ID
         quantity: quantity
       }],
-      success_url: 'http://localhost:3000/success.html?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'http://localhost:3000/cancel.html',
+      success_url: 'https://capstone-project-140.onrender.com/success.html?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url: 'https://capstone-project-140.onrender.com/cancel.html',
     });
 
     res.send({ id: session.id });
