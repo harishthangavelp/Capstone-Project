@@ -1,42 +1,51 @@
-<!-- views/index.ejs -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title>Stripe Checkout Example</title> <!-- Static title -->
     <script src="https://js.stripe.com/v3/"></script> <!-- Load Stripe.js -->
 </head>
 <body>
     <h1>Stripe Checkout Example</h1>
-    <form id="payment-form">
-        <!-- <input type="number" id="quantity" placeholder="Quantity" min="1" required> -->
-        <button type="submit">Pay</button>
-    </form>
+    
+    <!-- Product buttons -->
+    <button class="pay-button" value="price_1QEVO5FxddvTxBZJV9BX1A0X">Product 1</button> <!-- Replace with your price IDs -->
+    <button class="pay-button" value="price_1QEYVpFxddvTxBZJd1J6LJUu">Product 2</button>
+    <button class="pay-button" value="price_1QEVO5FxddvTxBZJV9BX1A0X">Product 3</button>
+    <!-- Add more products as necessary -->
 
     <script>
         const stripe = Stripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
-        const form = document.getElementById('payment-form');
 
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const quantity = document.getElementById('payment-form').value;
+        // Add event listeners to each product button
+        document.querySelectorAll('.pay-button').forEach(button => {
+            button.addEventListener('click', async () => {
+                const quantity = 1; // Set the quantity as needed
+                const priceId = button.value; // Get the price ID from the button's value
 
-            const response = await fetch('/create-checkout-session', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ quantity: 1 })
+                const response = await fetch('/create-checkout-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ quantity: quantity, priceId: priceId }) // Include price ID in the request body
+                });
+
+                if (!response.ok) {
+                    const errorMessage = await response.text();
+                    alert(`Error: ${errorMessage}`); // Alert the error message
+                    return;
+                }
+
+                const session = await response.json();
+                const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+                if (result.error) {
+                    // Inform the customer that there was an error
+                    alert(result.error.message);
+                }
             });
-
-            const session = await response.json();
-            const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-            if (result.error) {
-                // Inform the customer that there was an error
-                alert(result.error.message);
-            }
         });
     </script>
 </body>

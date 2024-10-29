@@ -12,9 +12,15 @@ router.get('/', function(req, res, next) {
 // POST create checkout session
 router.post('/create-checkout-session', async function(req, res, next) {
   try {
-    const quantity = parseInt(req.body.quantity, 10);
-    if (isNaN(quantity) || quantity <= 0) {
+    const { quantity, priceId } = req.body; // Destructure quantity and priceId from the request body
+
+    const parsedQuantity = parseInt(quantity, 10);
+    if (isNaN(parsedQuantity) || parsedQuantity <= 0) {
       return res.status(400).send({ error: 'Invalid quantity' });
+    }
+
+    if (!priceId) {
+      return res.status(400).send({ error: 'Price ID is required' });
     }
 
     const session = await stripe.checkout.sessions.create({
@@ -22,11 +28,11 @@ router.post('/create-checkout-session', async function(req, res, next) {
       payment_method_types: ['card'],
       mode: "payment",
       line_items: [{
-        price: 'price_1QEVO5FxddvTxBZJV9BX1A0X', // One-time pricing ID
-        quantity: quantity
+        price: priceId, // Use the price ID passed from the client
+        quantity: parsedQuantity
       }],
-      success_url: 'https://capstone-project-140.onrender.com/success.html?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'https://capstone-project-140.onrender.com/cancel.html',
+      success_url: `https://your-frontend-app.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: 'https://your-frontend-app.com/cancel',
     });
 
     res.send({ id: session.id });
