@@ -1,41 +1,3 @@
-// const express = require('express');
-// const bodyParser = require('body-parser');
-// const path = require('path');
-// const checkoutRouter = require('./routes/checkout'); // Assuming your route is saved in routes/checkout.js
-
-// const app = express();
-// const PORT = process.env.PORT || 3000;
-
-// // Middleware
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.set('view engine', 'ejs'); // Use EJS for rendering views
-// app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from public directory
-
-// // Routes
-// app.use('/', checkoutRouter);
-
-// // Start server
-// app.listen(PORT, () => {
-//     console.log(`Server is running on http://localhost:${PORT}`);
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // server.js (or your main server file)
 require('dotenv').config(); // Load environment variables from .env file
 const express = require('express');
@@ -46,11 +8,12 @@ const cors = require('cors');
 // Use CORS middleware
 app.use(cors());
 
-const PORT = process.env.PORT || 3000;
-
 // Middleware
 app.use(express.json()); // Middleware to parse JSON requests
 
+const PORT = process.env.PORT || 3000;
+
+// POST create checkout session
 app.post('/create-checkout-session', async (req, res) => {
     const { quantity, priceId } = req.body;
 
@@ -73,8 +36,19 @@ app.post('/create-checkout-session', async (req, res) => {
     }
 });
 
+// GET checkout session details
+app.get('/checkout-session/:sessionId', async (req, res) => {
+    const { sessionId } = req.params;
+
+    try {
+        const session = await stripe.checkout.sessions.retrieve(sessionId);
+        res.json(session);
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-

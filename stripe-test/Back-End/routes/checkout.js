@@ -42,5 +42,18 @@ router.post('/create-checkout-session', async function(req, res, next) {
   }
 });
 
+// GET checkout session details
+router.get('/checkout-session/:sessionId', async function(req, res, next) {
+  const { sessionId } = req.params; // Get the sessionId from the route parameters
+
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId); // Fetch the session from Stripe
+    res.send(session); // Send the session details back as a response
+  } catch (e) {
+    console.error(e);
+    res.status(500).send({ error: e.message });
+  }
+});
+
 // Export the router
 module.exports = router;
