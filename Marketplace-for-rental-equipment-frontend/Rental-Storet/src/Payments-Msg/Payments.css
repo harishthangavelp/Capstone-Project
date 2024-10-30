@@ -1,0 +1,20 @@
+.strcss{
+    color: black;
+    border: 2px solid black;
+    font-weight:500;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 5px;
+    text-decoration: none;
+}
+.strbox{
+    /* Payments.css */
+    border: 2px solid black; /* Black border */
+    padding: 20px; /* Space inside the box */
+    border-radius: 8px; /* Slightly rounded corners */
+    margin: 20px; /* Space around the box */
+    max-width: 400px; /* Maximum width */
+    text-align: center; /* Center text */
+    background-color: #fff; /* Background color (optional) */
+  
+}

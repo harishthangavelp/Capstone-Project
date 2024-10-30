@@ -38,6 +38,9 @@ import{
   import Rentform14 from './bds-payments/Rentform14'
   import Rentform15 from './bds-payments/Rentform15'
 
+  import Success from './Payments-Msg/Success'
+  import Cancel from './Payments-Msg/Cancel'
+
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
 
@@ -81,7 +84,8 @@ function Design() {
           <Route path="/bookingdetails14" element={<Rentform14/>}></Route>
           <Route path="/bookingdetails15" element={<Rentform15/>}></Route>
 
-
+          <Route path="/success" element={<Success />} />
+          <Route path="/cancel" element={<Cancel />} />
 
          </Routes>
          

@@ -3,57 +3,16 @@ import axios from 'axios'
 import '../msc-payments/Rentform.css'
 import Navigation from '../Navigation';
 import { Link } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import '../Payments-Msg/Success'
+import '../Payments-Msg/Cancel'
+import '../Payments-Msg/SuccessPage'
 
 import hsrentimg1 from '../new-images/msc1.jpg';
 
 function Rentform1() {
 
-
-  const [book, setBook] = useState({
-		name: "1000 sqft East Coast Mall",
-		author: "John Green",
-		img: "https://cdn.pixabay.com/photo/2014/10/22/18/24/central-embassy-498560_1280.jpg",
-		price: 50000,
-	});
-
-	const initPayment = (data) => {
-		const options = {
-			key: "rzp_test_ZxGQM7v4bgryb4",
-			amount: data.amount,
-			currency: data.currency,
-			name: book.name,
-			description: "Test Transaction",
-			image: book.img,
-			order_id: data.id,
-			handler: async (response) => {
-				try {
-				
-					const verifyUrl = "https://capstone-project-25.onrender.com/api/payment/verify"
-					const { data } = await axios.post(verifyUrl, response);
-					console.log(data);
-				} catch (error) {
-					console.log(error);
-				}
-			},
-			theme: {
-				color: "#3399cc",
-			},
-		};
-		const rzp1 = new window.Razorpay(options);
-		rzp1.open();
-	};
-
-	const handlePayment = async () => {
-		try {
-			// const orderUrl = "http://localhost:8080/api/payment/orders";
-			const orderUrl = "https://capstone-project-25.onrender.com/api/payment/orders"		
-			const { data } = await axios.post(orderUrl, { amount: book.price });
-			console.log(data);
-			initPayment(data.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
     const [nameform,setNameform]=useState('');
     const [nameph,setNameph]=useState('');
@@ -63,19 +22,37 @@ function Rentform1() {
     const [timeform,setTimeform]=useState('');
     const [dmyform,setDmyform]=useState('');
 
-	const [amount,setAmount] = useState('');
-	const [amount_due,setAmount_due] = useState('');
-	const [amount_paid,setAmount_paid] = useState('');
-	const [attempts,setAttempts] = useState('');
-	const [created_at,setCreated_at] = useState('');
-	const [currency,setCurrency] = useState('');
-	const [entity,setEntity] = useState('');
-	const [id,setId] = useState('');
-	const [notes,setNotes] = useState('');
-	const [offer_id,setOffer_id] = useState('');
-	const [receipt,setReceipt] = useState('');
-	const [status,setStatus] = useState('');
-  
+	
+	const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
+
+    const handleCheckout = async (priceId) => {
+        const quantity = 1; // Set the quantity as needed
+
+        const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ quantity, priceId }) // Include price ID in the request body
+        });
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            alert(`Error: ${errorMessage}`); // Alert the error message
+            return;
+        }
+
+        const session = await response.json();
+        const stripe = await stripePromise; // Ensure the Stripe instance is loaded
+        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+        if (result.error) {
+            // Inform the customer that there was an error
+            alert(result.error.message);
+        }
+    };
+
+
 	
     const handleRentForms = (e) => {
       e.preventDefault()
@@ -84,13 +61,8 @@ function Rentform1() {
       .catch(err => console.log(err))
     }
 
-    const handlePayForms = (e) => {
-		e.preventDefault()
-		axios.get('https://capstone-project-27.onrender.com/payment-details/:paymentId',{amount,amount_due,amount_paid,attempts,created_at,
-			currency,entity,id,notes,offer_id,receipt,status})
-		.then(result => console.log(result))
-		.catch(err => console.log(err))
-	  }
+	
+
 
   return (
  <div className='rentbgbody'>
@@ -106,13 +78,7 @@ function Rentform1() {
 <img className="rentimg1" src={hsrentimg1}  alt="" /> <br />  
 <input type="text" value={timeform} className='jourrTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button type="submit" value={(amount,amount_due,amount_paid,attempts,created_at,
-			currency,entity,id,notes,offer_id,receipt,status)} onClick={(handlePayment)} onSubmit={handlePayForms}
-			onChange={((e)=> setAmount(e.target.value),(e)=> setAmount_due(e.target.value),(e)=> setAmount_paid(e.target.value),
-				(e)=> setAttempts(e.target.value),(e)=> setCreated_at(e.target.value),(e)=> setCurrency(e.target.value),
-				(e)=> setEntity(e.target.value),(e)=> setId(e.target.value),(e)=> setNotes(e.target.value),
-				(e)=> setOffer_id(e.target.value),(e)=> setReceipt(e.target.value),(e)=> setStatus(e.target.value))}
-			className='bookDoner1'>Pay</button>
+<button onClick={() => handleCheckout('price_1QF90OFxddvTxBZJMoxIE54L')} type="submit"  className='bookDoner1'>Pay</button>
 			
 <button type="submit"  className='bookDoner2'>Submit</button>
 
@@ -125,7 +91,6 @@ function Rentform1() {
 <button type="button" className='rentback'><Link to = "/malls-supermarkets" className='rentbacksub' >Back</Link></button>
 
  </div>
- 
  </div>
   )
 }
