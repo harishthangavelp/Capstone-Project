@@ -40,7 +40,7 @@ function Login(props) {
   <input type="email" value={email}  className='boxlog' id='email' onChange={(e)=> setEmail(e.target.value)} name='email' placeholder='Enter Username' />
   <input type="password" value={hashpass} className='boxlog' onChange={(e)=> setHashpass(e.target.value)} placeholder='Enter Password' />
   <button type='submit' onClick={click} className='submog'
-   data-bs-toggle="modal" data-bs-target="#exampleModal" value='Login'><Link to = "/about" className='logsubmogfinal'>Login</Link></button>
+   data-bs-toggle="modal" data-bs-target="#exampleModal" value='Login'><Link to = "/" className='logsubmogfinal'>Login</Link></button>
   <h1 className='lsttxt'>If new user, Kindly register below</h1>
   <button type='submit' className='submeg'><Link to = "/register" className='topbutlogs'>Register</Link></button>
 </form>
