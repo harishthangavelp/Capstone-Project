@@ -3,55 +3,16 @@ import axios from 'axios'
 import '../whr-payments/Rentform2.css'
 import Navigation from '../Navigation';
 import { Link } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import '../Payments-Msg/Success'
+import '../Payments-Msg/Cancel'
+import '../Payments-Msg/SuccessPage'
 
 import hsrwhrimg9 from '../new-images/whb4.jpg';
 
 function Rentform9() {
 
-
-  const [book, setBook] = useState({
-		name: "1550 sqft Cargofy Warehouse",
-		author: "John Green",
-		img: "https://www.braemarbuildings.com/assets/components/phpthumbof/cache/warehouse_gallery_5.0370064712155cfdbaac371a5458f290.jpg",
-		price: 105000,
-	});
-
-	const initPayment = (data) => {
-		const options = {
-			key: "rzp_test_ZxGQM7v4bgryb4",
-			amount: data.amount,
-			currency: data.currency,
-			name: book.name,
-			description: "Test Transaction",
-			image: book.img,
-			order_id: data.id,
-			handler: async (response) => {
-				try {
-					const verifyUrl = "http://localhost:8080/api/payment/verify";
-					const { data } = await axios.post(verifyUrl, response);
-					console.log(data);
-				} catch (error) {
-					console.log(error);
-				}
-			},
-			theme: {
-				color: "#3399cc",
-			},
-		};
-		const rzp1 = new window.Razorpay(options);
-		rzp1.open();
-	};
-
-	const handlePayment = async () => {
-		try {
-			const orderUrl = "http://localhost:8080/api/payment/orders";
-			const { data } = await axios.post(orderUrl, { amount: book.price });
-			console.log(data);
-			initPayment(data.data);
-		} catch (error) {
-			console.log(error);
-		}
-	};
 
     const [nameform,setNameform]=useState('');
     const [nameph,setNameph]=useState('');
@@ -60,7 +21,36 @@ function Rentform9() {
     const [toadform,setToadform]=useState('');
     const [timeform,setTimeform]=useState('');
     const [dmyform,setDmyform]=useState('');
-  
+
+	const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
+
+    const handleCheckout = async (priceId) => {
+        const quantity = 1; // Set the quantity as needed
+
+        const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ quantity, priceId }) // Include price ID in the request body
+        });
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            alert(`Error: ${errorMessage}`); // Alert the error message
+            return;
+        }
+
+        const session = await response.json();
+        const stripe = await stripePromise; // Ensure the Stripe instance is loaded
+        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+        if (result.error) {
+            // Inform the customer that there was an error
+            alert(result.error.message);
+        }
+    };
+
     const handleWhrForms = (e) => {
       e.preventDefault()
       axios.post('https://capstone-project-17.onrender.com/register',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
@@ -82,7 +72,7 @@ function Rentform9() {
 <img className="rentwhimg1" src={hsrwhrimg9}  alt="" /> <br />  
 <input type="text" value={timeform} className='jourwhTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourwhDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button type="submit" onClick={handlePayment} className='bookDonewh1'>Pay</button>
+<button type="submit" onClick={() => handleCheckout('price_1QFValFxddvTxBZJG2suH5l4')} className='bookDonewh1'>Pay</button>
 <button type="submit" className='bookDonewh2'>Submit</button>
 
 </form>

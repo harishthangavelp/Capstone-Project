@@ -52,7 +52,6 @@ function Rentform1() {
         }
     };
 
-
 	
     const handleRentForms = (e) => {
       e.preventDefault()

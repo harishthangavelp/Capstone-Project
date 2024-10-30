@@ -82,7 +82,7 @@ function BDS() {
               <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
               <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
               <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
-              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹45000/₹3800"}</p>
               
             </div>
           ))
@@ -100,7 +100,7 @@ function BDS() {
               <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
               <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
               <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
-              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹150000/₹55000"}</p>
               
             </div>
           ))
@@ -118,7 +118,7 @@ function BDS() {
               <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
               <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
               <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
-              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹27000/₹13000"}</p>
               
             </div>
           ))
@@ -136,7 +136,7 @@ function BDS() {
               <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
               <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
               <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
-              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹200000/₹58000"}</p>
               
             </div>
           ))
@@ -154,7 +154,7 @@ function BDS() {
               <h3>Furnishing:</h3><p>{item.Furnishing = "Furnished"}</p>
               <h3>Parking:</h3><p>{item.Parking = "Bike/Car"}</p>
               <h3>Sqft:</h3><p>{item.Sqft = "1000"}</p>
-              <h3>Advance/Monthly:</h3><p>{"₹50000/₹20000"}</p>
+              <h3>Advance/Monthly:</h3><p>{"₹500000/₹75000"}</p>
               
             </div>
           ))

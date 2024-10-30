@@ -2,16 +2,17 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import '../msc-payments/Rentform.css'
 import Navigation from '../Navigation';
-import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { Link } from 'react-router-dom';
-import Payment1 from '../Payments/Payment1';
+import { Elements } from '@stripe/react-stripe-js';
+import '../Payments-Msg/Success'
+import '../Payments-Msg/Cancel'
+import '../Payments-Msg/SuccessPage'
+
 import hsrentimg2 from '../new-images/msc2.jpg';
 
 
 function Rentform2() {
-
-  const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW');
   
 
     const [nameform,setNameform]=useState('');
@@ -21,6 +22,35 @@ function Rentform2() {
     const [toadform,setToadform]=useState('');
     const [timeform,setTimeform]=useState('');
     const [dmyform,setDmyform]=useState('');
+
+    const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
+
+    const handleCheckout = async (priceId) => {
+        const quantity = 1; // Set the quantity as needed
+
+        const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ quantity, priceId }) // Include price ID in the request body
+        });
+
+        if (!response.ok) {
+            const errorMessage = await response.text();
+            alert(`Error: ${errorMessage}`); // Alert the error message
+            return;
+        }
+
+        const session = await response.json();
+        const stripe = await stripePromise; // Ensure the Stripe instance is loaded
+        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+        if (result.error) {
+            // Inform the customer that there was an error
+            alert(result.error.message);
+        }
+    };
   
     const handleRentForms = (e) => {
       e.preventDefault()
@@ -45,7 +75,7 @@ function Rentform2() {
 <img className="rentimg1" src={hsrentimg2}  alt="" /> <br />  
 <input type="text" value={timeform} className='jourrTime' placeholder="Months to Stay" name="Months to Stay" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button type="submit" className='bookDoner1'>Pay</button>
+<button onClick={() => handleCheckout('price_1QFVCjFxddvTxBZJgzwCAurq')} type="submit"  className='bookDoner1'>Pay</button>
 <button type="submit" className='bookDoner2'>Submit</button>
 </form>
 <br />
@@ -57,9 +87,6 @@ function Rentform2() {
 
  </div>
  
- <Elements stripe={stripePromise}>
-  <Payment1/>
-  </Elements>
 
  </div>
   )
