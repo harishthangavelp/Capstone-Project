@@ -7,6 +7,7 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import '../Payments-Msg/Success'
 import '../Payments-Msg/Cancel'
+import '../Payments-Msg/Payments.css'
 import '../Payments-Msg/SuccessPage'
 
 import hsrentimg1 from '../new-images/msc1.jpg';
@@ -77,7 +78,7 @@ function Rentform1() {
 <img className="rentimg1" src={hsrentimg1}  alt="" /> <br />  
 <input type="text" value={timeform} className='jourrTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e)=> setTimeform(e.target.value)} required/>
 <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button onClick={() => handleCheckout('price_1QF90OFxddvTxBZJMoxIE54L')} type="button"  className='bookDoner1'>Pay</button>
+<button onClick={() => handleCheckout('price_1QF90OFxddvTxBZJMoxIE54L')} type="submit"  className='bookDoner1'>Pay</button>
 			
 <button type="submit"  className='bookDoner2'>Submit</button>
 

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import '../Payments-Msg/Payments.css'
+import '../Payments-Msg/Success'
 
 const SuccessPage = () => {
     const location = useLocation();
