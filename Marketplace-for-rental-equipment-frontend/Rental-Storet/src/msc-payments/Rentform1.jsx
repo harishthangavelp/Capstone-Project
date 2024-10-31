@@ -47,6 +47,10 @@ function Rentform1() {
         const stripe = await stripePromise; // Ensure the Stripe instance is loaded
         const result = await stripe.redirectToCheckout({ sessionId: session.id });
 
+        stripe.on('payment_intent.succeeded', () => {
+            navigate('/success'); // Navigate to success component
+        });
+
         if (result.error) {
             // Inform the customer that there was an error
             alert(result.error.message);
