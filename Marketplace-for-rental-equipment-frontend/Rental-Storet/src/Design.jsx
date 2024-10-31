@@ -38,7 +38,7 @@ import{
   import Rentform14 from './bds-payments/Rentform14'
   import Rentform15 from './bds-payments/Rentform15'
 
-  import Success from './Payments-Msg/Success'
+  import Success from '../src/Payments-Msg/Success'
   import Cancel from './Payments-Msg/Cancel'
 
   import 'bootstrap/dist/css/bootstrap.css';

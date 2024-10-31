@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { loadStripe } from '@stripe/stripe-js';
 import hsrentimg1 from '../new-images/msc1.jpg';
 import '../Payments-Msg/Success'
+import Success from '../Payments-Msg/Success';
 
 function Rentform1() {
     const [nameform, setNameform] = useState('');
@@ -47,7 +48,7 @@ function Rentform1() {
             alert(result.error.message);
         } else {
             // Navigate to success page after successful payment
-            navigate('/success'); // Navigate to success component
+            navigate(<Success/>); // Navigate to success component
         }
     };
 
