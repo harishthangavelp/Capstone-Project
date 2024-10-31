@@ -15,6 +15,8 @@ function Navigation() {
         <Link to = "/warehouse-retailers"></Link>
 
         <Link to = "/sample"></Link>
+        <Link to = "/success"></Link>
+        <Link to = "/cancel"></Link>
 
         <Link to = "/bookingdetails1"></Link>
         <Link to = "/bookingdetails2"></Link>
