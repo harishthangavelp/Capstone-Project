@@ -20,65 +20,36 @@ function Rentform1() {
 
     const navigate = useNavigate(); // Initialize navigate
 
-    // const handleCheckout = async (priceId) => {
-    //     const quantity = 1; // Set the quantity as needed
-
-    //     const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ quantity, priceId }) // Include price ID in the request body
-    //     });
-
-    //     if (!response.ok) {
-    //         const errorMessage = await response.text();
-    //         alert(`Error: ${errorMessage}`); // Alert the error message
-    //         return;
-    //     }
-
-    //     const session = await response.json();
-    //     const stripe = await stripePromise; // Ensure the Stripe instance is loaded
-    //     const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-    //     // No need to add this event listener, redirecting is handled by Stripe
-    //     if (result.error) {
-    //         // Inform the customer that there was an error
-    //         alert(result.error.message);
-    //     } else {
-    //         // Navigate to success page after successful payment
-    //         navigate('/success'); // Navigate to success component
-    //     }
-    // };
-
     const handleCheckout = async (priceId) => {
-        const quantity = 1;
-    
+        const quantity = 1; // Set the quantity as needed
+
         const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ quantity, priceId })
+            body: JSON.stringify({ quantity, priceId }) // Include price ID in the request body
         });
-    
+
         if (!response.ok) {
             const errorMessage = await response.text();
-            alert(`Error: ${errorMessage}`);
+            alert(`Error: ${errorMessage}`); // Alert the error message
             return;
         }
-    
+
         const session = await response.json();
-        const stripe = await stripePromise;
-    
-        // Redirect to Stripe Checkout
+        const stripe = await stripePromise; // Ensure the Stripe instance is loaded
         const result = await stripe.redirectToCheckout({ sessionId: session.id });
-    
+
+        // No need to add this event listener, redirecting is handled by Stripe
         if (result.error) {
+            // Inform the customer that there was an error
             alert(result.error.message);
+        } else {
+            // Navigate to success page after successful payment
+            navigate('/success'); // Navigate to success component
         }
     };
-    
 
     const handleRentForms = (e) => {
         e.preventDefault();
