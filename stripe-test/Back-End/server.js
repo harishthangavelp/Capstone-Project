@@ -82,7 +82,7 @@ app.post('/create-checkout-session', async (req, res) => {
     const { quantity, priceId } = req.body;
 
     try {
-        const baseUrl = "https://havel-stores.netlify.app"
+        const baseUrl = "https://havel-stores.netlify.app" || req.headers.origin
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             mode: 'payment',
@@ -92,7 +92,7 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity: quantity,
                 },
             ],
-            success_url: `${baseUrl}/success`,
+            success_url: `${baseUrl}/success` ,
             cancel_url: `${baseUrl}/cancel`,
         });
         res.json({ id: session.id });
