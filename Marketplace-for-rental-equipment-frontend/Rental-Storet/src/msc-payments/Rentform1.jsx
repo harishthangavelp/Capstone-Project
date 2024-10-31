@@ -1,30 +1,23 @@
-import React, { useState } from 'react'
-import axios from 'axios'
-import '../msc-payments/Rentform.css'
+import React, { useState } from 'react';
+import axios from 'axios';
+import '../msc-payments/Rentform.css';
 import Navigation from '../Navigation';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { loadStripe } from '@stripe/stripe-js';
-import { Elements } from '@stripe/react-stripe-js';
-import '../Payments-Msg/Success'
-import '../Payments-Msg/Cancel'
-import '../Payments-Msg/Payments.css'
-import '../Payments-Msg/SuccessPage'
-
 import hsrentimg1 from '../new-images/msc1.jpg';
 
 function Rentform1() {
+    const [nameform, setNameform] = useState('');
+    const [nameph, setNameph] = useState('');
+    const [namemail, setNamemail] = useState('');
+    const [fradform, setFradform] = useState('');
+    const [toadform, setToadform] = useState('');
+    const [timeform, setTimeform] = useState('');
+    const [dmyform, setDmyform] = useState('');
 
+    const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
 
-    const [nameform,setNameform]=useState('');
-    const [nameph,setNameph]=useState('');
-    const [namemail,setNamemail]=useState('');
-    const [fradform,setFradform]=useState('');
-    const [toadform,setToadform]=useState('');
-    const [timeform,setTimeform]=useState('');
-    const [dmyform,setDmyform]=useState('');
-
-	
-	const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
+    const navigate = useNavigate(); // Initialize navigate
 
     const handleCheckout = async (priceId) => {
         const quantity = 1; // Set the quantity as needed
@@ -47,56 +40,43 @@ function Rentform1() {
         const stripe = await stripePromise; // Ensure the Stripe instance is loaded
         const result = await stripe.redirectToCheckout({ sessionId: session.id });
 
-        stripe.on('payment_intent.succeeded', () => {
-            navigate('/success'); // Navigate to success component
-        });
-
+        // No need to add this event listener, redirecting is handled by Stripe
         if (result.error) {
             // Inform the customer that there was an error
             alert(result.error.message);
+        } else {
+            // Navigate to success page after successful payment
+            navigate('/success'); // Navigate to success component
         }
     };
 
-	
     const handleRentForms = (e) => {
-      e.preventDefault()
-      axios.post('https://capstone-project-17.onrender.com/register',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
-      .then(result => console.log(result))
-      .catch(err => console.log(err))
-    }
+        e.preventDefault();
+        axios.post('https://capstone-project-17.onrender.com/register', { nameform, namemail, nameph, fradform, toadform, timeform, dmyform })
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+    };
 
-	
-
-
-  return (
- <div className='rentbgbody'>
- <div className='rentbg' >
-
- <form className='rentForm'  action="https://formspree.io/f/mgvwqrae" method="POST" >
-
-<h1 className='rentTitle'>Booking Details</h1>
-
-<input type="text" value={nameform} className='namerTitle' placeholder="Your Name" name="Name" onChange={(e)=> setNameform(e.target.value)} required/>
-<input type="number" value={nameph} className='phrTitle' placeholder="Your Phone Number" name="Phone Number" onChange={(e)=> setNameph(e.target.value)} required/>
-<input type="email" value={namemail} className='mailrTitle' placeholder="Your Mail" name="Mail" onChange={(e)=> setNamemail(e.target.value)} required/>
-<img className="rentimg1" src={hsrentimg1}  alt="" /> <br />  
-<input type="text" value={timeform} className='jourrTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e)=> setTimeform(e.target.value)} required/>
-<input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e)=> setDmyform(e.target.value)} required/>
-<button onClick={() => handleCheckout('price_1QF90OFxddvTxBZJMoxIE54L')} type="submit"  className='bookDoner1'>Pay</button>
-			
-<button type="submit"  className='bookDoner2'>Submit</button>
-
-</form>
-<br />
-<p className='midr'>Note: Submit the details and do the payment</p>
-
-{/* <audio src={skymusicform} autoplay="autoplay" loop="loop"></audio> */}
-
-<button type="button" className='rentback'><Link to = "/malls-supermarkets" className='rentbacksub' >Back</Link></button>
-
- </div>
- </div>
-  )
+    return (
+        <div className='rentbgbody'>
+            <div className='rentbg'>
+                <form className='rentForm' action="https://formspree.io/f/mgvwqrae" method="POST">
+                    <h1 className='rentTitle'>Booking Details</h1>
+                    <input type="text" value={nameform} className='namerTitle' placeholder="Your Name" name="Name" onChange={(e) => setNameform(e.target.value)} required />
+                    <input type="number" value={nameph} className='phrTitle' placeholder="Your Phone Number" name="Phone Number" onChange={(e) => setNameph(e.target.value)} required />
+                    <input type="email" value={namemail} className='mailrTitle' placeholder="Your Mail" name="Mail" onChange={(e) => setNamemail(e.target.value)} required />
+                    <img className="rentimg1" src={hsrentimg1} alt="" /><br />
+                    <input type="text" value={timeform} className='jourrTime' placeholder="Duration in Months" name="Duration in Months" onChange={(e) => setTimeform(e.target.value)} required />
+                    <input type="text" value={dmyform} className='jourrDmy' placeholder="From D/M/Y" name="From D/M/Y" onChange={(e) => setDmyform(e.target.value)} required />
+                    <button onClick={() => handleCheckout('price_1QF90OFxddvTxBZJMoxIE54L')} type="button" className='bookDoner1'>Pay</button>
+                    <button type="submit" className='bookDoner2'>Submit</button>
+                </form>
+                <br />
+                <p className='midr'>Note: Submit the details and do the payment</p>
+                <button type="button" className='rentback'><Link to="/malls-supermarkets" className='rentbacksub'>Back</Link></button>
+            </div>
+        </div>
+    );
 }
 
-export default Rentform1
+export default Rentform1;
