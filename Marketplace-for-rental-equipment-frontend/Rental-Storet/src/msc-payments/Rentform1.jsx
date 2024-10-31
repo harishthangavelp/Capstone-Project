@@ -5,6 +5,7 @@ import Navigation from '../Navigation';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { loadStripe } from '@stripe/stripe-js';
 import hsrentimg1 from '../new-images/msc1.jpg';
+import '../Payments-Msg/Success'
 
 function Rentform1() {
     const [nameform, setNameform] = useState('');
