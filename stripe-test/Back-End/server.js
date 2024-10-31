@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json()); // Middleware to parse JSON requests
 
 const PORT = process.env.PORT || 3000;
+const CLIENT_URL = process.env.CLIENT_URL;
 
 // POST create checkout session
 app.post('/create-checkout-session', async (req, res) => {
@@ -27,8 +28,8 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity: quantity, // Set the quantity from the request body
                 },
             ],
-            success_url: 'http://localhost:5173/success', // Adjust as necessary
-            cancel_url: 'http://localhost:5173/cancel',   // Adjust as necessary
+            success_url: `${CLIENT_URL}/success`, // Adjust as necessary
+            cancel_url: `${CLIENT_URL}/cancel`,   // Adjust as necessary
         });
         res.json({ id: session.id });
     } catch (error) {
