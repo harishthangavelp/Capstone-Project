@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import '../msc-payments/Rentform.css';
 import Navigation from '../Navigation';
+import { useNavigate } from 'react-router-dom';
 import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 import { loadStripe } from '@stripe/stripe-js';
 import hsrentimg1 from '../new-images/msc1.jpg';
