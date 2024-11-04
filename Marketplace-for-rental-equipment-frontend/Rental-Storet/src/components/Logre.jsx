@@ -34,7 +34,7 @@ const Logre = () => {
 
         // Send registration request to backend
         try {
-            const response = await fetch('http://localhost:5555/api/register', {
+            const response = await fetch('https://capstone-project-1400.onrender.com/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const Logre = () => {
     
         // Send login request to backend
         try {
-            const response = await fetch('http://localhost:5555/api/login', {
+            const response = await fetch('https://capstone-project-1400.onrender.com/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
