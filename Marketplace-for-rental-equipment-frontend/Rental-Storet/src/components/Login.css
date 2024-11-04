@@ -147,3 +147,17 @@ font-size: 1rem;
         font-weight: bold;
         background-color: white;
     }
+
+    .logout-btnl {
+        margin-top: 10px;
+        background-color: #dc3545; /* Bootstrap danger color */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    .logout-btnl:hover {
+        background-color: #c82333; /* Darker shade on hover */
+    }
