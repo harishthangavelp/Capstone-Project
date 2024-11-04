@@ -177,7 +177,7 @@ const Logre = () => {
                     Back to Home Page
                 </Link>
                 {/* Logout Button */}
-                <button className="logout-btn" onClick={handleLogout}>
+                <button className="back-btnl" onClick={handleLogout}>
                     Logout
                 </button>
             </div>

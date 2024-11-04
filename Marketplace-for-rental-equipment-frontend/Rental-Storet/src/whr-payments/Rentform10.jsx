@@ -1,61 +1,81 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import '../whr-payments/Rentform2.css'
 import Navigation from '../Navigation';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import '../Payments-Msg/Success'
 import '../Payments-Msg/Cancel'
 import '../Payments-Msg/SuccessPage'
-
+import { Modal } from 'react-bootstrap';
 import hsrwhrimg10 from '../new-images/whb5.jpg';
 
 function Rentform10() {
 
-    const [nameform,setNameform]=useState('');
-    const [nameph,setNameph]=useState('');
-    const [namemail,setNamemail]=useState('');
-    const [fradform,setFradform]=useState('');
-    const [toadform,setToadform]=useState('');
-    const [timeform,setTimeform]=useState('');
-    const [dmyform,setDmyform]=useState('');
+    const [nameform, setNameform] = useState('');
+    const [nameph, setNameph] = useState('');
+    const [namemail, setNamemail] = useState('');
+    const [fradform, setFradform] = useState('');
+    const [toadform, setToadform] = useState('');
+    const [timeform, setTimeform] = useState('');
+    const [dmyform, setDmyform] = useState('');
+    const [showPopup, setShowPopup] = useState(false); // State for popup
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // Check if user is logged in
+    const [username, setUsername] = useState(''); // State for username
+    const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); 
 
-	const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); // Replace with your actual publishable key
+    const navigate = useNavigate();
+
+    // Check if user is logged in and has a username (this could be fetched from localStorage or context)
+    useEffect(() => {
+        const storedUsername = localStorage.getItem('username'); // Assuming username is stored in localStorage
+        if (storedUsername) {
+            setIsLoggedIn(true);
+            setUsername(storedUsername);
+        }
+    }, []);
 
     const handleCheckout = async (priceId) => {
-        const quantity = 1; // Set the quantity as needed
+        if (!isLoggedIn) {
+            setShowPopup(true); // Show the popup if the user is not logged in
+            return;
+        }
 
+        const quantity = 1; 
         const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ quantity, priceId }) // Include price ID in the request body
+            body: JSON.stringify({ quantity, priceId }) 
         });
 
         if (!response.ok) {
             const errorMessage = await response.text();
-            alert(`Error: ${errorMessage}`); // Alert the error message
+            alert(`Error: ${errorMessage}`); 
             return;
         }
 
         const session = await response.json();
-        const stripe = await stripePromise; // Ensure the Stripe instance is loaded
+        const stripe = await stripePromise; 
         const result = await stripe.redirectToCheckout({ sessionId: session.id });
 
         if (result.error) {
-            // Inform the customer that there was an error
             alert(result.error.message);
+        } else {
+            navigate('/success'); 
         }
     };
-  
+
     const handleWhrForms = (e) => {
-      e.preventDefault()
-      axios.post('https://capstone-project-17.onrender.com/register',{nameform,namemail,nameph,fradform,toadform,timeform,dmyform})
-      .then(result => console.log(result))
-      .catch(err => console.log(err))
-    }
+        e.preventDefault();
+        axios.post('https://capstone-project-17.onrender.com/register', { nameform, namemail, nameph, fradform, toadform, timeform, dmyform })
+            .then(result => console.log(result))
+            .catch(err => console.log(err));
+    };
+
+    const handleClosePopup = () => setShowPopup(false); // Close popup
 
   return (
  <div className='whbgbody'>
@@ -81,7 +101,20 @@ function Rentform10() {
 {/* <audio src={skymusicform} autoplay="autoplay" loop="loop"></audio> */}
 
 <button type="button" className='rentbackwh'><Link to = "/warehouse-retailers" className='rentbacksubwh' >Back</Link></button>
-
+<Modal show={showPopup} onHide={handleClosePopup}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Login Required</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>You need to be logged in to proceed with the payment. Please log in to continue.</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Link to="/register&login">
+                            <button className="btn btn-primary">Go to Login</button>
+                        </Link>
+                        <button className="btn btn-secondary" onClick={handleClosePopup}>Close</button>
+                    </Modal.Footer>
+                </Modal>
  </div>
  
  </div>

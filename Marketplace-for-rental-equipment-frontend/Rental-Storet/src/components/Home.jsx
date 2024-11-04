@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import './Home.css'
 import "@fontsource/poppins"; // Defaults to weight 400
 import "@fontsource/poppins/400.css"; // Specify weight
 import "@fontsource/poppins/400-italic.css";  
 import Navigation from '../Navigation';
-import {Link} from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
+import { Modal } from 'react-bootstrap'; 
 import { Fragment,PureComponent } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -15,6 +16,36 @@ import notify from '../images/not.jpg'
 import userProf from '../images/user.webp'
 
 function Home(props) {
+
+  const location = useLocation();
+  const [showWelcomeModal, setShowWelcomeModal] = useState(false);
+  const [welcomeMessage, setWelcomeMessage] = useState('');
+  const [username, setUsername] = useState(''); // State to hold the username
+
+  useEffect(() => {
+    // Check for username and expiration time in local storage
+    const storedUsername = localStorage.getItem('username');
+    const expirationTime = localStorage.getItem('expirationTime');
+
+    if (storedUsername && expirationTime) {
+        const currentTime = new Date().getTime();
+        if (currentTime < expirationTime) {
+            setUsername(storedUsername); // User is logged in
+        } else {
+            // Clear expired login
+            localStorage.removeItem('username');
+            localStorage.removeItem('expirationTime');
+        }
+    }
+
+    if (location.state && location.state.welcomeMessage) {
+        setWelcomeMessage(location.state.welcomeMessage);
+        setShowWelcomeModal(true);
+    }
+}, [location]);
+
+
+  const handleCloseWelcomeModal = () => setShowWelcomeModal(false);
 
   function display(){
     alert("Welcome to haVel.com"); 
@@ -32,6 +63,7 @@ function Home(props) {
 
 
     <div class="centPad">
+    
     <div class="topnav1">
       {/* <button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button> */}
       {/* <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button> */}
@@ -44,7 +76,7 @@ function Home(props) {
     <p id='entry'></p>
 
     <div>
-    <NavLink to = "/login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
+    <NavLink to = "/register&login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
     </div>
 
     <div className="hide"></div>
@@ -126,6 +158,9 @@ function Home(props) {
     <p>Copyright © 2024 haVel.com. All Rights Reserved</p>
     </div>
 
+    <div className="logscreen">
+    {username && <h2>Hi {username}</h2>}
+    </div>
 
         </div>
         

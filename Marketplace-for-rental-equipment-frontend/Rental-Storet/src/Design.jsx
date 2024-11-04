@@ -40,6 +40,7 @@ import{
 
   import Success from '../src/Payments-Msg/Success'
   import Cancel from './Payments-Msg/Cancel'
+  import Logre from './components/Logre'
 
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
@@ -65,6 +66,7 @@ function Design() {
           <Route path="/department-stores" element={<BDS/>}></Route>
 
           <Route path="/sample" element={<Paypay/>}></Route>
+          <Route path="/register&login" element={<Logre/>}></Route>
 
           <Route path="/bookingdetails1" element={<Rentform1/>}></Route>
           <Route path="/bookingdetails2" element={<Rentform2/>}></Route>

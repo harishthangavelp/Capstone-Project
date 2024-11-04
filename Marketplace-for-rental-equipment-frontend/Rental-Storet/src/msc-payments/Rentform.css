@@ -4,6 +4,70 @@
     height: 45em;
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background: gold;
+    padding: 20px;
+    border: 2px solid black;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 300px;
+    max-height: 150px;
+    width: 80%;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: black;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.pobt1 {
+    background-color: black;
+    color: white;
+    position: relative;
+    top: -0.5em;
+    left: -0.5em;
+    border: gold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.pobt{
+    background-color: black;
+    color: white;
+    text-decoration: none; 
+}
+.pobt2 {
+    background-color: black;
+    color: white;
+    position: relative;
+    top: -0.5em;
+    right: -0.5em;
+    border: gold;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup-content button:hover {
+    background-color: black;
+}
+
+
 .rentTitle{
 position: relative;
 color: black;

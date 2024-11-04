@@ -1,0 +1,125 @@
+/* Logre.css */
+.auth-containerl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+}
+
+.form-wrapperl {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.h2l {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.forml {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-groupl {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.labell {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.inputl {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.inputl:focus {
+    border-color: #007BFF;
+}
+
+.submit-btnl, .toggle-btnl {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #007BFF;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btnl:hover, .toggle-btnl:hover {
+    background-color: #0056b3;
+}
+
+.toggle-btnl {
+    background-color: #6c757d;
+    margin-top: 10px;
+}
+
+.toggle-btnl:hover {
+    background-color: #5a6268;
+}
+
+.back-btnl {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #007BFF;
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.back-btnl:hover {
+    background-color: #007BFF;
+    color: white;
+}
+
+.modal-content {
+    border-radius: 10px; /* Rounded corners */
+}
+
+.modal-header {
+    border-bottom: none; /* Remove default border */
+}
+
+.modal-title {
+    color: #3c763d; /* Title color */
+}
+
+.modal-body {
+    text-align: center; /* Center text */
+    font-size: 1.2em; /* Increase font size */
+}
+.logout-btnl {
+    margin-top: 10px;
+    background-color: #dc3545; /* Bootstrap danger color */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-btnl:hover {
+    background-color: #c82333; /* Darker shade on hover */
+}

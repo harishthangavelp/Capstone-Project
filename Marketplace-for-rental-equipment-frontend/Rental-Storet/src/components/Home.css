@@ -8,6 +8,7 @@
     background-color: deepskyblue;
     border: none;
 }
+
 .topbut{
     color: whitesmoke;
     text-decoration: none;
@@ -356,4 +357,11 @@ color: black;
     margin: -25em 40em;
     white-space: nowrap;
     color: white;
+}
+
+.logscreen{
+    color: black;
+    text-align: center;
+    position: relative;
+    top: -54.5em;
 }
