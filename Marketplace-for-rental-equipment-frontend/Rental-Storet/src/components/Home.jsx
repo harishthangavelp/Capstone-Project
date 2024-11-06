@@ -67,6 +67,7 @@ function Home(props) {
     <div class="topnav1">
       {/* <button type="button" class="flex-box btn btn-dark"><Link to = "/register" className='topbut' >Register</Link></button> */}
       {/* <button type="button" class="flex-box btn btn-dark" ><Link to = "/login" className='topbut'>Login</Link></button> */}
+      <NavLink to = "/register&login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/contact" className='topbut'>Contact</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/service" className='topbut'>Service</Link></button>
       <button type="button" class="flex-box btn btn-dark"><Link to = "/" className='topbut'>About</Link></button>
@@ -75,8 +76,8 @@ function Home(props) {
     
     <p id='entry'></p>
 
-    <div>
-    <NavLink to = "/register&login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink>
+    <div className="fixed">
+    {/* <NavLink to = "/register&login" className='topbut'><img src={userProf} className='usprof' width={'45px'} height={'45px'} /></NavLink> */}
     </div>
 
     <div className="hide"></div>

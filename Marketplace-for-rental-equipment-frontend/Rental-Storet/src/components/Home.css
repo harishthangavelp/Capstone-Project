@@ -62,16 +62,27 @@ font-family:'Arial';
 .hide {
     display: none;
   }
-.usprof{
+/* .usprof{
     position: absolute;
-    margin: -0.25em 89.8em;
+    left: 9em;
+    top: 0.1em;
 }
 .usprof:hover + .hide {
     display: block;
     color: red;
+  } */
+
+/* Example CSS for userProf image */
+.usprof {
+    position: fixed; /* or use 'absolute' based on your layout */
+    top: 1px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    width: 45px;
+    height: 45px;
+    object-fit: cover; /* Ensures the image covers the area */
+    z-index: 1000; /* Makes sure it's on top of other elements */
   }
-
-
+  
 
 
 
@@ -297,6 +308,7 @@ border-right: 5px;
 border-width: 1px;
 padding:0.3em 0.3em;
   }
+
   .flex-box{
     /* transform: translate(-5em,0.0em);
     position: relative; */
