@@ -1,58 +1,56 @@
-// Import the necessary modules
+// Load environment variables from .env file
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
-// GET home page
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Stripe Checkout Example' });
+// POST: Create a new checkout session
+router.post('/create-checkout-session', async (req, res) => {
+    try {
+        const { quantity, priceId } = req.body; // Destructure request body
+
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            mode: 'payment',
+            line_items: [
+                {
+                    price: priceId,
+                    quantity,
+                },
+            ],
+            success_url: `${req.headers.origin}/success`,
+            cancel_url: `${req.headers.origin}/cancel`,
+        });
+
+        res.send({ id: session.id });
+    } catch (error) {
+        console.error('Error creating checkout session:', error);
+        res.status(500).send({ error: error.message });
+    }
 });
 
-// POST create checkout session
-router.post('/create-checkout-session', async function(req, res, next) {
-  try {
-    const { quantity, priceId } = req.body; // Destructure quantity and priceId from the request body
-
-    const parsedQuantity = parseInt(quantity, 10);
-    if (isNaN(parsedQuantity) || parsedQuantity <= 0) {
-      return res.status(400).send({ error: 'Invalid quantity' });
+// GET: Retrieve checkout session details
+router.get('/checkout-session/:sessionId', async (req, res) => {
+    try {
+        const { sessionId } = req.params; // Extract sessionId from URL parameters
+        const session = await stripe.checkout.sessions.retrieve(sessionId); // Retrieve the session details from Stripe
+        res.send(session);
+    } catch (error) {
+        console.error('Error retrieving session:', error);
+        res.status(500).send({ error: error.message });
     }
-
-    if (!priceId) {
-      return res.status(400).send({ error: 'Price ID is required' });
-    }
-
-    const session = await stripe.checkout.sessions.create({
-      customer: 'cus_R3MFnzXaNAv4p3', // Replace with your actual customer ID
-      payment_method_types: ['card'],
-      mode: "payment",
-      line_items: [{
-        price: priceId, // Use the price ID passed from the client
-        quantity: parsedQuantity
-      }],
-      success_url: `https://your-frontend-app.com/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: 'https://your-frontend-app.com/cancel',
-    });
-
-    res.send({ id: session.id });
-  } catch (e) {
-    console.error(e);
-    res.status(500).send({ error: e.message });
-  }
 });
 
-// GET checkout session details
-router.get('/checkout-session/:sessionId', async function(req, res, next) {
-  const { sessionId } = req.params; // Get the sessionId from the route parameters
-
-  try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId); // Fetch the session from Stripe
-    res.send(session); // Send the session details back as a response
-  } catch (e) {
-    console.error(e);
-    res.status(500).send({ error: e.message });
-  }
+// GET: Retrieve payment details using payment ID
+router.get('/payment-details/:paymentId', async (req, res) => {
+    try {
+        const { paymentId } = req.params; // Extract paymentId from URL parameters
+        const paymentIntent = await stripe.paymentIntents.retrieve(paymentId); // Retrieve the payment intent details from Stripe
+        res.send(paymentIntent);
+    } catch (error) {
+        console.error('Error retrieving payment details:', error);
+        res.status(500).send({ error: error.message });
+    }
 });
 
 // Export the router
