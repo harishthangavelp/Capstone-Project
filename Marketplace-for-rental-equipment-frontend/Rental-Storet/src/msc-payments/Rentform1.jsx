@@ -39,28 +39,33 @@ function Rentform1() {
         }
 
         const quantity = 1; 
-        const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ quantity, priceId }) 
-        });
+        try {
+            const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ quantity, priceId }),
+            });
 
-        if (!response.ok) {
-            const errorMessage = await response.text();
-            alert(`Error: ${errorMessage}`); 
-            return;
-        }
+            if (!response.ok) {
+                const errorMessage = await response.text();
+                alert(`Error: ${errorMessage}`);
+                return;
+            }
 
-        const session = await response.json();
-        const stripe = await stripePromise; 
-        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+            const session = await response.json();
+            const stripe = await stripePromise; 
+            const result = await stripe.redirectToCheckout({ sessionId: session.id });
 
-        if (result.error) {
-            alert(result.error.message);
-        } else {
-            navigate('/success'); 
+            if (result.error) {
+                alert(result.error.message);
+            } else {
+                navigate('/success');
+            }
+        } catch (error) {
+            console.error('Error in handleCheckout:', error);
+            alert('An error occurred while processing your payment.');
         }
     };
 
