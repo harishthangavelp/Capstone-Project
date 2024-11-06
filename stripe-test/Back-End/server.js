@@ -77,10 +77,10 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-app.post('/checkout-session/', (req, res) => {
-    // Your webhook handling logic
-    res.status(200).send('Webhook received!');
-});
+// app.post('/checkout-session/', (req, res) => {
+//     // Your webhook handling logic
+//     res.status(200).send('Webhook received!');
+// });
 // POST create checkout session
 app.post('/create-checkout-session', async (req, res) => {
     const { quantity, priceId } = req.body;
