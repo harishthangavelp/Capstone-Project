@@ -92,13 +92,11 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity: quantity,
                 },
             ],
-success_url: `${req.headers.origin}/success`, // Ensure 'req.headers.origin' resolves to a valid domain
-cancel_url: `${req.headers.origin}/cancel`,
-
+            success_url: `/success` ,
+            cancel_url: `/cancel`,
         });
         res.json({ id: session.id });
     } catch (error) {
-        console.error('Error creating checkout session:', error);
         res.status(500).send({ error: error.message });
     }
 });
