@@ -137,9 +137,23 @@ function Home(props) {
         <Modal.Body style={{ backgroundColor: '#ffe6ea', color: '#333', textAlign: 'center' }}>
           <p style={{ fontSize: '18px' }}>Welcome to <strong>haVel Stores</strong></p>
         </Modal.Body>
-        <Modal.Title style={{ color: '#ff5e78', backgroundColor: '#ffdce0', textAlign: 'center', fontWeight: 'bold', width: '100%' }}>
-          <button className="thankyou-button" onClick={handleCloseWelcomeModal}>ThankYou</button>
-        </Modal.Title>
+        <Modal.Title
+  style={{
+    color: '#ff5e78',
+    backgroundColor: '#ffdce0',
+    textAlign: 'center', // Ensures text and button inside are centered horizontally
+    fontWeight: 'bold',
+    width: '100%',
+    display: 'flex', // Flexbox for centering
+    justifyContent: 'center', // Centers content horizontally
+    alignItems: 'center', // Centers content vertically
+  }}
+>
+  <button className="thankyou-button" onClick={handleCloseWelcomeModal}>
+    ThankYou
+  </button>
+</Modal.Title>
+
       </Modal>
 
       <Modal show={showLoginModal} onHide={handleCloseLoginModal} centered>
