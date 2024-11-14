@@ -129,33 +129,18 @@ function Home(props) {
     <div className="bghome">
       {/* Welcome Modal */}
       <Modal show={showWelcomeModal} onHide={handleCloseWelcomeModal} centered>
-  <Modal.Header style={{ backgroundColor: '#ffdce0', justifyContent: 'center' }}>
-    <Modal.Title style={{ color: '#ff3a5c', textAlign: 'center', fontWeight: 'bold', width: '100%' }}>
-      Welcome!
-    </Modal.Title>
-  </Modal.Header>
-  <Modal.Body style={{ backgroundColor: '#ffe6ea', color: '#333', textAlign: 'center' }}>
-    <p style={{ fontSize: '18px' }}>Welcome to <strong>haVel Stores</strong></p>
-    <button
-      className="thankyou-button"
-      style={{
-        backgroundColor: '#ff5e78',
-        color: 'white',
-        border: 'none',
-        padding: '10px 20px',
-        borderRadius: '5px',
-        textAlign: 'center',
-        cursor: 'pointer',
-        marginTop: '20px',
-        display: 'inline-block'
-      }}
-      onClick={handleCloseWelcomeModal}
-    >
-      Thank You
-    </button>
-  </Modal.Body>
-</Modal>
-
+        <Modal.Header style={{ backgroundColor: '#ffdce0', justifyContent: 'center' }}>
+          <Modal.Title style={{ color: '#ff3a5c', textAlign: 'center', fontWeight: 'bold', width: '100%' }}>
+            Welcome!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ backgroundColor: '#ffe6ea', color: '#333', textAlign: 'center' }}>
+          <p style={{ fontSize: '18px' }}>Welcome to <strong>haVel Stores</strong></p>
+        </Modal.Body>
+        <Modal.Title style={{ color: '#ff5e78', backgroundColor: '#ffdce0', fontWeight: 'bold', width: '100%' }}>
+          <button className="thankyou-button" style={{textAlign:'center'}} onClick={handleCloseWelcomeModal}>ThankYou</button>
+        </Modal.Title>
+      </Modal>
 
       <Modal show={showLoginModal} onHide={handleCloseLoginModal} centered>
   <Modal.Header style={{ backgroundColor: '#fce4ec', justifyContent: 'center' }}>
