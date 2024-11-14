@@ -26,8 +26,8 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity,
                 },
             ],
-            success_url:`/success`,
-            cancel_url: `/cancel`,
+            success_url:`${req.headers.origin}/success`,
+            cancel_url: `${req.headers.origin}/cancel`,
         });
         res.json({ id: session.id });
     } catch (error) {
