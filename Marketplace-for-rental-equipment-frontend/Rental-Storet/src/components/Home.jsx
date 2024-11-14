@@ -180,7 +180,12 @@ function Home(props) {
   <Modal.Body style={{ backgroundColor: '#ffebee', color: '#333', textAlign: 'center' }}>
     <p>You need to be logged in to view this content. Please login first.</p>
   </Modal.Body>
-  <Modal.Footer style={{ backgroundColor: '#fce4ec' }}>
+  <Modal.Footer style={{ backgroundColor: '#fce4ec',textAlign: 'center', // Ensures text and button inside are centered horizontally
+    fontWeight: 'bold',
+    width: '100%',
+    display: 'flex', // Flexbox for centering
+    justifyContent: 'center', // Centers content horizontally
+    alignItems: 'center' }}>
     <button className="thankyou-button" onClick={handleLoginRedirect}>Login</button>
   </Modal.Footer>
 </Modal>
