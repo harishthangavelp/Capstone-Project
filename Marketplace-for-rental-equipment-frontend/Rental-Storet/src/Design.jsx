@@ -10,10 +10,10 @@ import{
   } from 'react-router-dom'
   import Navigation from './Navigation'
   import Home from '../src/components/Home'
+  import About from './components/About'
   import Service from './components/Service'
   import Contact from './components/Contact'
-  import Login from './components/Login'
-  import Register from './components/Register'
+
   import MSC from './mini-components/MSC'
   import WHR from './mini-components/WHR'
   import BDS from './mini-components/BDS'
@@ -38,9 +38,15 @@ import{
   import Rentform14 from './bds-payments/Rentform14'
   import Rentform15 from './bds-payments/Rentform15'
 
+  import CT1 from './Cart-Storage/CT1'
+  
+
   import Success from '../src/Payments-Msg/Success'
   import Cancel from './Payments-Msg/Cancel'
-  import Logre from './components/Logre'
+  import Login from './components/Login'
+  import Cart from './mini-components/Cart'
+  
+
 
   import 'bootstrap/dist/css/bootstrap.css';
   import 'bootstrap/dist/js/bootstrap.min.js';
@@ -57,16 +63,18 @@ function Design() {
          
          <Routes>
           <Route path="/" element={<Home/>}></Route>
+          <Route path="/about" element={<About/>}></Route>
           <Route path="/service" element={<Service/>}></Route>
           <Route path="/contact" element={<Contact/>}></Route>
-          <Route path="/login" element={<Login/>}></Route>
-          <Route path="/register" element={<Register/>}></Route>
+     
           <Route path="/malls-supermarkets" element={<MSC/>}></Route>
           <Route path="/warehouse-retailers" element={<WHR/>}></Route>
           <Route path="/department-stores" element={<BDS/>}></Route>
 
           <Route path="/sample" element={<Paypay/>}></Route>
-          <Route path="/register&login" element={<Logre/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/cart" element={<Cart/>}></Route>
+          
 
           <Route path="/bookingdetails1" element={<Rentform1/>}></Route>
           <Route path="/bookingdetails2" element={<Rentform2/>}></Route>
@@ -85,6 +93,9 @@ function Design() {
           <Route path="/bookingdetails13" element={<Rentform13/>}></Route>
           <Route path="/bookingdetails14" element={<Rentform14/>}></Route>
           <Route path="/bookingdetails15" element={<Rentform15/>}></Route>
+
+          <Route path="/ct1" element={<CT1/>}></Route>
+         
 
           <Route path="/success" element={<Success />} />
           <Route path="/cancel" element={<Cancel />} />

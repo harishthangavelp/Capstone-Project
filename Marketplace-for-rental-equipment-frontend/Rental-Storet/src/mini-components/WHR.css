@@ -1,5 +1,5 @@
 .whbg{
-    background-color: maroon;
+    background-color: lightseagreen;
     background-size: contain;
     height: 135em;
 }
@@ -75,6 +75,7 @@ font-weight: bold;
 }
 .whrbuths1{
     border: none;
+    background: none;
 }
 
 
@@ -409,10 +410,11 @@ font-weight: bold;
 }
 .whrbackhp{
     position: absolute;
-    margin: -3.45em 72em;
+    margin: -3.45em 68em;
     white-space: nowrap;
     font-family:sans-serif;
     font-weight: bold;
+    background: none;
     border: none;
 }
 .whrbacksubhp{

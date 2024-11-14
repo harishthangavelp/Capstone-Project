@@ -23,7 +23,7 @@ function BDS() {
     const fetchData = async () => {
       setLoading(true); // Start loading
       try {
-        const response = await axios.get('https://mocki.io/v1/c26404b2-63de-4e42-b698-3da8466e926f');
+        const response = await axios.get('https://mocki.io/v1/61148282-df82-4f6c-92b2-a52a19ad344d');
         
         // Filter duplicates by unique 'id' property
         const uniqueData = response.data.filter((item, index, self) =>

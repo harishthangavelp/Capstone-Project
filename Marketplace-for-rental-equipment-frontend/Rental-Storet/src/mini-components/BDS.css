@@ -1,7 +1,8 @@
 .bdsg{
-    background-color: maroon;
+    background-color:hotpink;
     background-size: contain;
     height: 135em;
+    background: none;
 }
 .bdshead{
     color: black;
@@ -75,6 +76,7 @@ font-weight: bold;
 }
 .bdsbuths1{
     border: none;
+    background: none;
 }
 
 
@@ -409,10 +411,11 @@ font-weight: bold;
 }
 .bdsbackhp{
     position: absolute;
-    margin: -3.45em 72em;
+    margin: -3.45em 68em;
     white-space: nowrap;
     font-family:sans-serif;
     font-weight: bold;
+    background: none;
     border: none;
 }
 .bdsbacksubhp{

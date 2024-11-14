@@ -1,164 +1,166 @@
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Fira Sans', sans-serif;
-	// overflow: hidden;
-}
-.bgcontact{
-zoom: 110%;
-}
-.section-contact {
-	min-height: 100vh;
-	padding-top: 100px;
-	padding-bottom: 100px;
-	background-image: linear-gradient(175deg, #FCC201 50%, #008B8B 50% );
-
-	.container {
-		max-width: 1280px;
-		margin: 0 auto;
-		padding-left: 32px;
-		padding-right: 32px;
-
-		@media (min-width: 768px) {
-			padding-left: 64px;
-			padding-right: 64px;
-		}
-
-		@media (min-width: 1024px) {
-			padding-left: 128px;
-			padding-right: 128px;
-		}
-
-		h1 {
-			color: black;
-			background-color:crimson;
-            font-family: 'Courier New', Courier, monospace;
-			font-size: 35px;
-            font-weight: bold;
-			text-transform: uppercase;
-			text-align: center;
-			margin-bottom: 16px;
-		}
-
-		p {
-			color: #800000;
-            font-family: Arial;
-            font-weight: bold;
-			font-size: 18px;
-			line-height: 1.5;
-			margin-bottom: 32px;
-		}
-
-		form {
-			display: grid;
-			grid-template-columns: 1fr;
-			grid-gap: 16px;
-			background-color: darkslategray;
-			padding: 32px;
-			border-radius: 16px;
-			box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
-
-			@media (min-width: 768px) {
-				grid-template-columns: repeat(2, 1fr);
-			}
-
-			.form-group {
-
-				&.full {
-					grid-column: -1 / 1;
-				}
-
-				label {
-					display: block;
-					margin-bottom: 5px;
-                    font-family: cursive;
-					color: gold;
-					background-color: #800000;
-                    font-weight: bold;
-					font-size: 15px;
-				}
-
-				.form-element {
-					appearance: none;
-					outline: none;
-					border: none;
-
-					display: block;
-					width: 100%;
-
-					border-radius: 8px;
-					padding: 12px 16px;
-					background-color:darkgray;
-					transition: 0.4s;
-
-					&:focus {
-						box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.2);
-						background-color: #FFF;
-					}
-				}
-
-				textarea {
-					resize: none;
-					min-height: 100px;
-				}
-			}
-
-			.submit-group {
-				grid-column: 1 / -1;
-				text-align: right;
-
-				input[type="submit"] {
-					appearance: none;
-					border: none;
-					outline: none;
-					background: none;
-
-					padding: 12px 16px;
-				    font-weight: 600;
-					font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-					background-color: orangered;
-					border-radius: 8px;
-					color: #FFF;
-					cursor: pointer;
-					transition: 0.4s;
-
-					
-
-				}
-			}
-		}
-	}
-}
-.card-container-31{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-	zoom: 120%;
-    margin-top: -22em;
-}
-.card-container-32{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-	zoom: 120%;
-    margin-top: 0.5em;
-}
-.footer-card-title{
-	color:gold;
-	background-color:#800000;
+/* Background for Contact Page */
+.bgcontact {
+	position: relative;
+	left: 3.5em;
+	background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%); /* Pinkish gradient background */
+	padding-top: 5em; /* To ensure the content isn't hidden behind a fixed navbar */
+	color: #5a1a34;
+	font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	height: 100vh; /* Full viewport height */
+  }
+  
+  /* Main section */
+  .section-contact {
+	max-width: 900px; /* Limit the form width */
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+	padding: 2em;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+	margin-top: 3em; /* Spacing from the top */
+  }
+  
+  /* Heading Styling */
+  h1 {
+	text-align: center;
+	color: #ff6392; /* Pink color for the heading */
+	font-size: 2.5rem;
 	font-weight: bold;
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-}
-
-.bbc{
-  position: absolute;
-  margin: -85em 64em;
-  white-space: nowrap;
-}
-.concbbc{
-  text-decoration: none;
-  color: white;
-}
+	margin-bottom: 1em;
+  }
+  
+  /* Paragraph description */
+  p {
+	text-align: center;
+	font-size: 1.1rem;
+	margin-bottom: 2em;
+	color: #5a1a34;
+  }
+  
+  /* Error Message Styling */
+  .error-message {
+	color: red;
+	font-size: 1rem;
+	text-align: center;
+	margin-bottom: 1.5em;
+  }
+  
+  /* Form Groups */
+  .form-group {
+	margin-bottom: 1.5em;
+  }
+  
+  .inputbg {
+	margin-top: 1.5em;
+  }
+  
+  .form-element {
+	width: 100%;
+	padding: 0.8em;
+	border: 2px solid #ff6392;
+	border-radius: 5px;
+	font-size: 1rem;
+	margin-top: 0.5em;
+  }
+  
+  .error-input {
+	border-color: red; /* Highlight border in red for errors */
+  }
+  
+  small.error-text {
+	color: red;
+	font-size: 0.9rem;
+	margin-top: 0.5em;
+	display: block;
+  }
+  
+  /* Submit Button Styling */
+  .submit-group input {
+	width: 100%;
+	padding: 1em;
+	border: none;
+	background-color: #ff6392;
+	color: white;
+	font-size: 1.1rem;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+  
+  .submit-group input:hover {
+	background-color: #ff2052; /* Darker pink on hover */
+  }
+  
+  /* Back to Home Button */
+  .bbc {
+	display: block;
+	margin-top: 3em;
+	text-align: center;
+	width: 100%;
+  }
+  
+  .concbbc {
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #ff6392;
+	padding: 1em;
+	border-radius: 5px;
+	font-size: 1.2rem;
+	display: inline-block;
+	text-align: center;
+  }
+  
+  .concbbc:hover {
+	background-color: #ff2052; /* Darker pink on hover */
+  }
+  
+  /* Popup Styling */
+  .popup-overlayps {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+  }
+  
+  .popupps {
+	background-color: white;
+	padding: 2em;
+	border-radius: 8px;
+	text-align: center;
+	max-width: 400px;
+	width: 100%;
+  }
+  
+  .popupps h2 {
+	font-size: 1.8rem;
+	color: #ff6392;
+  }
+  
+  .popupps p {
+	font-size: 1.2rem;
+	margin-bottom: 1em;
+  }
+  
+  .close-btnps {
+	padding: 0.8em 2em;
+	background-color: #ff6392;
+	border: none;
+	color: white;
+	font-size: 1.1rem;
+	cursor: pointer;
+	border-radius: 5px;
+  }
+  
+  .close-btnps:hover {
+	background-color: #ff2052;
+  }
+  

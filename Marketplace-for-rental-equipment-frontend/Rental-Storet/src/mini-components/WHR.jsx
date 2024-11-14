@@ -22,7 +22,7 @@ function WHR() {
     const fetchData = async () => {
       setLoading(true); // Start loading
       try {
-        const response = await axios.get('https://mocki.io/v1/b6e77c2b-0108-477b-95a5-7ef4ed5ae452');
+        const response = await axios.get('https://mocki.io/v1/61148282-df82-4f6c-92b2-a52a19ad344d');
         
         // Filter duplicates by unique 'id' property
         const uniqueData = response.data.filter((item, index, self) =>

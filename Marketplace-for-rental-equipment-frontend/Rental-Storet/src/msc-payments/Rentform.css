@@ -1,5 +1,5 @@
 .rentbg{
-    background-color: maroon;
+    background-color: lightgreen;
     background-size: contain;
     height: 45em;
 }
@@ -271,6 +271,7 @@ border-radius: 25px;
     position: absolute;
     margin: -34.5em 73em;
     font-family:sans-serif;
+    background: none;
     font-weight: bold;
     border: none;
 }

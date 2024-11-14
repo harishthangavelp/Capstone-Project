@@ -26,8 +26,8 @@ app.post('/create-checkout-session', async (req, res) => {
                     quantity,
                 },
             ],
-            success_url: `${req.headers.origin}/success`,
-            cancel_url: `${req.headers.origin}/cancel`,
+            success_url:`http://localhost:3000/success`,
+            cancel_url: `http://localhost:3000/cancel`,
         });
         res.json({ id: session.id });
     } catch (error) {
@@ -59,6 +59,7 @@ app.get('/payment-details/:paymentId', async (req, res) => {
         res.status(500).send({ error: error.message });
     }
 });
+
 
 // Webhook endpoint for Stripe events
 app.post('/webhook', (req, res) => {

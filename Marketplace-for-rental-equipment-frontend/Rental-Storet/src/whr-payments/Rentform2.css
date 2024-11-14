@@ -1,5 +1,5 @@
 .whrfbg{
-    background-color: maroon;
+    background-color: lightblue;
     background-size: contain;
     height: 45em;
 }
@@ -208,6 +208,7 @@ border-radius: 25px;
     margin: -34.5em 73em;
     font-family:sans-serif;
     font-weight: bold;
+    background: none;
     border: none;
 }
 .rentbacksubwh{

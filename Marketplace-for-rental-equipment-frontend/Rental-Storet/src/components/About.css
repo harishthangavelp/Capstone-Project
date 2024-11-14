@@ -1,0 +1,64 @@
+/* Beautiful Pinkish Background with Vibrant Colors */
+.about-container {
+  min-height: 100vh;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fad0c4, #ffdde1); /* Gradient background with pink hues */
+  color: #4f004f; /* A deep pinkish-purple color for text */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  position: relative;
+  left: 3.5em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Heading Styling */
+.abt {
+  font-size: 3.5rem;
+  text-shadow: 3px 3px 10px rgba(255, 105, 180, 0.6); /* Glowing pink shadow */
+  margin-bottom: 20px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  color: #ff4081; /* Vibrant pink for heading */
+}
+
+/* Paragraph Styling */
+.abtdesc {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+  background: rgba(255, 192, 203, 0.8); /* Semi-transparent pinkish background */
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 6px 12px rgba(255, 182, 193, 0.5); /* Soft pink shadow */
+  color: #800040; /* Rich dark pink for text */
+}
+
+/* Quotes Styling */
+.abtdesc q {
+  font-style: italic;
+  font-weight: bold;
+  color: #ff69b4; /* Hot pink for quotes */
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.8); /* Subtle white glow */
+}
+
+/* Optional: Fade-in Animation for smoother appearance */
+@keyframes fadeInEffect {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.about-container {
+  animation: fadeInEffect 2s ease-out;
+}

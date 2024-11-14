@@ -9,17 +9,25 @@ import hsimg3 from '../new-images/msc3.jpg';
 import hsimg4 from '../new-images/msc4.jpg';
 import hsimg5 from '../new-images/msc5.jpg';
 
+import CT1 from '../Cart-Storage/CT1';
+
 function MSC() {
   
   const [data, setData] = useState([]); // State for storing data
   const [loading, setLoading] = useState(true); // State for loading status
   const [error, setError] = useState(null); // State for handling errors
 
+  const [cartItems, setCartItems] = useState([]); // State to store cart items
+  const handleAddToCart = () => {
+    // Add a new Cart component to the list
+    setCartItems((prevCartItems) => [...prevCartItems, <CT1 key={prevCartItems.length} />]);
+};
+
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true); // Start loading
       try {
-        const response = await axios.get('https://mocki.io/v1/5b7a41b0-f9a1-40c7-be3e-e4c9ca7c3ae4');
+        const response = await axios.get('https://mocki.io/v1/cf868df3-0211-49ad-924c-85f15a2498ec');
         
         // Filter duplicates by unique 'id' property
         const uniqueData = response.data.filter((item, index, self) =>
@@ -55,6 +63,16 @@ function MSC() {
       <img className='hmg-3' src={hsimg3} width={'600px'} height={'300px'} alt="Mall 3" />
       <img className='hmg-4' src={hsimg4} width={'600px'} height={'300px'} alt="Mall 4" />
       <img className='hmg-5' src={hsimg5} width={'600px'} height={'300px'} alt="Mall 5" />
+
+{/* <button className='add-to-cart-button' onClick={handleAddToCart}>Add to Cart</button> */}
+<div className="cart-items">
+                {cartItems.map((item, index) => (
+                    <div key={index} className="cart-item">
+                        {item}
+                    </div>
+                ))}
+            </div>
+
 
       <button type='submit' className='buths1'><Link to="/bookingdetails1" className='buthadd'>Book</Link></button>
       <button type='submit' className='buths1'><Link to="/bookingdetails2" className='buthadd1'>Book</Link></button>
@@ -151,6 +169,8 @@ function MSC() {
           <p>No data available.</p>
         )}
       </div>
+
+  
 
       <button type="button" className='rentbackhp'><Link to="/" className='rentbacksubhp'>Back to Home Page</Link></button>
     </div>

@@ -1,163 +1,209 @@
-.bglog{
-    background-image: url('../images/autumn.jpg');
+.auth-containerl {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    position: relative;
+    left: 3.5em;
+    background: linear-gradient(135deg, #ff80ab, #f48fb1, #f8bbd0); /* Multi-pink gradient background */
+    font-family: 'Arial', sans-serif;
     background-size: cover;
-    height: 38em;
-    
+    background-position: center;
 }
-.formlog{
+
+/* Form wrapper with a light pink background and shadow */
+.form-wrapperl {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px 50px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    background: linear-gradient(145deg, #f8bbd0, #f48fb1); /* Soft pink gradient for the form */
+}
+
+/* Header with a darker shade */
+.h2l {
+    color: #d81b60; /* Pinkish color for header */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Form container with spaces between inputs */
+.forml {
     display: flex;
     flex-direction: column;
-    height: 500px;
-    width: 400px;
-    border: 2px solid gold;
-    align-items: center;
-    margin: auto;
-    margin-top: -34.5em;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 25px;
 }
-.formheading{
-    color: chartreuse;
-    font-size: 2rem;
-    font-family: 'Courier New', Courier, monospace;
+
+/* Input group and label styling */
+.input-groupl {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Styling for labels */
+.labell {
+    display: block;
+    margin-bottom: 5px;
     font-weight: bold;
-    border-bottom: 4px solid rgba(255, 255, 255, 0.5);
-    margin: 50px;
-}
-.boxlog{
-padding: 10px;
-margin: 10px;
-width: 65%;
-border: none;
-outline: none;
-border-radius: 20px;
-background-color: rgba(0, 100, 0, 0.8);
-color: white;
-font-family: 'Courier New', Courier, monospace;
-font-weight: 400;
-font-size: 1rem;
-}
-.submog{
-    padding: 10px;
-    margin-top: 1.5em;
-    width: 50%;
-    background-color: rgba(255, 69, 0, 0.7);
-    color:lavenderblush;
-    font-family: monospace;
-    border: none;
-    font-weight: bold;
-    border-radius: 20px;
-    font-size: 1rem;
-}
-.submog:hover{
-    background-color: orangered;
-    transition: 0.7s;
-}
-::placeholder{
-    color: white;
-    opacity: 0.5;
+    color: #d81b60; /* Pinkish color for labels */
 }
 
-.logsubmogfinal{
-    padding: 10px;
-    margin-top: 1.5em;
-    width: 50%;
-    text-decoration: none;
-    /* background-color: rgba(255, 69, 0, 0.7); */
-    color:lavenderblush;
-    font-family: monospace;
-    border: none;
-    font-weight: bold;
-    border-radius: 20px;
-    font-size: 1rem;
-}
-
-
-
-
-.logpopup{
-    font-weight: bold;
-    display: flex;
+/* Styling for input fields */
+.inputl {
     width: 100%;
+    padding: 12px;
+    border: 1px solid #f48fb1; /* Light pink border */
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fce4ec; /* Light pink background for inputs */
+}
+
+.inputl:focus {
+    border-color: #d81b60; /* Darker pink focus border */
+    background-color: #f8bbd0; /* Slightly darker pink background when focused */
+}
+
+/* Submit and toggle buttons styling */
+.submit-btnl, .toggle-btnl {
+    margin-top: 20px;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #d81b60; /* Vibrant pink for buttons */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btnl:hover, .toggle-btnl:hover {
+    background-color: #c2185b; /* Darker pink on hover */
+}
+
+/* Styling for the "Already Registered?" toggle button */
+.toggle-btnl {
+    background-color: #f48fb1; /* Light pink for toggle */
+    margin-top: 10px;
+}
+
+.toggle-btnl:hover {
+    background-color: #f06292; /* Slightly darker pink on hover */
+}
+
+/* Back to Home link with a stylish border and hover effects */
+.back-btnl {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    color: #d81b60;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #d81b60;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-btnl:hover {
+    background-color: #d81b60;
+    color: white;
+}
+
+/* Modal styles with a pinkish color for message */
+.modal-content {
+    border-radius: 12px; /* Rounded corners for modal */
+}
+
+.modal-header {
+    border-bottom: none;
+}
+
+.modal-title {
+    color: #d81b60; /* Pink title */
+}
+
+.modal-body {
+    text-align: center;
+    font-size: 1.2em;
+    background-color: #f8bbd0; /* Light pink background for modal */
+    color: #c2185b; /* Dark pink text color */
+}
+
+/* Logout button with a red (danger) color */
+.logout-btnl {
+    margin-top: 10px;
+    background-color: #dc3545; /* Red background for logout */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.logout-btnl:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Modal styles for pinkish theme */
+.pink-modal .modal-content {
+    background: linear-gradient(135deg, #f8bbd0, #f48fb1); /* Soft pink gradient */
+    color: #c2185b; /* Dark pink text */
+    border-radius: 12px;
+}
+
+.pink-modal .modal-header {
+    background-color: #fce4ec; /* Lighter pink for header */
+    color: #d81b60; /* Darker pink for the title */
+    font-weight: bold;
     justify-content: center;
-    font-size: 20px;
-    font-family:'Arial';
-    }
-.popsbg{
-        background-color: deepskyblue;
-     }
+}
+
+.pink-modal .modal-body {
+    background-color: #fce4ec; /* Lighter pink background for the message */
+    color: #c2185b; /* Darker pink text for the message */
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 20px;
+}
+
+.pink-modal .modal-title {
+    font-size: 1.5rem;
+}
 
 
-    .bubolo{
-        color: black;
-        font-size: 15px;
-        font-weight: bold;
-        border: 1px solid black;
-        background-color: aliceblue;
-    }
-    .bubolo:hover:active{
-        color: black;
-        background-color: aliceblue;
-    }
-    .bubolo:hover{
-    color: black;
-    background-color:lightcyan;
-    }
-    .lsttxt{
-        font-size: 20px;
-        color:chartreuse;
-        margin-top: 1.5em;
-        background-color: black;
-        font-weight: bold;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-    }
-    .lstreg{
-        position: relative;
-        top: -1em;
-    }
-    .submeg{
-        padding: 10px;
-        width: 50%;
-        position: relative;
-        top: -1em;
-        background-color: rgba(255, 69, 0, 0.7);
-        color:lavenderblush;
-        font-family: monospace;
-        border: none;
-        font-weight: bold;
-        border-radius: 20px;
-        font-size: 1rem;
-    }
-    .submeg:hover{
-        background-color: orangered;
-        transition: 0.7s;
-    }
-    .topbutlogs{
-        color:lavenderblush;
-        font-family: monospace;
-        text-decoration: none;
-    }
-   
 
-    #entry{
-        position: absolute;
-        margin: -25em 37.15em;
-        white-space: nowrap;
-        color: black;
-        font-weight: bold;
-        background-color: white;
-    }
+.modal-content {
+    border-radius: 12px;
+    background: linear-gradient(135deg, #f8bbd0, #f48fb1); /* Pink gradient background */
+    color: #c2185b; /* Text in a darker pink */
+}
 
-    .logout-btnl {
-        margin-top: 10px;
-        background-color: #dc3545; /* Bootstrap danger color */
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    
-    .logout-btnl:hover {
-        background-color: #c82333; /* Darker shade on hover */
-    }
+.modal-header {
+    border-bottom: none;
+    background-color: #f8bbd0; /* Light pink header background */
+    color: #d81b60; /* Vibrant pink for the header title */
+    font-weight: bold;
+    justify-content: center;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #fce4ec; /* Even lighter pink background */
+    color: #c2185b; /* Darker pink text */
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.modal-close-btn {
+    background: transparent;
+    color: #d81b60;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+}

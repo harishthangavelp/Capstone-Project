@@ -5,20 +5,18 @@ import Navigation from '../Navigation';
 import { Link, useNavigate } from 'react-router-dom'; 
 import { loadStripe } from '@stripe/stripe-js';
 import hsrentimg1 from '../new-images/msc1.jpg';
-import '../Payments-Msg/Success';
 import { Modal } from 'react-bootstrap'; // Import Modal for popup
 
 function Rentform1() {
     const [nameform, setNameform] = useState('');
     const [nameph, setNameph] = useState('');
     const [namemail, setNamemail] = useState('');
-    const [fradform, setFradform] = useState('');
-    const [toadform, setToadform] = useState('');
     const [timeform, setTimeform] = useState('');
     const [dmyform, setDmyform] = useState('');
-    const [showPopup, setShowPopup] = useState(false); // State for popup
+    const [showPopup, setShowPopup] = useState(false); // State for the popup
     const [isLoggedIn, setIsLoggedIn] = useState(false); // Check if user is logged in
     const [username, setUsername] = useState(''); // State for username
+    const [showConfirmModal, setShowConfirmModal] = useState(false); // Show confirmation modal
     const stripePromise = loadStripe('pk_test_51QAvR5FxddvTxBZJLQj17mka67uhpZecO86ZteNw6cNAK9hD0vyLuF0ZafyN2h89okXr3PNqHcgTVc13lefq8hA8005uGxtimW'); 
 
     const navigate = useNavigate();
@@ -32,13 +30,21 @@ function Rentform1() {
         }
     }, []);
 
+    // Handle checkout logic when the Pay button is clicked
     const handleCheckout = async (priceId) => {
         if (!isLoggedIn) {
-            setShowPopup(true); // Show the popup if the user is not logged in
+            setShowPopup(true); // Show the login required popup if user is not logged in
             return;
         }
 
-        const quantity = 1; 
+        setShowConfirmModal(true); // Show confirmation modal
+    };
+
+    const handleConfirmPayment = async () => {
+        // Proceed with payment if user confirms
+        const priceId = 'price_1QF90OFxddvTxBZJMoxIE54L'; // Your price ID
+
+        const quantity = 1;
         try {
             const response = await fetch('https://capstone-project-140.onrender.com/create-checkout-session', {
                 method: 'POST',
@@ -55,7 +61,7 @@ function Rentform1() {
             }
 
             const session = await response.json();
-            const stripe = await stripePromise; 
+            const stripe = await stripePromise;
             const result = await stripe.redirectToCheckout({ sessionId: session.id });
 
             if (result.error) {
@@ -67,16 +73,12 @@ function Rentform1() {
             console.error('Error in handleCheckout:', error);
             alert('An error occurred while processing your payment.');
         }
+
+        setShowConfirmModal(false); // Close the confirmation modal after payment
     };
 
-    const handleRentForms = (e) => {
-        e.preventDefault();
-        axios.post('https://capstone-project-17.onrender.com/register', { nameform, namemail, nameph, fradform, toadform, timeform, dmyform })
-            .then(result => console.log(result))
-            .catch(err => console.log(err));
-    };
-
-    const handleClosePopup = () => setShowPopup(false); // Close popup
+    const handleClosePopup = () => setShowPopup(false); // Close login required popup
+    const handleCloseConfirmModal = () => setShowConfirmModal(false); // Close confirmation modal
 
     return (
         <div className='rentbgbody'>
@@ -96,7 +98,7 @@ function Rentform1() {
                 <p className='midr'>Note: Submit the details and do the payment</p>
                 <button type="button" className='rentback'><Link to="/malls-supermarkets" className='rentbacksub'>Back</Link></button>
 
-                {/* Popup Modal */}
+                {/* Popup Modal (Login Required) */}
                 <Modal show={showPopup} onHide={handleClosePopup}>
                     <Modal.Header closeButton>
                         <Modal.Title>Login Required</Modal.Title>
@@ -105,10 +107,24 @@ function Rentform1() {
                         <p>You need to be logged in to proceed with the payment. Please log in to continue.</p>
                     </Modal.Body>
                     <Modal.Footer>
-                        <Link to="/register&login">
+                        <Link to="/login">
                             <button className="btn btn-primary">Go to Login</button>
                         </Link>
                         <button className="btn btn-secondary" onClick={handleClosePopup}>Close</button>
+                    </Modal.Footer>
+                </Modal>
+
+                {/* Confirmation Modal (Are You Sure?) */}
+                <Modal show={showConfirmModal} onHide={handleCloseConfirmModal}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Are you sure?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <p>Do you want to proceed with the payment?</p>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className="btn btn-danger" onClick={handleConfirmPayment}>Yes</button>
+                        <button className="btn btn-success" onClick={handleCloseConfirmModal}>No</button>
                     </Modal.Footer>
                 </Modal>
             </div>

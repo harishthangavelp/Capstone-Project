@@ -1,58 +1,86 @@
-import React from 'react'
-import './Service.css'
-import {Link} from 'react-router-dom'
-import Navigation from '../Navigation';
+import React, { useState, useEffect } from 'react';
+import './Service.css';
+import Hasc from '../Hasc';
 
 import servimg1 from '../new-images/msc1.jpg';
 import servimg2 from '../new-images/bds1.jpg';
 import servimg3 from '../new-images/whb5.jpg';
 
-function Service(props) {
+function Service() {
+  // State to track the current slide index
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Array of descriptions
+  const descriptions = [
+    "These are large commercial establishments offering a wide variety of retail stores, entertainment options, and dining experiences all under one roof, making them a popular destination for shoppers and families.",
+    "These are retail outlets offering a broad range of products categorized into sections such as clothing, electronics, home goods, and beauty products, providing a one-stop shopping experience for customers.",
+    "These stores focus on selling goods in bulk at discounted prices, typically catering to businesses and large families. They often operate in large warehouse-like facilities."
+  ];
+
+  // Automatically update activeSlide based on the carousel's interval
+  useEffect(() => {
+    const carousel = document.querySelector('#carouselExampleInterval');
+    const updateSlide = () => {
+      const activeIndex = Array.from(carousel.querySelectorAll('.carousel-item')).findIndex(item =>
+        item.classList.contains('active')
+      );
+      setActiveSlide(activeIndex);
+    };
+
+    carousel.addEventListener('slid.bs.carousel', updateSlide);
+
+    return () => {
+      carousel.removeEventListener('slid.bs.carousel', updateSlide);
+    };
+  }, []);
+
   return (
-   <div className='bg'>
+    <>
+      <Hasc />
+      <div className="bg">
+        {/* Heading Section */}
+        <div className="tophead">
+          <h1>Our Services</h1>
+        </div>
 
+        {/* Quote Section */}
+        <div className="topheadq">
+          <q>We focus on making each and every man live a luxurious life</q>
+        </div>
 
-   <div className='tophead'>
-   <h1>Our Services</h1>
-   </div>
+        {/* Carousel Section */}
+        <div
+          id="carouselExampleInterval"
+          className="carousel slide"
+          data-bs-ride="carousel"
+          data-bs-interval="3000"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={servimg1} className="cure" alt="Malls and Shopping Centres" />
+              <h3 className="h1t" style={{whiteSpace:'nowrap'}}>Malls and Shopping Centres</h3>
+            </div>
+            <div className="carousel-item">
+              <img src={servimg2} className="cure" alt="Department Stores" />
+              <h3 className="h2t">Department Stores</h3>
+            </div>
+            <div className="carousel-item">
+              <img src={servimg3} className="cure" alt="Warehouse Retailers" />
+              <h3 className="h3t">Warehouse Retailers</h3>
+            </div>
+          </div>
 
-<div className='topheadq'>
-<q> We focus on making each and every man live a luxurious life </q>
-</div>
+          {/* Controls */}
+ 
+        </div>
 
-
-
-
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src={servimg1} className='cure' alt="..."/>
-      <h3 className='h1t bg-success'>Malls and Shopping Centres</h3>
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src={servimg2} className='cure' alt="..."/>
-      <h3 className='h2t bg-success'>Department Stores</h3>
-    </div>
-    <div class="carousel-item">
-      <img src={servimg3} className='cure' alt="..."/>
-      <h3 className='h3t bg-success'>Warehouse Retailers</h3>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-<button type="button" className="bbb btn btn-dark"><Link to="/" className='servbbb'>Back to Home Page</Link></button>
-
-   
-   </div>
-  )
+        {/* Description Section */}
+        <div className="description">
+          <p>{descriptions[activeSlide]}</p>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Service
+export default Service;

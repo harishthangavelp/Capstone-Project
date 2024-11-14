@@ -1,63 +1,150 @@
-.bg{
-background-color: crimson;
-background-size: auto;
-height: 38em;
-}
-.tophead{
-    color: black;
-    background-color: cornflowerblue;
-    border: 2px solid black;
+/* Background and Main Container */
+.bg {
+    min-height: 150vh;
+    padding-top: 5em; /* Space for navbar */
+    background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%); /* Gradient background similar to About.css */
+    color: #5a1a34;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    left: 3.5em;
+    animation: fadeInEffect 2s ease-out; /* Apply fade-in animation */
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeInEffect {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Heading Section */
+  .tophead {
+    color: #ffffff;
+    background-color: #ff6392;
+    border: 2px solid #ff2052;
     text-align: center;
-    margin-top: 0em;
-    font-size: 40px;
+    padding: 1em;
+    font-size: 2.5rem;
     font-weight: bold;
-}
-.topheadq{
-    color: black;
-    background-color:burlywood;
-    margin: 1em 17.3em;
+    border-radius: 8px;
+    width: 80%;
+    margin-bottom: 2em;
+    text-shadow: 3px 3px 10px rgba(255, 105, 180, 0.6); /* Glowing pink shadow for heading */
+  }
+  
+  /* Quote Section */
+  .topheadq {
+    color: #5a1a34;
+    background-color: #ffbedb;
+    margin: 1.5em auto;
     text-align: center;
-    background-size: 50% auto;
-    width: 50%;
-    border: 2px solid black;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-.cure{
-    width: 384px;
-    height: 240px;
-    zoom: 160%;
-    border: 3px solid black;
-    margin-left: 15em;
-    margin-top: 0em;
-}
-.h1t{
-    margin-left: 18.5em;
-    margin-top: 0.3em; 
-    color: black;
-}
-.h2t{
-    margin-left: 21em;
-    margin-top: 0.3em; 
-    color: black;
-}
-.h3t{
-    margin-left: 20em;
-    margin-top: 0.3em; 
-    color: black;
-}
-.bg-success{
-    display: inline-block;
-    border: 2px solid black;
+    width: 80%; /* Adjusted width */
+    border: 2px solid #ff6392;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 1em;
+    border-radius: 8px;
+    margin-bottom: 3em;
+    box-shadow: 0 6px 12px rgba(255, 182, 193, 0.5); /* Soft pink shadow */
+  }
+  
+  .cure {
+    width: 500px;
+    height: 300px;
+    border: 3px solid #ff6392;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  /* Carousel Controls */
+/* Custom Carousel Buttons */
+.custom-prev-btn,
+.custom-next-btn {
+  position: absolute;
+  top: 50%; /* Vertically centered */
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(255, 99, 146, 0.8); /* Pink background */
+  border: 2px solid #ff6392; /* Border color */
+  color: white;
+  font-size: 2rem; /* Adjust font size for arrows */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Circular buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.bbb{
-    position: absolute;
-    margin: -35em 72em;
-    white-space: nowrap;
+.custom-prev-btn {
+  left: 10%; /* Position on the left side of the image */
 }
-.servbbb{
-    text-decoration: none;
-    color: white;
+
+.custom-next-btn {
+  right: 10%; /* Position on the right side of the image */
 }
+
+.custom-prev-btn:hover,
+.custom-next-btn:hover {
+  background-color: #ff6392; /* Darker pink on hover */
+}
+
+
+.description {
+    margin-top: 20px;
+    text-align: center;
+    padding: 0.8rem 1rem;  /* Reduce padding size */
+    background-color: #ffeef3; /* Light pink background */
+    color: #5a1a34;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for emphasis */
+    width: 80%;  /* Ensure it doesn't take the full width */
+    margin-left: auto;  /* Center align it horizontally */
+    margin-right: auto;  /* Center align it horizontally */
+  }
+  
+  
+  /* Carousel Text */
+  /* Center align text below each image */
+.h1t, .h2t, .h3t {
+    position: absolute; /* Place it relative to the carousel container */
+    bottom: 0em; /* Adjust the distance from the bottom of the image */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Correct centering alignment */
+    color: #5a1a34;
+    background-color: #ffbedb;
+    border: 2px solid #ff6392;
+    padding: 0.5em 1em; /* Spacing around text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1.2rem; /* Adjust font size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Ensure text is centered */
+  }
+  
+  /* Ensure carousel images are positioned relatively */
+  .carousel-item {
+    position: relative; /* Necessary for absolute positioning of text */
+  }
+  
+
+  
+  /* Ensure overall alignment */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Add margin to the body and top of the container to avoid overlap with fixed navbar */
+  

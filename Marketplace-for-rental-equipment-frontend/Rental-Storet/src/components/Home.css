@@ -1,379 +1,427 @@
-*{
-    margin: 0px;
-    padding: 0px;
+.door-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  background: linear-gradient(45deg, pink, #f48fb1, #f48fb1); /* Initial gradient */
+  
+}
+
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+
+.doorbord{
+  border: 3px solid #d81b60;
+}
+
+.door {
+  width: 50px;
+  height: 100px;
+  background: linear-gradient(to right, #ffb6c1, #ff69b4);
+  border: 2px solid #d81b60;
+  border-radius: 10px;
+  position: absolute; /* Fixed position relative to the viewport */
+  top: 5em; /* Distance from the top of the page */
+  right: 5em; 
+  transition: transform 1s ease-in-out;
+  transform-origin: left;
+}
+
+.door.closed {
+  transform: rotateY(0deg);
+}
+
+.door.open {
+  transform: rotateY(-90deg);
+}
+
+.handle {
+  width: 12px;
+  height: 24px;
+  background-color: #654321;
+  border-radius: 10px;
+  position: absolute;
+  right:5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.dbutton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff69b4;
+  position: absolute; /* Fixed position relative to the viewport */
+  top: 10.5em; /* Distance from the top of the page */
+  right: 4em; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dbutton:hover {
+  background-color: #d81b60;
+}
+
+.logout-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ff69b4;
+  position: absolute; /* Fixed position relative to the viewport */
+  top: 10.5em; /* Distance from the top of the page */
+  right: 3.75em; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.logout-button:hover {
+  background-color: #d81b60;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
-    font-family: sans-serif;
-}
-.hometoptop{
-    background-color: deepskyblue;
-    border: none;
-}
-
-.topbut{
-    color: whitesmoke;
-    text-decoration: none;
-}
-
-.bghome{
-    background-image: linear-gradient(180deg, yellow, orange);
-    background-size: 100%;
-    display: block;
-    height: 53em;
-    zoom: 90%;
-}
-.popbg{
-   background-color: beige;
-}
-.homepopbgc{
-    background-color: beige;
-}
-.pophome-img{
-  margin-left: 20px;
-}
-.hpop-txt{
-    margin-left: 50px;
-    margin-top: -1.3em;
-    color: black;
-    font-size: 20px;
-    font-family:'Arial';
-}
-.bu1ho{
-    color: black;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: beige;
-}
-.bu1ho:hover:active{
-    color: black;
-    background-color: aliceblue;
-}
-.bu1ho:hover{
-color: black;
-background-color:aliceblue;
-}
-.pophom{
-font-weight: bold;
-font-size: 20px;
-font-family:'Arial';
-}
-
-
-
-.hide {
-    display: none;
+    color: #333;
+    background: linear-gradient(45deg, pink, #f48fb1, #f48fb1); /* Initial gradient */
+    background-size: 400% 400%; /* Makes the gradient larger than the screen */
+    animation: gradientAnimation 8s ease infinite; /* Apply animation */
   }
-/* .usprof{
-    position: absolute;
-    left: 9em;
-    top: 0.1em;
-}
-.usprof:hover + .hide {
-    display: block;
-    color: red;
-  } */
 
-/* Example CSS for userProf image */
+  
+/* Remove underline for specific links */
+.hero-section .cta-button a,
+.cta-section .cta-button a {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Maintain the button's color */
+}
+
+
+  /* Hero Section Styling */
+  .hero-section {
+    text-align: center;
+    position: relative;
+    left: 3.5em;
+    padding: 50px 20px;
+    color: white;
+  }
+  
+  .hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    background-color: #ff5e78;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .cta-button:hover {
+    background-color: #ff3a5c;
+  }
+  
+  /* Top Navigation Styling */
+  .topnav1 {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: flex-start; /* Align items to the left */
+    background: linear-gradient(45deg, #ffeb3b, #f48fb1, #ffeb3b, #f48fb1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%; /* Make the navigation take up the full height of the page */
+    padding: 1em; /* Add padding around the items */
+    z-index: 1000;
+  }
+
+  /* Styling for the user profile image */
 .usprof {
-    position: fixed; /* or use 'absolute' based on your layout */
-    top: 1px; /* Adjust as needed */
-    right: 10px; /* Adjust as needed */
-    width: 45px;
-    height: 45px;
-    object-fit: cover; /* Ensures the image covers the area */
-    z-index: 1000; /* Makes sure it's on top of other elements */
+  position: absolute; /* Fixed position relative to the viewport */
+  top: 2em; /* Distance from the top of the page */
+  right: 2em; 
+  width: 70px;
+  height: 70px;/* Distance from the right edge of the page */
+  /* Make the profile image circular */
+ /* Optional: pink border */
+   /* Optional: Shadow for visual effect */
+  /* Ensure it stays on top of other content */
+}
+
+/* Optional: Add hover effect to show the profile image is interactive */
+.usprof:hover {
+  cursor: pointer;
+  opacity: 0.8; /* Slight transparency when hovering */
+}
+
+  
+  .topnav1 .topbut {
+    width: 100%; /* Make each button stretch across the full width */
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    text-align: left; /* Align text to the left */
+    font-size: 1rem;
+  }
+  .nav-divider {
+    width: 90%; /* Match the width of the navlinks */
+    border: 0;
+    height: 1px;
+    background-color: white;
+    margin: 5px 0; /* Add spacing around the divider */
+    opacity: 0.5; /* Make it slightly transparent */
+  }
+  .topnav1 .topbut:hover {
+    background-color: lightpink;
+    border-radius: 5px;
+  }
+  
+  .topnav1 .usprof {
+    border-radius: 50%;
+    margin: 10px 0;
+  }
+  
+  
+  /* Services Section Styling */
+  .services-section {
+    text-align: center;
+    position: relative;
+    left: 3.5em;
+    padding: 40px 20px;
+    margin-top: 80px;
+  }
+  
+  .services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .service-item {
+    width: 300px;
+    text-align: center;
+  }
+  
+  .service-item img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  
+  .service-link {
+    display: inline-block;
+    margin-top: 10px;
+    background-color: #ff5e78;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    /* font-weight: bold; */
+  }
+  
+  .service-link:hover {
+    background-color: #ff3a5c;
+  }
+  
+  /* Testimonials Section Styling */
+  .testimonials {
+    background: linear-gradient(45deg, #f48fb1, pink, #f48fb1); /* Initial gradient */
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+    left: 3.5em;
+    margin: 0em -10em;
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
   }
   
 
-
-
-
-.logo{
-transform: translate(1.5em,0em);
-}
-.homelogove{
-    margin: 0.3em 0.2em;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: deepskyblue;
-    font-family: cursive;
-}
-
-.card-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 25px;
-    margin-top: 5em;
-}
-.hb1{
-    color: gold;
-    position: absolute;
-    margin: -0.95em 7em;
-    white-space: nowrap;
-    font-weight: bold;
-    font-family:sans-serif;
-    text-decoration: none;
-    padding: 7px 8px;
-    border-radius: 20px;
-    background-color: black;
-}
-.hb2{
-    color: gold;
-    position: absolute;
-    margin: -0.95em 7em;
-    white-space: nowrap;
-    font-weight: bold;
-    font-family:sans-serif;
-    text-decoration: none;
-    padding: 7px 8px;
-    border-radius: 20px;
-    background-color: black;
-}
-.hb3{
-    color: gold;
-    position: absolute;
-    margin: -0.95em 7em;
-    white-space: nowrap;
-    font-weight: bold;
-    font-family:sans-serif;
-    text-decoration: none;
-    padding: 7px 8px;
-    border-radius: 20px;
-    background-color: black;
-}
-.homecard{
-    width: 325px;
-    height: 345px;
-    background-color: maroon;
-    border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-    transition: transform 0.5s ease;
-}
-.homecard:hover{
-    transform: translateY(-20px);
-}
-.homecard img{
-    width: 100%;
-    object-fit: cover;
-}
-.card-content{
-    padding: 20px;
-}
-.center-heading{
-font-weight: bold;
-font-size: 30px;
-font-family:'Arial';
-transform: translate(19.5em,1em);
-}
-.center-para{
-    font-size: 20px;
-    color: white;
-    font-family:'serif';
-    transform: translate(29em,0.3em);
-}
-.hometitle{
-font-family:sans-serif;
-font-size: 14px;
-font-weight: bold;  
-padding: 5px;
-background-color: none;
-color: gold;
-text-align: center;
-background-color: black;
-background-size: cover;
-margin-bottom: 20px;
-}
-.hometitle2{
-    font-family:sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 5px;
-    background-color: none;
-    color: gold;
-    text-align: center;
-    background-color: black;
-    background-size: cover;
+  .testimonial-item {
     margin-bottom: 20px;
-}
-.card-content p{
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-font-size: 14px;
-font-weight: bold;
-color: white;
-margin-bottom: 20px;
-}
-.card-button{
-    display: inline-block;
-    background-color: black;
+     position: relative;
+    left: 3em;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards; /* Animation for each testimonial */
+  }
+  
+  .testimonial-item p {
+    text-align: center;
+    position: relative;
+    left: -2.8em;
+    font-style: italic;
+    margin-bottom: 10px;
+  }
+  
+  .testimonial-item span {
+    display: block;
+    text-align: center;
+    position: relative;
+    left: -2.5em;
+    font-weight: bold;
+    color: #ff5e78;
+  }
+  
+  /* CTA Section Styling */
+  .cta-section {
+    text-align: center; /* Center text */
+    padding: 40px 20px;
+    position: relative;
+    left: 3.5em;
+    margin: 0em -10em;
+    background-color: #ff9a9e;
     color: white;
-    text-decoration: none;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 18px;
+    border: none;
+    background-color: #ff5e78;
+    color: white;
     border-radius: 5px;
-    padding: 5px 10px;
-}
-.center-button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.desc{
-    color: chartreuse;
-    font-weight: bold;
-    font-family: Calibri;
-}
-
-.footer-box{
-        padding: 30px;
-        background-color:chartreuse;
-        font-family: "Poppins", Arial, sans-serif;
-}
-.footer{
-    text-align: center;
-    font-size: 14px;
-    font-family: sans-serif;
-    font-weight:700;
-    color:darkmagenta;
-}
-
-.footer-box-1{
-    font-family: "Poppins", Arial, sans-serif;
-    font-size: 30px;
-    font-weight:bolder;
-    zoom: 80%;
-}
-
-.footer-box-1 p{
-    font-family: cursive;
-    font-size: 25px;
-    font-weight:700;
-}
-.footer-box-31{
-        margin: -10em 35em;
-        font-family: "Poppins", Arial, sans-serif;
-        white-space: nowrap;
-        font-size: 30px;
-        font-weight:bolder;
-
-}
-.boxin1{
-    transform: translate(42.3em,14em);
-}
-.footer-box-3 address{
-    transform: translate(42.3em,12em);
-    font-family: cursive;
-    font-size: 25px;
-    font-weight:700;
-}
-.boxin2{
-transform: translate(63.80em,18em);
-width: 28px;
-height: 28px;
-}
-.phone{
-    transform: translate(42.4em,10.2em);
-    font-family: cursive;
-    font-size: 25px;
-    font-weight:700;
-}
-.boxin3{
-transform: translate(64em,15.5em);
-width: 28px;
-height: 28px;
-}
-.mail{
-    transform: translate(42.6em,8.55em);
-    font-family: cursive;
-    font-size: 25px;
-    font-weight:700;
-}
-.move-left{
-    transform: translate(-3em,0.5em);
-}
-.footer-last{
-    font-family:Tahoma;
-    font-size: 15px;
-    color: black;
-    width: 100%;
-    padding: -1em -1em;
-    background-color:deeppink;
-    margin-top: 2em;
-    text-align: center;
-    font-weight:700;
-}
-
-.centPad{
-border: 2px solid black;
-background-color: deepskyblue;
-border-right: 5px;
-border-width: 1px;
-padding:0.3em 0.3em;
+    text-decoration: none;
   }
-
-  .flex-box{
-    /* transform: translate(-5em,0.0em);
-    position: relative; */
-    margin: -0.1em -0.2em;
-    margin-right: 8px;
+  
+  .cta-button:hover {
+    background-color: #ff3a5c;
+  }
+  
+  /* Footer Styling */
+  .footer-last {
+    text-align: center;
     position: relative;
-    right: 3em;
-    float: right;
-  }
-
-  .abt{
-border: 2px solid black;
-color: black;
-font-family:fantasy;
-text-align: center;
-background-color: lime;
-border-right: 5px;
-border-width: 1px;
-padding:0.0em 0.0em;
-  }
-.abtdesc{
-    color: black;
-    background-color: lightgrey;
-    width: auto;
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    border: 4px solid black;
-    padding: 10px;
-    margin: 20px;
-  }
-  .popdirhome{
-    position: relative;
-    left: 0em;
-  }
-
-
-.homenav{
-position:absolute;
-margin: -33em 72em;
-white-space: nowrap;
-color: white;
-background-color: rgba(255, 223, 0, 0.7);
-border: 2px solid black;
-font-family:monospace;
-font-weight: bold;
-padding: 5px;
-border-radius: 20px;
-}
-.homedesign{
-text-decoration: none;
-color: black;
-}
-
-#entry{
-    position: absolute;
-    margin: -25em 40em;
-    white-space: nowrap;
+    left: 3.5em;
+    padding: 3px 3px;
+    margin: 0em -10em;
+    background-color: lightcoral;
     color: white;
-}
-
-.logscreen{
-    color: black;
-    text-align: center;
+  }
+  
+  /* Media Query for Small Screens */
+  @media screen and (max-width: 768px) {
+    .services-grid {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .service-item {
+      width: 100%;
+    }
+  }
+  
+  /* Keyframes for Animations */
+  
+  /* Fade-in animation for testimonials */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-in-up animation for testimonial items */
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation for Background Gradient */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .thankyou-button {
+    background-color: #ff3a5c;
+    color: white;
+    border: none;
     position: relative;
-    top: -54.5em;
-}
+    left: -12em;
+    bottom: 0.5em;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .thankyou-button:hover {
+    background-color:#ff3a5c;
+    transform: scale(1.05);
+  }
+  
+  /* .thankyou-button:active {
+    background-color: #ff3e61;
+    transform: scale(0.95);
+  } */
+  .username-display {
+    display: inline-block;
+    margin-left: 20px; /* Adjust spacing to separate from the navigation */
+    padding: 5px 10px; /* Add padding for better aesthetics */
+    color: deeppink;
+    border: 2px solid #ff3a5c;
+    background-color: #ffe6ea;
+    border-radius: 5px;
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  
+  

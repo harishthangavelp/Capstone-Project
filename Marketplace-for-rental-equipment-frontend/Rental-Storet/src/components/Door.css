@@ -1,0 +1,60 @@
+.door-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(45deg, pink, #f48fb1, #f48fb1); /* Initial gradient */
+  }
+  
+  .door {
+    width: 50px;
+    height: 100px;
+    background: linear-gradient(to right, #ffb6c1, #ff69b4);
+    border: 2px solid #d81b60;
+    border-radius: 10px;
+    position: absolute; /* Fixed position relative to the viewport */
+    top: 5em; /* Distance from the top of the page */
+    right: 5em; 
+    transition: transform 1s ease-in-out;
+    transform-origin: left;
+  }
+  
+  .door.closed {
+    transform: rotateY(0deg);
+  }
+  
+  .door.open {
+    transform: rotateY(-90deg);
+  }
+  
+  .handle {
+    width: 12px;
+    height: 24px;
+    background-color: #654321;
+    border-radius: 10px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .dbutton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff69b4;
+    position: absolute; /* Fixed position relative to the viewport */
+    top: 11.5em; /* Distance from the top of the page */
+    right: 4.25em; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .dbutton:hover {
+    background-color: #d81b60;
+  }
+  

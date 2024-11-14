@@ -1,139 +1,173 @@
-import React, { useState } from 'react'
-import '../components/Contact.scss'
-import axios from 'axios'
-import Navigation from '../Navigation'
-import { useNavigate,Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import '../components/Contact.scss';
+import { Link } from 'react-router-dom';
+import Hasc from '../Hasc';
 
 function Contact() {
+  const [email, setEmail] = useState('');
+  const [fname, setFname] = useState('');
+  const [lname, setLname] = useState('');
+  const [phone, setPhone] = useState('');
+  const [text, setText] = useState('');
+  const [errors, setErrors] = useState({});
+  const [successMessage, setSuccessMessage] = useState('');
+  const [serverError, setServerError] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
 
-	const [email,setEmail]=useState('');
-	const [fname,setFname]=useState('');
-	const [lname,setLname]=useState('');
-	const [phone,setPhone]=useState('');
-	const [text,setText]=useState('');
-  
-	const collectData = (e) => {
-		e.preventDefault()
-		axios.post('https://capstone-project-17.onrender.com/contact',{email,fname,lname,phone,text})
-		.then(result => console.log(result))
-		.catch(err => console.log(err))
-	  }
-  
+  const validateForm = () => {
+    const newErrors = {};
+    if (!fname.trim()) newErrors.fname = 'First name is required.';
+    if (!lname.trim()) newErrors.lname = 'Last name is required.';
+    if (!phone.trim()) {
+      newErrors.phone = 'Phone number is required.';
+    } else if (!/^\d{10}$/.test(phone)) {
+      newErrors.phone = 'Phone number must be 10 digits.';
+    }
+    if (!email.trim()) {
+      newErrors.email = 'Email is required.';
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = 'Email is invalid.';
+    }
+    if (!text.trim()) newErrors.text = 'Message cannot be empty.';
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
+
+  const collectData = async (e) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    try {
+      // Simulate form submission
+    
+      setSuccessMessage('Your message has been sent successfully!');
+      setServerError('');
+      setShowPopup(true); // Show popup on success
+      setEmail('');
+      setFname('');
+      setLname('');
+      setPhone('');
+      setText('');
+    } catch (err) {
+      console.error('Error handling form data:', err);
+      setServerError('Failed to send message. Please try again later.');
+      setSuccessMessage('');
+    }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
 
   return (
-    <div className='bgcontact'>
-    <div>
-    <main>
-		<section class="section-contact">
-			<div class="container">
-				<h1>Contact Us</h1>
-				<p>Fill out the form below to get in touch with one of our team members. We will try to get back to you within 48 hours. If we do not reply within that time please feel free to use the form again.</p>
+    <>
+    <Hasc/>
+    <div className="bgcontact">
+      <main>
+        <section className="section-contact">
+          <div className="container">
+            <h1>Contact Us</h1>
+            <p>
+              Fill out the form below to get in touch with one of our team members. We will try to get back to you within 48
+              hours. If we do not reply within that time, please feel free to use the form again.
+            </p>
 
-				<form onSubmit={collectData}>
-					<div class="form-group inputbg" >
-						<label for="name">First Name*</label>
-						<input 
-							type="text" 
-							name="name" 
-							id="name" 
-							required 
-							class="form-element"
-							placeholder="First Name"
-							value={fname}  onChange={(e)=> setFname(e.target.value)} />
-					</div>
-					<div class="form-group">
-						<label for="name">Last Name*</label>
-						<input type='text' name="name" id="name" required class="form-element" placeholder="Last Name"
-						value={lname}  onChange={(e)=> setLname(e.target.value)} />
-                    </div>
-                    <div class="form-group">
-						<label for="phone">Phone*</label>
-						<input type="tel" name="phone" id="phone" required class="form-element" placeholder="Phone"
-						value={phone}  onChange={(e)=> setPhone(e.target.value)} />
-					</div>
-                    <div class="form-group">
-						<label for="email">Email*</label>
-						<input type="email" name="email" id="email" required class="form-element" placeholder="Mail"
-						value={email}  onChange={(e)=> setEmail(e.target.value)} />
-					</div>
-					<div class="form-group full">
-						<label for="message">What are you looking for?</label>
-						<textarea name="message" id="message" class="form-element" placeholder="Ask questions here"
-						value={text}  onChange={(e)=> setText(e.target.value)}></textarea>
-					</div>
-					<div class="submit-group"  data-bs-toggle="modal" data-bs-target="#exampleModal">
-						<input type="submit" value="Send Message" />
-					</div>
-				</form>
-			</div>
-		</section>
-	</main>
-    </div>
+            {serverError && <p className="error-message">{serverError}</p>}
 
+            <form onSubmit={collectData}>
+              <div className="form-group inputbg">
+                <label htmlFor="fname">First Name*</label>
+                <input
+                  type="text"
+                  name="fname"
+                  id="fname"
+                  className={`form-element ${errors.fname ? 'error-input' : ''}`}
+                  placeholder="First Name"
+                  value={fname}
+                  onChange={(e) => setFname(e.target.value)}
+                />
+                {errors.fname && <small className="error-text">{errors.fname}</small>}
+              </div>
 
+              <div className="form-group">
+                <label htmlFor="lname">Last Name*</label>
+                <input
+                  type="text"
+                  name="lname"
+                  id="lname"
+                  className={`form-element ${errors.lname ? 'error-input' : ''}`}
+                  placeholder="Last Name"
+                  value={lname}
+                  onChange={(e) => setLname(e.target.value)}
+                />
+                {errors.lname && <small className="error-text">{errors.lname}</small>}
+              </div>
 
+              <div className="form-group">
+                <label htmlFor="phone">Phone*</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  className={`form-element ${errors.phone ? 'error-input' : ''}`}
+                  placeholder="Phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                {errors.phone && <small className="error-text">{errors.phone}</small>}
+              </div>
 
-	<main>
-		<section class="section-contact">
-			<div class="container">
-				<h1>Contact Us</h1>
+              <div className="form-group">
+                <label htmlFor="email">Email*</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  className={`form-element ${errors.email ? 'error-input' : ''}`}
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                {errors.email && <small className="error-text">{errors.email}</small>}
+              </div>
 
-				</div>
-		</section>
-	</main>
+              <div className="form-group full">
+                <label htmlFor="message">What are you looking for?</label>
+                <textarea
+                  name="message"
+                  id="message"
+                  className={`form-element ${errors.text ? 'error-input' : ''}`}
+                  placeholder="Ask questions here"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                ></textarea>
+                {errors.text && <small className="error-text">{errors.text}</small>}
+              </div>
 
- <div className='card-container-31'>
-<div class="card text-bg-dark mb-3" style={{maxWidth: '18rem'}}>
-	<div className='footer-card-title'>
-  <div class="card-header">Phone</div></div>
-  <div class="card-body">
-    <h5 class="card-title">94628 93374<br />93578 93375</h5>
-  </div>
-</div>
+              <div className="submit-group">
+                <input type="submit" value="Send Message" />
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
 
-<div class="card text-bg-dark mb-3" style={{maxWidth: '18rem'}}>
-	<div className='footer-card-title'>
-  <div class="card-header">Mail</div></div>
-  <div class="card-body">
-    <h5 class="card-title">info@havel.com</h5>
-  </div>
-</div>
-</div>
-
-<div className='card-container-32'>
-<div class="card text-bg-dark mb-3" style={{maxWidth: '18rem'}}>
-	<div className='footer-card-title'>
-  <div class="card-header">Address</div></div>
-  <div class="card-body">
-    <h5 class="card-title">407, Sample Street, <br />Lake View, <br />Blue Star,Anna Nagar, <br />Chennai - 600 014</h5>
-  </div>
-</div>
-</div>
-
-
-
-
-
-<div class="modal fade"  id="exampleModal" tabIndex="-1"  aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" >
-    <div className='modal-content'>
-      <div class="modal-header popconsbg" style={{border:'none'}}> 
-        <p class="modal-title fs-5 logpopup" id="exampleModalLabel">Message sent</p>
-      </div>
-      <div class="modal-footer bubolo" style={{border:'none',backgroundColor:'crimson'}}>
-        <button type="button" class=" bubolo logpopup " data-bs-dismiss="modal">OK</button>
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="popup-overlayps">
+          <div className="popupps">
+            <h2>🎉 Sent Successfully! 🎉</h2>
+            <p>Your message has been successfully sent. We will get back to you shortly!</p>
+            <button className="close-btnps" onClick={closePopup}>
+              Close
+            </button>
+          </div>
         </div>
- 
-</div>
-</div>
-</div>
-
-
-<button type="button" className="bbc btn btn-dark"><Link to="/" className='concbbc'>Back to Home Page</Link></button>
-
-
+      )}
     </div>
-  )
+    </>
+  );
 }
 
-export default Contact
+export default Contact;
