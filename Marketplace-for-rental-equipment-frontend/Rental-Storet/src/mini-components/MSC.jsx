@@ -27,7 +27,7 @@ function MSC() {
     const fetchData = async () => {
       setLoading(true); // Start loading
       try {
-        const response = await axios.get('https://mocki.io/v1/cf868df3-0211-49ad-924c-85f15a2498ec');
+        const response = await axios.get('https://mocki.io/v1/0861b44f-7472-4bf5-8917-d4a59d410579');
         
         // Filter duplicates by unique 'id' property
         const uniqueData = response.data.filter((item, index, self) =>
